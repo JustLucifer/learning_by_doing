@@ -25,34 +25,67 @@ sg.theme('Reddit')
 # event, values = window.read()
 # print(event, values)
 
-# -----------First App -------------
+# ----------- CheckBox & DropDown -------------
 
-languages = ['English', 'German', 'French']
+# languages = ['English', 'German', 'French']
 
-col_1 = [
-    [sg.T('What is your name:')],
-    [sg.I(key='-NAME-', size=(16, 10))],
-    [sg.Ok(), sg.Cancel()],
+# col_1 = [
+#     [sg.T('What is your name:')],
+#     [sg.I(key='-NAME-', size=(16, 10))],
+#     [sg.Ok(), sg.Cancel()],
+# ]
+
+# col_2 = [
+#     [sg.CB('python', key='-python-')],
+#     [sg.CB('C#', key='-C#-')],
+#     [sg.CB('php', key='-php-')],
+#     [sg.DD(languages, key='-LANGUAGE-', default_value=languages[0])],
+# ]
+
+# layout = [
+#     [sg.Col(col_1), sg.VerticalSeparator(), sg.Col(col_2)],
+# ]
+
+# window = sg.Window('My App', layout)
+
+# while True:
+#     event, values = window.read()
+#     if event == 'Cancel':
+#         window.close()
+#         break
+#     elif event == 'Ok':
+#         sg.popup('Your name is', values['-NAME-'])
+#     print(event, values)
+
+
+# ----------- Frame Listbox Menu Multiline -----------------
+
+cities = ['Paris', 'Berlin', 'London', 'Kiev', 'Helsinki', 'New-York']
+menu = [
+    ['File', ['New file', 'Open', 'Save', 'Exit']],
+    ['Edit', ['Copy', 'Past']],
+    ['Help', ['Tutorials', 'About']],
 ]
 
-col_2 = [
-    [sg.CB('python', key='-python-')],
-    [sg.CB('C#', key='-C#-')],
-    [sg.CB('php', key='-php-')],
-    [sg.DD(languages, key='-LANGUAGE-', default_value=languages[0])],
+frame = [
+    [sg.T('Name:'), sg.I(key='-NAME-')],
+    [sg.HorizontalSeparator()],
+    [sg.CB('Python', key='-python-'), sg.CB('C#', key='-C#-')],
+    [sg.LB(cities, size=(8,4), key='city')], # result as list
 ]
 
 layout = [
-    [sg.Col(col_1), sg.VerticalSeparator(), sg.Col(col_2)],
+    [sg.Menu(menu, key='-MENU-')],
+    [sg.Multiline(key='-MULTI-', size=(53, 5))],
+    [sg.Frame('My Frame', frame)],
+    [sg.Ok(), sg.Cancel()],
 ]
 
-window = sg.Window('My App', layout)
+window = sg.Window('My App', layout,)
 
 while True:
     event, values = window.read()
-    if event == 'Cancel':
+    if event == sg.WIN_CLOSED or event in ['Cancel', 'Exit']:
         window.close()
         break
-    elif event == 'Ok':
-        sg.popup('Your name is', values['-NAME-'])
     print(event, values)
