@@ -93,20 +93,48 @@ sg.theme('Reddit')
 #     print(event, values)
 
 
-# ----------- Progress Bar Taps -----------------
+# ----------- Progress Bar -----------------
 
-layout = [
-    [sg.ProgressBar(1000, orientation='h', size=(50, 25), key='-PRSBAR-')],
-    [sg.Cancel()]
+# layout = [
+#     [sg.ProgressBar(1000, orientation='h', size=(50, 25), key='-PRSBAR-')],
+#     [sg.Cancel()]
+# ]
+
+# window = sg.Window('My App', layout,)
+
+# for i in range(1000):
+#     event, values = window.read(timeout=1)
+#     if event == sg.WIN_CLOSED or event == 'Cancel':
+#         window.close()
+#         break
+#     window['-PRSBAR-'].update(i+1)
+# print(event, values)
+# window.close()
+
+
+# ------------- Tabs -----------------
+
+tab_1 = [
+    [sg.T('Full Name'), sg.I(size=(30,4),)],
+    [sg.Ok('Sumbit'), sg.Cancel()],
 ]
 
-window = sg.Window('My App', layout,)
+tab_2 = [
+    [sg.CB('Python', size=(10,4)), sg.CB('C#',)],
+    [sg.CB('JavaScript', size=(10,4)), sg.CB('Java',)],
+]
 
-for i in range(1000):
-    event, values = window.read(timeout=1)
+layout = [
+    [sg.TabGroup([
+        [sg.Tab('Tab 1', tab_1), sg.Tab('Tab 2', tab_2)]
+    ])]
+]
+
+window = sg.Window('My App', layout)
+
+while True:
+    event, values = window.read()
     if event == sg.WIN_CLOSED or event == 'Cancel':
         window.close()
         break
-    window['-PRSBAR-'].update(i+1)
-print(event, values)
-window.close()
+    print(event, values)
