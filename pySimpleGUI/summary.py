@@ -11,6 +11,7 @@ sg.theme('Reddit')
 #                         font='Courier 18')
 # print(res)
 
+
 # -------- Buttons ----------
 # menu_button = ['Menu', ['File', 'Edit', 'View', 'Settings', ['audio', 'graphics']]]
 
@@ -24,6 +25,7 @@ sg.theme('Reddit')
 # window = sg.Window('Buttons', layout)
 # event, values = window.read()
 # print(event, values)
+
 
 # ----------- CheckBox & DropDown -------------
 
@@ -60,32 +62,51 @@ sg.theme('Reddit')
 
 # ----------- Frame Listbox Menu Multiline -----------------
 
-cities = ['Paris', 'Berlin', 'London', 'Kiev', 'Helsinki', 'New-York']
-menu = [
-    ['File', ['New file', 'Open', 'Save', 'Exit']],
-    ['Edit', ['Copy', 'Past']],
-    ['Help', ['Tutorials', 'About']],
-]
+# cities = ['Paris', 'Berlin', 'London', 'Kiev', 'Helsinki', 'New-York']
+# menu = [
+#     ['File', ['New file', 'Open', 'Save', 'Exit']],
+#     ['Edit', ['Copy', 'Past']],
+#     ['Help', ['Tutorials', 'About']],
+# ]
 
-frame = [
-    [sg.T('Name:'), sg.I(key='-NAME-')],
-    [sg.HorizontalSeparator()],
-    [sg.CB('Python', key='-python-'), sg.CB('C#', key='-C#-')],
-    [sg.LB(cities, size=(8,4), key='city')], # result as list
-]
+# frame = [
+#     [sg.T('Name:'), sg.I(key='-NAME-')],
+#     [sg.HorizontalSeparator()],
+#     [sg.CB('Python', key='-python-'), sg.CB('C#', key='-C#-')],
+#     [sg.LB(cities, size=(8,4), key='city')], # result as list
+# ]
+
+# layout = [
+#     [sg.Menu(menu, key='-MENU-')],
+#     [sg.Multiline(key='-MULTI-', size=(53, 5))],
+#     [sg.Frame('My Frame', frame)],
+#     [sg.Ok(), sg.Cancel()],
+# ]
+
+# window = sg.Window('My App', layout,)
+
+# while True:
+#     event, values = window.read()
+#     if event == sg.WIN_CLOSED or event in ['Cancel', 'Exit']:
+#         window.close()
+#         break
+#     print(event, values)
+
+
+# ----------- Progress Bar Taps -----------------
 
 layout = [
-    [sg.Menu(menu, key='-MENU-')],
-    [sg.Multiline(key='-MULTI-', size=(53, 5))],
-    [sg.Frame('My Frame', frame)],
-    [sg.Ok(), sg.Cancel()],
+    [sg.ProgressBar(1000, orientation='h', size=(50, 25), key='-PRSBAR-')],
+    [sg.Cancel()]
 ]
 
 window = sg.Window('My App', layout,)
 
-while True:
-    event, values = window.read()
-    if event == sg.WIN_CLOSED or event in ['Cancel', 'Exit']:
+for i in range(1000):
+    event, values = window.read(timeout=1)
+    if event == sg.WIN_CLOSED or event == 'Cancel':
         window.close()
         break
-    print(event, values)
+    window['-PRSBAR-'].update(i+1)
+print(event, values)
+window.close()
