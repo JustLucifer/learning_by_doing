@@ -112,10 +112,15 @@ sg.theme('Reddit')
 # window.close()
 
 
-# ------------- Tabs -----------------
+# --------- Tabs RadioButtons Slider Spin StatusBar -------------
 
 tab_1 = [
     [sg.T('Full Name'), sg.I(size=(30,4),)],
+    [sg.Radio('Male', group_id='gender')],
+    [sg.Radio('Female', group_id='gender')],
+    [sg.T('Age:')],
+    [sg.Slider(range=(1,100), orientation='h', default_value=20, key='-AGE-')],
+    [sg.Spin(values=list(range(1,11)), size=(5, 4), initial_value=3)],
     [sg.Ok('Sumbit'), sg.Cancel()],
 ]
 
@@ -125,6 +130,7 @@ tab_2 = [
 ]
 
 layout = [
+    [sg.StatusBar('Welcome to my app')],
     [sg.TabGroup([
         [sg.Tab('Tab 1', tab_1), sg.Tab('Tab 2', tab_2)]
     ])]
