@@ -114,26 +114,52 @@ sg.theme('Reddit')
 
 # --------- Tabs RadioButtons Slider Spin StatusBar -------------
 
-tab_1 = [
-    [sg.T('Full Name'), sg.I(size=(30,4),)],
-    [sg.Radio('Male', group_id='gender')],
-    [sg.Radio('Female', group_id='gender')],
-    [sg.T('Age:')],
-    [sg.Slider(range=(1,100), orientation='h', default_value=20, key='-AGE-')],
-    [sg.Spin(values=list(range(1,11)), size=(5, 4), initial_value=3)],
-    [sg.Ok('Sumbit'), sg.Cancel()],
-]
+# tab_1 = [
+#     [sg.T('Full Name'), sg.I(size=(30,4),)],
+#     [sg.Radio('Male', group_id='gender')],
+#     [sg.Radio('Female', group_id='gender')],
+#     [sg.T('Age:')],
+#     [sg.Slider(range=(1,100), orientation='h', default_value=20, key='-AGE-')],
+#     [sg.Spin(values=list(range(1,11)), size=(5, 4), initial_value=3)],
+#     [sg.Ok('Sumbit'), sg.Cancel()],
+# ]
 
-tab_2 = [
-    [sg.CB('Python', size=(10,4)), sg.CB('C#',)],
-    [sg.CB('JavaScript', size=(10,4)), sg.CB('Java',)],
-]
+# tab_2 = [
+#     [sg.CB('Python', size=(10,4)), sg.CB('C#',)],
+#     [sg.CB('JavaScript', size=(10,4)), sg.CB('Java',)],
+# ]
 
+# layout = [
+#     [sg.StatusBar('Welcome to my app')],
+#     [sg.TabGroup([
+#         [sg.Tab('Tab 1', tab_1), sg.Tab('Tab 2', tab_2)]
+#     ])]
+# ]
+
+# window = sg.Window('My App', layout)
+
+# while True:
+#     event, values = window.read()
+#     if event == sg.WIN_CLOSED or event == 'Cancel':
+#         window.close()
+#         break
+#     print(event, values)
+
+
+# --------- File-FolderBrowse Calendar -------------
+# sg.Table for creating Table
 layout = [
-    [sg.StatusBar('Welcome to my app')],
-    [sg.TabGroup([
-        [sg.Tab('Tab 1', tab_1), sg.Tab('Tab 2', tab_2)]
-    ])]
+    [sg.I(key='-PATH-')],
+    [sg.T('File Browse', size=(33,1)), 
+     sg.FileBrowse(target='-PATH-', 
+                   file_types=(
+                       ('text files', '*.txt'), 
+                       ('png files', '*.png')
+                       ))], # for saving - FileSaveAs
+    [sg.T('Folder Browse', size=(33,1)), sg.FolderBrowse(target='-PATH-')],
+    [sg.I(key='-DATE-')],
+    [sg.CalendarButton('Choose date', target='-DATE-')],
+    [sg.Ok(), sg.Cancel()],
 ]
 
 window = sg.Window('My App', layout)
