@@ -157,8 +157,7 @@ layout = [
                        ('png files', '*.png')
                        ))], # for saving - FileSaveAs
     [sg.T('Folder Browse', size=(33,1)), sg.FolderBrowse(target='-PATH-')],
-    [sg.I(key='-DATE-')],
-    [sg.CalendarButton('Choose date', target='-DATE-')],
+    [sg.T(size=(29,1)), sg.CalendarButton('Choose date')],
     [sg.Ok(), sg.Cancel()],
 ]
 
@@ -166,7 +165,9 @@ window = sg.Window('My App', layout)
 
 while True:
     event, values = window.read()
-    if event == sg.WIN_CLOSED or event == 'Cancel':
+    if event in ('Cancel', sg.WIN_CLOSED):
         window.close()
         break
+    # elif event == 'Ok':
+    #     window['-OUTPUT-'].update(values['-DATE-'])
     print(event, values)
