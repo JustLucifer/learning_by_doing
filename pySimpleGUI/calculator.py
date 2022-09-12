@@ -32,24 +32,40 @@ nums = [str(i) for i in range(10)]
 operators = ('*', '-', '+', '/')
 history = ''
 
-while True:
-    event, values = window.read()
-    if event == sg.WIN_CLOSED:
-        window.close()
-        break
-    elif event in nums:
-        history += event
-        window['-INPUT-'].update(history)
-    elif event in operators:
-        history += event
-        window['-INPUT-'].update(history)
-        oper = event
-        x = history[:-1]
-        index = history.index(oper)
-    elif event == '-EQUAL-':
-        y = history[index + 1]
-        res = calc(int(x), oper, int(y))
+
+def check_operator():
+    global history
+    history += event
+    window['-INPUT-'].update(history)
+    oper = event
+    x = history[:-1]
+    index = history.index(oper)
+    return x, oper, index
+
+
+def equal(x, oper, index):
+    global history
+    try:
+        y = history[index + 1:]
+    except NameError:
+        pass
+    else:
+        res = calc(float(x), oper, float(y))
         window['-INPUT-'].update(res)
         history = str(res)
+
+
+while True:
+    event, values = window.read()
+    match event:
+        case sg.WIN_CLOSED:
+            window.close()
+            break
+        case event if event in nums:
+            history += event
+            window['-INPUT-'].update(history)
+        case event if event in operators:
+            x, oper, index = check_operator()
+        case '-EQUAL-':
+            equal(x, oper, index)
     print(event, values)
-    
