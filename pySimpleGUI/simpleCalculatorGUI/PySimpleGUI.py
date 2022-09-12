@@ -21913,7 +21913,7 @@ class UserSettings:
             self.config = configparser.ConfigParser()
             self.config.optionxform = str
             # self.config_dict = {}
-            self.section_class_dict = {}        # type: dict[_SectionDict]
+            self.section_class_dict = {}
         if filename is not None or path is not None:
             self.load(filename=filename, path=path)
 

@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import pySimpleGUI.simpleCalculatorGUI.PySimpleGUI as sg
 
 sg.theme('Reddit')
 

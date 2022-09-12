@@ -67,6 +67,26 @@ def equal(x, oper, index):
         history = str(res)
 
 
+def clear_last_el():
+    # need to delete last entered symbol
+    ...
+
+
+def clear_everything():
+    # fix this
+    ...
+
+
+def put_parentheses():
+    # fix this
+    ...
+
+
+def put_dot():
+    # fix this
+    ...
+
+
 while True:
     event, values = window.read()
     match event:
@@ -79,4 +99,12 @@ while True:
             x, oper, index = check_operator()
         case '-EQUAL-':
             equal(x, oper, index)
+        case '-CLEAR-':
+            clear_last_el()
+        case '-CLEAR-EVR-':
+            clear_everything()
+        case '-PAREN-':
+            put_parentheses()
+        case '-DOT-':
+            put_dot()
     print(event, values)
