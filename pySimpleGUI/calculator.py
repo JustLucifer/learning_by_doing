@@ -33,6 +33,18 @@ operators = ('*', '-', '+', '/')
 history = ''
 
 
+def check_number():
+    global history
+    history += event
+    try:
+        if history[0] == '0' and history[1] == '0':
+            history = history[:-1]
+    except IndexError:
+        pass
+    finally:
+        window['-INPUT-'].update(history)
+
+
 def check_operator():
     global history
     history += event
@@ -62,8 +74,7 @@ while True:
             window.close()
             break
         case event if event in nums:
-            history += event
-            window['-INPUT-'].update(history)
+            check_number()
         case event if event in operators:
             x, oper, index = check_operator()
         case '-EQUAL-':
