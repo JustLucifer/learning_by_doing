@@ -34,7 +34,8 @@ class SimpleCalculator:
 
     def handle_TwoOpersTogetherError(self):
         sg.popup_ok(self.TwoOpersTogetherError(), font='Arial 15 bold',
-                    no_titlebar=True, grab_anywhere=True, line_width=10)
+                    no_titlebar=True, grab_anywhere=True, line_width=10,
+                    text_color='#ffb380')
         self.after_error = True
         self.oper = self.history[-2]
         self.x = self.history[:-2]
