@@ -11,7 +11,7 @@ def multi(x, y):
 
 
 def div(x, y):
-    return x / y
+    return round(x / y, 6)
 
 
 def calc(x, oper, y):
