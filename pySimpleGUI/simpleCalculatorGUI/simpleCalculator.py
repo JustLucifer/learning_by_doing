@@ -7,6 +7,12 @@ class SimpleCalculator:
     NUMS = [str(i) for i in range(10)]
     OPERATORS = ('*', '-', '+', '/')
     
+    
+    class TwoOpersTogetherError(Exception):
+        def __str__(self) -> str:
+            return 'Malformed expression'
+    
+    
     def __init__(self) -> None:
         self.history = ''
 
@@ -20,20 +26,29 @@ class SimpleCalculator:
 
     def check_operator(self, event):
         self.history += event
-        oper = event
-        x = self.history[:-1]
-        index = self.history.index(oper)
-        return x, oper, index
+        self.oper = event
+        self.x = self.history[:-1]
+        self.index = self.history.index(self.oper)
+        return self.x, self.oper, self.index
 
-    def equal(self, x, oper, index):
+    def equal(self):
         try:
-            y = self.history[index + 1:]
-        except NameError:
-            pass
+            if self.history[-1] in self.OPERATORS \
+            and self.history[-2] in self.OPERATORS:
+                raise self.TwoOpersTogetherError
+            y = self.history[self.index + 1:]
+        except self.TwoOpersTogetherError:
+            sg.popup_ok(self.TwoOpersTogetherError(), font='Arial 15 bold',
+                        no_titlebar=True, grab_anywhere=True, line_width=10)
+        except (TypeError, AttributeError):
+            # doubled up 'x' if (y or oper, index == '')
+            self.history = str(float(self.history) * 2)
         else:
             # calculates the result of expression
-            res = calc(float(x), oper, float(y))
+            res = calc(float(self.x), self.oper, float(y))
             self.history = str(res)
+        finally:
+            self.x, self.oper, self.index = None, None, None
 
     def clear_input_field(self, param):
         if param == '-CLEAR-':
@@ -51,15 +66,15 @@ class SimpleCalculator:
                 case event if event in self.NUMS:
                     self.check_number(event)
                 case event if event in self.OPERATORS:
-                    x, oper, index = self.check_operator(event)
+                    self.check_operator(event)
                 case '-EQUAL-':
-                    self.equal(x, oper, index)
+                    self.equal()
                 case '-CLEAR-':
                     self.clear_input_field(event)
                 case '-CLEAR_EVR-':
                     self.clear_input_field(event)
                 case '-SQRT-':
-                    self.history = str(sqrt(float(self.history[:-1])))
+                    self.history = str(sqrt(float(self.history)))
                 case '-DOT-':
                     self.history += '.'
                     
