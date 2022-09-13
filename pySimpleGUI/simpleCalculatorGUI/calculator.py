@@ -1,11 +1,12 @@
 import PySimpleGUI as sg
+from math import sqrt
 from calculations import calc
 
 col = [
     [sg.B('7', size=(3,2), font='bold'), sg.B('8', size=(3,2), font='bold'), sg.B('9', size=(3,2), font='bold')],
     [sg.B('4', size=(3,2), font='bold'), sg.B('5', size=(3,2), font='bold'), sg.B('6', size=(3,2), font='bold')],
     [sg.B('1', size=(3,2), font='bold'), sg.B('2', size=(3,2), font='bold'), sg.B('3', size=(3,2), font='bold')],
-    [sg.B('()', size=(3,2), font='bold', key='-PAREN-'), sg.B('0', size=(3,2), font='bold'), sg.B('.', size=(3,2), font='bold', key='-DOT-')],
+    [sg.B(u'\u221A', size=(3,2), font='bold', key='-SQRT-'), sg.B('0', size=(3,2), font='bold'), sg.B('.', size=(3,2), font='bold', key='-DOT-')],
 ]
 
 col_1 = [
@@ -41,14 +42,11 @@ def check_number():
             history = history[:-1]
     except IndexError:
         pass
-    finally:
-        window['-INPUT-'].update(history)
 
 
 def check_operator():
     global history
     history += event
-    window['-INPUT-'].update(history)
     oper = event
     x = history[:-1]
     index = history.index(oper)
@@ -63,28 +61,20 @@ def equal(x, oper, index):
         pass
     else:
         res = calc(float(x), oper, float(y))
-        window['-INPUT-'].update(res)
         history = str(res)
 
 
-def clear_last_el():
-    # need to delete last entered symbol
-    ...
-
-
-def clear_everything():
-    # fix this
-    ...
-
-
-def put_parentheses():
-    # fix this
-    ...
+def clear_input_field(param):
+    global history
+    if param == '-CLEAR-':
+        history = history[:-1]
+    else:
+        history = ''
 
 
 def put_dot():
-    # fix this
-    ...
+    global history
+    history += '.'
 
 
 while True:
@@ -100,11 +90,13 @@ while True:
         case '-EQUAL-':
             equal(x, oper, index)
         case '-CLEAR-':
-            clear_last_el()
-        case '-CLEAR-EVR-':
-            clear_everything()
-        case '-PAREN-':
-            put_parentheses()
+            clear_input_field(event)
+        case '-CLEAR_EVR-':
+            clear_input_field(event)
+        case '-SQRT-':
+            history = str(sqrt(float(history[:-1])))
         case '-DOT-':
             put_dot()
+            
+    window['-INPUT-'].update(history)
     print(event, values)
