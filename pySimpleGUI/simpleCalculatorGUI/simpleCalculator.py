@@ -15,6 +15,7 @@ class SimpleCalculator:
     
     def __init__(self) -> None:
         self.history = ''
+        self.after_error = False
 
     def check_number(self, event):
         self.history += event
@@ -31,23 +32,40 @@ class SimpleCalculator:
         self.index = self.history.index(self.oper)
         return self.x, self.oper, self.index
 
+    def handle_TwoOpersTogetherError(self):
+        sg.popup_ok(self.TwoOpersTogetherError(), font='Arial 15 bold',
+                    no_titlebar=True, grab_anywhere=True, line_width=10)
+        self.after_error = True
+        self.oper = self.history[-2]
+        self.x = self.history[:-2]
+
+    def find_y(self):
+        # checks if input contain to operators in a row
+        if self.history[-1] in self.OPERATORS \
+        and self.history[-2] in self.OPERATORS:
+            raise self.TwoOpersTogetherError
+        
+        """checks in this way whether y == one of operators
+        because of TwoOpersTogetherError """
+        if self.after_error is True:
+            return self.history[self.index:]
+        return self.history[self.index + 1:]
+
     def equal(self):
+        if self.history == '':
+            return
         try:
-            if self.history[-1] in self.OPERATORS \
-            and self.history[-2] in self.OPERATORS:
-                raise self.TwoOpersTogetherError
-            y = self.history[self.index + 1:]
+            assert self.x is not None
+            y = self.find_y()
         except self.TwoOpersTogetherError:
-            sg.popup_ok(self.TwoOpersTogetherError(), font='Arial 15 bold',
-                        no_titlebar=True, grab_anywhere=True, line_width=10)
-        except (TypeError, AttributeError):
+            self.handle_TwoOpersTogetherError()
+        except (TypeError, AttributeError, AssertionError):
             # doubled up 'x' if (y or oper, index == '')
             self.history = str(float(self.history) * 2)
         else:
             # calculates the result of expression
             res = calc(float(self.x), self.oper, float(y))
             self.history = str(res)
-        finally:
             self.x, self.oper, self.index = None, None, None
 
     def clear_input_field(self, param):
