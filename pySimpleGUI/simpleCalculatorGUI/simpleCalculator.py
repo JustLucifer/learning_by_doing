@@ -1,5 +1,6 @@
 from GUI_calculator_model import sg, window
 from math import sqrt
+import re
 from calculations import calc
 
 
@@ -42,8 +43,7 @@ class SimpleCalculator:
 
     def find_y(self):
         # checks if input contain two operators in a row
-        if self.history[-1] in self.OPERATORS \
-        and self.history[-2] in self.OPERATORS:
+        if re.search(r".*[+/*-]{2,}.*", self.history):
             raise self.TwoOpersTogetherError
         
         """checks in this way whether y == one of operators
@@ -79,10 +79,10 @@ class SimpleCalculator:
         if self.history != '':
             val = self.history.strip('+-*/')
             if self.history[0] == '-':
-                minus = '-'
+                minus = 'i'
             else:
                 minus = ''
-            self.history = minus + str(sqrt(float(val)))
+            self.history = str(round(sqrt(float(val)), 6)) + minus
             self.x, self.oper, self.index = None, None, None
     
     def run(self):
