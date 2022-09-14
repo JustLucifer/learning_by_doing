@@ -41,7 +41,7 @@ class SimpleCalculator:
         self.x = self.history[:-2]
 
     def find_y(self):
-        # checks if input contain to operators in a row
+        # checks if input contain two operators in a row
         if self.history[-1] in self.OPERATORS \
         and self.history[-2] in self.OPERATORS:
             raise self.TwoOpersTogetherError
@@ -75,6 +75,16 @@ class SimpleCalculator:
         else:
             self.history = ''
     
+    def calc_square_root(self):
+        if self.history != '':
+            val = self.history.strip('+-*/')
+            if self.history[0] == '-':
+                minus = '-'
+            else:
+                minus = ''
+            self.history = minus + str(sqrt(float(val)))
+            self.x, self.oper, self.index = None, None, None
+    
     def run(self):
         while True:
             event, values = window.read()
@@ -93,7 +103,7 @@ class SimpleCalculator:
                 case '-CLEAR_EVR-':
                     self.clear_input_field(event)
                 case '-SQRT-':
-                    self.history = str(sqrt(float(self.history)))
+                    self.calc_square_root()
                 case '-DOT-':
                     self.history += '.'
                     
