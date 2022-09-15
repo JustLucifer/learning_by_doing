@@ -31,4 +31,4 @@ layout = [
      sg.Col(col_1, pad=0), sg.Col(col_2, pad=0)],
 ]
 
-window = sg.Window('Calculator', layout)
+window = sg.Window('Simple Calculator', layout)

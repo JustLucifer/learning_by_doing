@@ -14,7 +14,7 @@ def div(x, y):
     return round(x / y, 6)
 
 
-def calc(x, oper, y):
+def calc(x:float | int, oper:str, y:float | int):
     if oper == '+':
         return add(x, y)
     elif oper == '-':
