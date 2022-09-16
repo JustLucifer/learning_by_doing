@@ -1,6 +1,6 @@
 class MalformedExpressionError(Exception):
     def __str__(self) -> str:
-        return 'Malformed expression'
+        return ' Malformed expression'
 
 
 class CantDoTwoOperationsError(Exception):

@@ -27,17 +27,15 @@ class SimpleCalculator:
         else:
             if re.match('^[*/+-]$', self.history):
                 pass
-            elif re.match('^[*/]?\d+$', self.history) \
-                or re.match('^(\d*[.])?\d+[*/+-]$', self.history):
+            elif re.match('[*/+-]?[.]', self.history):
                 window['-ERROR_OUT-'].update(MalformedExpressionError())
-            elif re.match('^[+-]?\d*[*/+-]{2,}', self.history) \
-                or re.match('^[+-]?(\d*[.])?\d+[*/+-]{2,}', self.history):
+            elif re.match('^[*/](\d*[.])?\d+[*/+-]?$', self.history):
                 window['-ERROR_OUT-'].update(MalformedExpressionError())
-            elif re.match('^[+-]?\d+[*/+-]\d+[*/+-]\d+', self.history) \
-                or re.match('^[+-]?(\d*[.])?\d+[*/+-](\d*[.])?\d+[*/+-](\d*[.])?\d+', self.history):
+            elif re.match('^[+-]?(\d*[.])?\d*[*/+-]{2,}', self.history):
+                window['-ERROR_OUT-'].update(MalformedExpressionError())
+            elif re.match('^[+-]?(\d*[.])?\d+[*/+-](\d*[.])?\d+[*/+-]((\d*[.])?\d+)?', self.history):
                 window['-ERROR_OUT-'].update(CantDoTwoOperationsError())
-            elif re.match('^[+-]?\d+$', self.history) \
-                or re.match('^[+-]?(\d*[.])?\d+$', self.history):
+            elif re.match('^[+-]?(\d*[.])?\d+$', self.history):
                 self.history = str(float(self.history) * 2)
             else:
                 self.calc_res_of_expression()
