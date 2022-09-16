@@ -1,6 +1,7 @@
-import pySimpleGUI.simpleCalculatorGUI.PySimpleGUI as sg
+import PySimpleGUI as sg
+import sys
 
-sg.theme('Reddit')
+sg.theme('Gray Gray Gray')
 
 # -------- Popups ----------
 # res = sg.popup_get_text('Please, enter a text:',
@@ -147,7 +148,9 @@ sg.theme('Reddit')
 
 
 # --------- File-FolderBrowse Calendar -------------
+
 # sg.Table for creating Table
+
 layout = [
     [sg.I(key='-PATH-')],
     [sg.T('File Browse', size=(33,1)), 
@@ -161,13 +164,20 @@ layout = [
     [sg.Ok(), sg.Cancel()],
 ]
 
-window = sg.Window('My App', layout)
+window = sg.Window('My App', layout,
+                   enable_close_attempted_event=True)
 
 while True:
     event, values = window.read()
-    if event in ('Cancel', sg.WIN_CLOSED):
-        window.close()
-        break
+    # if event in ('Cancel', sg.WIN_CLOSED):
+    #     window.close()
+    #     break
+    
+    # attempt to close the window
+    if event == '-WINDOW CLOSE ATTEMPTED-' and \
+    sg.popup_yes_no('Do you want to close app?', title='Confirm') == 'Yes':
+            window.close()
+            sys.exit()
     # elif event == 'Ok':
     #     window['-OUTPUT-'].update(values['-DATE-'])
     print(event, values)
