@@ -1,4 +1,5 @@
 from GUI_calculator_model import sg, window
+from errorClasses import CantDoTwoOperationsError, MalformedExpressionError
 from math import sqrt
 import sys
 import re
@@ -9,19 +10,8 @@ class SimpleCalculator:
     NUMS = [str(i) for i in range(10)]
     OPERATORS = ('*', '-', '+', '/')
 
-
-    class MalformedExpressionError(Exception):
-        def __str__(self) -> str:
-            return 'Malformed expression'
-
-
     def __init__(self) -> None:
         self.history = ''
-
-    def handle_MalformedExpressionError(self):
-        sg.popup_ok(self.MalformedExpressionError(), font='Arial 15 bold',
-                    no_titlebar=True, grab_anywhere=True, line_width=10,
-                    text_color='#ffb380')
     
     def calc_res_of_expression(self):
         for n, i in enumerate(self.history):
@@ -35,12 +25,17 @@ class SimpleCalculator:
         if self.history == '':
             return
         else:
-            if re.match('^[*/]?\d+$', self.history) \
+            if re.match('^[*/+-]$', self.history):
+                pass
+            elif re.match('^[*/]?\d+$', self.history) \
                 or re.match('^(\d*[.])?\d+[*/+-]$', self.history):
-                self.handle_MalformedExpressionError()
+                window['-ERROR_OUT-'].update(MalformedExpressionError())
             elif re.match('^[+-]?\d*[*/+-]{2,}', self.history) \
                 or re.match('^[+-]?(\d*[.])?\d+[*/+-]{2,}', self.history):
-                self.handle_MalformedExpressionError()
+                window['-ERROR_OUT-'].update(MalformedExpressionError())
+            elif re.match('^[+-]?\d+[*/+-]\d+[*/+-]\d+', self.history) \
+                or re.match('^[+-]?(\d*[.])?\d+[*/+-](\d*[.])?\d+[*/+-](\d*[.])?\d+', self.history):
+                window['-ERROR_OUT-'].update(CantDoTwoOperationsError())
             elif re.match('^[+-]?\d+$', self.history) \
                 or re.match('^[+-]?(\d*[.])?\d+$', self.history):
                 self.history = str(float(self.history) * 2)
@@ -62,13 +57,15 @@ class SimpleCalculator:
         self.history = str(round(sqrt(float(val)), 6)) + minus
     
     def change_history(self, event):
+        if event == sg.WIN_CLOSED:
+                window.close()
+                sys.exit()
+        window['-ERROR_OUT-'].update('')
+        
         if event in self.NUMS or event in self.OPERATORS:
             self.history += event
         else:
             match event:
-                case sg.WIN_CLOSED:
-                    window.close()
-                    sys.exit()
                 case '-EQUAL-':
                     self.equal()
                 case '-CLEAR-':

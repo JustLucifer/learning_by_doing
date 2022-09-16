@@ -26,7 +26,8 @@ col_2 = [
 
 layout = [
     [sg.I(font=(None, 28), size=(14,1), key='-INPUT-',
-          background_color='#ffb380', text_color='#000000')],
+          background_color='#ffb380', text_color='#000000',)],
+    [sg.T(key='-ERROR_OUT-', size=(None,1), pad=0, text_color='#c02626')],
     [sg.Col(col, pad=0), sg.VerticalSeparator(color='#ffb380'),
      sg.Col(col_1, pad=0), sg.Col(col_2, pad=0)],
 ]
