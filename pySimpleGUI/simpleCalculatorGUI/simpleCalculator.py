@@ -22,18 +22,17 @@ class SimpleCalculator:
         self.history = str(calc(float(x), oper, float(y)))
 
     def equal(self):
-        if self.history == '':
+        if self.history == '' or \
+        re.match('[*/+-]$', self.history):
             return
         else:
-            if re.match('^[*/+-]$', self.history):
-                pass
-            elif re.match('[*/+-]?[.]', self.history):
+            if re.search('[*/+-]{2,}', self.history) \
+            or re.match('[*/+-]?[.]', self.history) \
+            or re.match('((\d*[.])?\d+)?[*/+-][.]', self.history) \
+            or re.match('[*/]?(\d*[.])?\d+[*/+-]$', self.history) \
+            or re.match('[*/](\d*[.])?\d+[*/+-]?((\d*[.])?\d+[*/+-]?)*$', self.history):
                 window['-ERROR_OUT-'].update(MalformedExpressionError())
-            elif re.match('^[*/](\d*[.])?\d+[*/+-]?$', self.history):
-                window['-ERROR_OUT-'].update(MalformedExpressionError())
-            elif re.match('^[+-]?(\d*[.])?\d*[*/+-]{2,}', self.history):
-                window['-ERROR_OUT-'].update(MalformedExpressionError())
-            elif re.match('^[+-]?(\d*[.])?\d+[*/+-](\d*[.])?\d+[*/+-]((\d*[.])?\d+)?', self.history):
+            elif re.match('[+-]?(\d*[.])?\d+[*/+-](\d*[.])?\d+[*/+-]((\d*[.])?\d+)?', self.history):
                 window['-ERROR_OUT-'].update(CantDoTwoOperationsError())
             elif re.match('^[+-]?(\d*[.])?\d+$', self.history):
                 self.history = str(float(self.history) * 2)
