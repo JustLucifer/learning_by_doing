@@ -19,7 +19,10 @@ class SimpleCalculator:
                 oper = i
                 x = self.history[:n]
                 y = self.history[n + 1:]
-        self.history = str(calc(float(x), oper, float(y)))
+        if int(y) == 0 and oper == '/':
+            window['-ERROR_OUT-'].update("Can't divide by zero")
+        else:
+            self.history = str(calc(float(x), oper, float(y)))
 
     def equal(self):
         if self.history == '' or \
