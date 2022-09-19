@@ -20,7 +20,7 @@ class SimpleCalculator:
                 x = self.history[:n]
                 y = self.history[n + 1:]
         if int(y) == 0 and oper == '/':
-            window['-ERROR_OUT-'].update("Can't divide by zero")
+            window['-ERROR_OUT-']("Can't divide by zero")
         else:
             self.history = str(calc(float(x), oper, float(y)))
 
@@ -34,16 +34,16 @@ class SimpleCalculator:
             or re.match('((\d*[.])?\d+)?[*/+-][.]', self.history) \
             or re.match('[*/]?(\d*[.])?\d+[*/+-]$', self.history) \
             or re.match('[*/](\d*[.])?\d+[*/+-]?((\d*[.])?\d+[*/+-]?)*$', self.history):
-                window['-ERROR_OUT-'].update(MalformedExpressionError())
+                window['-ERROR_OUT-'](MalformedExpressionError())
             elif re.match('[+-]?(\d*[.])?\d+[*/+-](\d*[.])?\d+[*/+-]((\d*[.])?\d+)?', self.history):
-                window['-ERROR_OUT-'].update(CantDoTwoOperationsError())
+                window['-ERROR_OUT-'](CantDoTwoOperationsError())
             elif re.match('^[+-]?(\d*[.])?\d+$', self.history):
                 self.history = str(float(self.history) * 2)
             else:
                 self.calc_res_of_expression()
 
-    def clear_input_field(self, param):
-        if param == '-CLEAR-':
+    def clear_input_field(self, param='C'):
+        if param == 'C':
             self.history = self.history[:-1]
         else:
             self.history = ''
@@ -60,26 +60,26 @@ class SimpleCalculator:
         if event == sg.WIN_CLOSED:
                 window.close()
                 sys.exit()
-        window['-ERROR_OUT-'].update('')
+        window['-ERROR_OUT-']('')
         
         if event in self.NUMS or event in self.OPERATORS:
             self.history += event
         else:
             match event:
-                case '-EQUAL-':
+                case '=':
                     self.equal()
-                case '-CLEAR-':
-                    self.clear_input_field(event)
-                case '-CLEAR_EVR-':
+                case 'C':
+                    self.clear_input_field()
+                case 'CE':
                     self.clear_input_field(event)
                 case '-SQRT-':
                     self.calc_square_root()
-                case '-DOT-':
+                case '.':
                     self.history += '.'
 
     def run(self):
         while True:
             event, values = window.read()
             self.change_history(event=event)
-            window['-INPUT-'].update(self.history)
+            window['-INPUT-'](self.history)
             print(event, values)
