@@ -11,10 +11,13 @@ def multi(x, y):
 
 
 def div(x, y):
-    return round(x / y, 6)
+    try:
+        return round(x / y, 6)
+    except ZeroDivisionError:
+        pass
 
 
-def calc(x, oper, y):
+def calc(x:float | int, oper:str, y:float | int):
     if oper == '+':
         return add(x, y)
     elif oper == '-':

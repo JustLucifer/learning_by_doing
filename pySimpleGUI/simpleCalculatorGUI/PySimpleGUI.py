@@ -1193,7 +1193,7 @@ class ToolTip:
 class Element():
     """ The base class for all Elements. Holds the basic description of an Element like size and colors """
 
-    def __init__(self, type, size=(None, None), auto_size_text=None, font=None, background_color=None, text_color=None, key=None, pad=None, tooltip=None,
+    def __init__(self, type, size=(None, None), auto_size_text=None, font=None, f=None, background_color=None, text_color=None, key=None, pad=None, tooltip=None,
                  visible=True, metadata=None,
                  sbar_trough_color=None, sbar_background_color=None, sbar_arrow_color=None, sbar_width=None, sbar_arrow_width=None, sbar_frame_color=None, sbar_relief=None):
         """
@@ -1254,6 +1254,7 @@ class Element():
 
         self.Pad = pad
         self.Font = font
+        self.Font = f
 
         self.TKStringVar = None
         self.TKIntVar = None
@@ -2112,7 +2113,7 @@ class Input(Element):
     """
 
     def __init__(self, default_text='', size=(None, None), s=(None, None), disabled=False, password_char='',
-                 justification=None, background_color=None, text_color=None, font=None, tooltip=None, border_width=None,
+                 justification=None, background_color=None, text_color=None, font=None, f=None, tooltip=None, border_width=None,
                  change_submits=False, enable_events=False, do_not_clear=True, key=None, k=None, focus=False, pad=None, p=None,
                  use_readonly_for_disable=True, readonly=False, disabled_readonly_background_color=None, disabled_readonly_text_color=None, expand_x=False, expand_y=False,
                  right_click_menu=None, visible=True, metadata=None):
@@ -2135,6 +2136,8 @@ class Input(Element):
         :type text_color:                          (str)
         :param font:                               specifies the font family, size. Tuple or Single string format 'name size styles'. Styles: italic * roman bold normal underline overstrike
         :type font:                                (str or (str, int[, str]) or None)
+        :param f:                                  Same as font parameter. It's an alias.
+        :type f:                                   (str or (str, int[, str]) or None)
         :param tooltip:                            text, that will appear when mouse hovers over the element
         :type tooltip:                             (str)
         :param border_width:                       width of border around element in pixels
@@ -2195,11 +2198,12 @@ class Input(Element):
         key = key if key is not None else k
         sz = size if size != (None, None) else s
         pad = pad if pad is not None else p
+        f = font if font is not None else f
         self.expand_x = expand_x
         self.expand_y = expand_y
 
         super().__init__(ELEM_TYPE_INPUT_TEXT, size=sz, background_color=bg, text_color=fg, key=key, pad=pad,
-                         font=font, tooltip=tooltip, visible=visible, metadata=metadata)
+                         font=font, f=f, tooltip=tooltip, visible=visible, metadata=metadata)
 
     def update(self, value=None, disabled=None, select=None, visible=None, text_color=None, background_color=None, move_cursor_to='end', password_char=None, paste=None, readonly=None):
         """
@@ -4628,7 +4632,7 @@ class Button(Element):
                  enable_events=False, image_filename=None, image_data=None, image_size=(None, None),
                  image_subsample=None, image_source=None, border_width=None, size=(None, None), s=(None, None), auto_size_button=None, button_color=None,
                  disabled_button_color=None,
-                 highlight_colors=None, mouseover_colors=(None, None), use_ttk_buttons=None, font=None, bind_return_key=False, focus=False, pad=None, p=None, key=None,
+                 highlight_colors=None, mouseover_colors=(None, None), use_ttk_buttons=None, font=None, f=None, bind_return_key=False, focus=False, pad=None, p=None, key=None,
                  k=None, right_click_menu=None, expand_x=False, expand_y=False, visible=True, metadata=None):
         """
         :param button_text:           Text to be displayed on the button
@@ -4681,6 +4685,8 @@ class Button(Element):
         :type use_ttk_buttons:        (bool)
         :param font:                  specifies the  font family, size, etc. Tuple or Single string format 'name size styles'. Styles: italic * roman bold normal underline overstrike
         :type font:                   (str or (str, int[, str]) or None)
+        :param f:                     Same as font parameter. It's an alias.
+        :type f:                      (str or (str, int[, str]) or None)
         :param bind_return_key:       If True the return key will cause this button to be pressed
         :type bind_return_key:        (bool)
         :param focus:                 if True, initial focus will be put on this button
@@ -4803,7 +4809,8 @@ class Button(Element):
         self.expand_y = expand_y
 
         sz = size if size != (None, None) else s
-        super().__init__(ELEM_TYPE_BUTTON, size=sz, font=font, pad=pad, key=_key, tooltip=tooltip, visible=visible, metadata=metadata)
+        f = font if font is not None else f
+        super().__init__(ELEM_TYPE_BUTTON, size=sz, font=font, f=f, pad=pad, key=_key, tooltip=tooltip, visible=visible, metadata=metadata)
         return
 
     def _compute_highlight_colors(self):

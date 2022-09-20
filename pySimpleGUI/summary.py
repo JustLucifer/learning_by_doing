@@ -1,6 +1,7 @@
-import pySimpleGUI.simpleCalculatorGUI.PySimpleGUI as sg
+import PySimpleGUI as sg
+import sys
 
-sg.theme('Reddit')
+sg.theme('Gray Gray Gray')
 
 # -------- Popups ----------
 # res = sg.popup_get_text('Please, enter a text:',
@@ -147,27 +148,68 @@ sg.theme('Reddit')
 
 
 # --------- File-FolderBrowse Calendar -------------
+
 # sg.Table for creating Table
-layout = [
-    [sg.I(key='-PATH-')],
-    [sg.T('File Browse', size=(33,1)), 
-     sg.FileBrowse(target='-PATH-', 
-                   file_types=(
-                       ('text files', '*.txt'), 
-                       ('png files', '*.png')
-                       ))], # for saving - FileSaveAs
-    [sg.T('Folder Browse', size=(33,1)), sg.FolderBrowse(target='-PATH-')],
-    [sg.T(size=(29,1)), sg.CalendarButton('Choose date')],
-    [sg.Ok(), sg.Cancel()],
-]
 
-window = sg.Window('My App', layout)
+# layout = [
+#     [sg.I(key='-PATH-')],
+#     [sg.T('File Browse', size=(33,1)), 
+    #  sg.FileBrowse(target='-PATH-', 
+#                    file_types=(
+#                        ('text files', '*.txt'), 
+#                        ('png files', '*.png')
+#                        ))], # for saving - FileSaveAs
+#     [sg.T('Folder Browse', size=(33,1)), sg.FolderBrowse(target='-PATH-')],
+#     [sg.T(size=(29,1)), sg.CalendarButton('Choose date')],
+#     [sg.Ok(), sg.Cancel()],
+# ]
 
-while True:
-    event, values = window.read()
-    if event in ('Cancel', sg.WIN_CLOSED):
-        window.close()
-        break
-    # elif event == 'Ok':
-    #     window['-OUTPUT-'].update(values['-DATE-'])
-    print(event, values)
+# window = sg.Window('My App', layout,
+#                    enable_close_attempted_event=True)
+
+# while True:
+#     event, values = window.read()
+#     # if event in ('Cancel', sg.WIN_CLOSED):
+#     #     window.close()
+#     #     break
+    
+#     # attempt to close the window
+#     if event == '-WINDOW CLOSE ATTEMPTED-' and \
+#     sg.popup_yes_no('Do you want to close app?', title='Confirm') == 'Yes':
+#             window.close()
+#             sys.exit()
+#     # elif event == 'Ok':
+#     #     window['-OUTPUT-'].update(values['-DATE-'])
+#     print(event, values)
+
+# ---------- List Comprehension to Build Rows - Table Simulation -------------
+
+# headings = ['HEADER 1', 'HEADER 2', 'HEADER 3','HEADER 4']  # the text of the headings
+# header =  [[sg.Text('  ')] + [sg.Text(h, size=(14,1)) for h in headings]]  # build header layout
+# input_rows = [[sg.Input(size=(15,1), pad=(0,0)) for col in range(4)] for row in range(10)]
+# layout = header + input_rows
+
+# window = sg.Window('Table Simulation', layout, font='Courier 12')
+# event, values = window.read()
+
+
+# ---------- Output Element -------------
+
+# def ChatBot():
+#     layout = [[(sg.Text('This is where standard out is being routed', size=[40, 1]))],
+#               [sg.Output(size=(80, 20))],
+#               [sg.Multiline(size=(70, 5), enter_submits=True),
+#                sg.Button('SEND', button_color=(sg.YELLOWS[0], sg.BLUES[0])),
+#                sg.Button('EXIT', button_color=(sg.YELLOWS[0], sg.GREENS[0]))]]
+
+#     window = sg.Window('Chat Window', layout, default_element_size=(30, 2))
+
+#     # ---===--- Loop taking in user input and using it to query HowDoI web oracle --- #
+#     while True:
+#         event, value = window.read()
+#         if event == 'SEND':
+#             print(value)
+#         else:
+#             break
+#     window.close()
+# ChatBot()
