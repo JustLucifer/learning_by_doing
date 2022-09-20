@@ -49,11 +49,18 @@ class SimpleCalculator:
             self.history = ''
     
     def calc_square_root(self):
-        val = self.history.strip('+-*/')
-        if self.history[0] == '-':
+        if self.history[0] == '-' or self.history[-1] == 'i':
             minus = 'i'
         else:
             minus = ''
+
+        for n, i in enumerate(self.history):
+            if i in '+-*/' and n != len(self.history) - 1 \
+                and n != 0:
+                window['-ERROR_OUT-'](MalformedExpressionError())
+                return
+
+        val = self.history.strip('+-*/i')
         self.history = str(round(sqrt(float(val)), 6)) + minus
     
     def change_history(self, event):
@@ -64,6 +71,10 @@ class SimpleCalculator:
         
         if event in self.NUMS or event in self.OPERATORS:
             self.history += event
+        elif event == '.':
+            self.history += '.'
+        elif self.history == '':
+            return
         else:
             match event:
                 case '=':
@@ -74,8 +85,6 @@ class SimpleCalculator:
                     self.clear_input_field(event)
                 case '-SQRT-':
                     self.calc_square_root()
-                case '.':
-                    self.history += '.'
 
     def run(self):
         while True:
