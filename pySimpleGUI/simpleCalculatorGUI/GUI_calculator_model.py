@@ -32,4 +32,4 @@ layout = [
      sg.Col(col_1, p=0), sg.Col(col_2, p=0)],
 ]
 
-window = sg.Window('Simple Calculator', layout).finalize()
+window = sg.Window('Simple Calculator', layout, finalize=True)

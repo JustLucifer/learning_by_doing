@@ -14,11 +14,12 @@ class SimpleCalculator:
         self.history = ''
     
     def calc_res_of_expression(self):
-        for n, i in enumerate(self.history):
+        val = self.history.rstrip('+-*/')
+        for n, i in enumerate(val):
             if i in self.OPERATORS and n != 0:
                 oper = i
-                x = self.history[:n]
-                y = self.history[n + 1:]
+                x = val[:n]
+                y = val[n + 1:]
         if int(y) == 0 and oper == '/':
             window['-ERROR_OUT-']("Can't divide by zero")
         else:
@@ -35,7 +36,7 @@ class SimpleCalculator:
             or re.match('[*/]?(\d*[.])?\d+[*/+-]$', self.history) \
             or re.match('[*/](\d*[.])?\d+[*/+-]?((\d*[.])?\d+[*/+-]?)*$', self.history):
                 window['-ERROR_OUT-'](MalformedExpressionError())
-            elif re.match('[+-]?(\d*[.])?\d+[*/+-](\d*[.])?\d+[*/+-]((\d*[.])?\d+)?', self.history):
+            elif re.match('[+-]?(\d*[.])?\d+[*/+-](\d*[.])?\d+[*/+-](\d*[.])?\d+', self.history):
                 window['-ERROR_OUT-'](CantDoTwoOperationsError())
             elif re.match('^[+-]?(\d*[.])?\d+$', self.history):
                 self.history = str(float(self.history) * 2)
