@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
 
 layout = [
-    [sg.CalendarButton('Set date', s=(10,1)), sg.T('-- -- -- --', k='-DATE-')],
+    [sg.CalendarButton('Set date', s=(10,1)), sg.T('', k='-DATE-')],
     [sg.T('Write Task:'), sg.I(k='-TASK-', font=('None 15'), s=(32,1))],
     [sg.Table(values='', headings=['Index', 'Date', 'Task'], k='-TABLE-',
               s=(500,10), enable_events=True, auto_size_columns=False,
