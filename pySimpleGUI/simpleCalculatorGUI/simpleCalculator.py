@@ -1,5 +1,7 @@
 from GUI_calculator_model import sg, window
+from errorClasses import CantDoTwoOperationsError, MalformedExpressionError
 from math import sqrt
+import sys
 import re
 from calculations import calc
 
@@ -7,105 +9,88 @@ from calculations import calc
 class SimpleCalculator:
     NUMS = [str(i) for i in range(10)]
     OPERATORS = ('*', '-', '+', '/')
-    
-    
-    class TwoOpersTogetherError(Exception):
-        def __str__(self) -> str:
-            return 'Malformed expression'
-    
-    
+
     def __init__(self) -> None:
         self.history = ''
-        self.after_error = False
+    
+    def calc_res_of_expression(self):
+        val = self.history.rstrip('+-*/')
 
-    def check_number(self, event):
-        self.history += event
-        try:
-            if self.history[0] == '0' and self.history[1] == '0':
-                self.history = self.history[:-1]
-        except IndexError:
-            pass
+        for n, i in enumerate(val):
+            if i in self.OPERATORS and n != 0:
+                oper = i
+                x = val[:n]
+                y = val[n + 1:]
 
-    def check_operator(self, event):
-        self.history += event
-        self.oper = event
-        self.x = self.history[:-1]
-        self.index = self.history.index(self.oper)
-        return self.x, self.oper, self.index
-
-    def handle_TwoOpersTogetherError(self):
-        sg.popup_ok(self.TwoOpersTogetherError(), font='Arial 15 bold',
-                    no_titlebar=True, grab_anywhere=True, line_width=10,
-                    text_color='#ffb380')
-        self.after_error = True
-        self.oper = self.history[-2]
-        self.x = self.history[:-2]
-
-    def find_y(self):
-        # checks if input contain two operators in a row
-        if re.search(r".*[+/*-]{2,}.*", self.history):
-            raise self.TwoOpersTogetherError
-        
-        """checks in this way whether y == one of operators
-        because of TwoOpersTogetherError """
-        if self.after_error is True:
-            return self.history[self.index:]
-        return self.history[self.index + 1:]
+        if int(y) == 0 and oper == '/':
+            window['-ERROR_OUT-']("Can't divide by zero")
+        else:
+            self.history = str(calc(float(x), oper, float(y)))
+    
+    def pre_check_history(self, next_func):
+        if re.match('[*/+-]$', self.history) \
+        or re.search('[*/+-]{2,}', self.history) \
+        or re.match('[*/+-]?[.]', self.history) \
+        or re.match('((\d*[.])?\d+)?[*/+-][.]', self.history) \
+        or re.match('[*/](\d*[.])?\d+[*/+-]?((\d*[.])?\d+[*/+-]?)*$', self.history):
+            window['-ERROR_OUT-'](MalformedExpressionError())
+        else:
+            if next_func == '=':
+                self.equal()
+            else:
+                self.calc_square_root()
 
     def equal(self):
-        if self.history == '':
-            return
-        try:
-            assert self.x is not None
-            y = self.find_y()
-        except self.TwoOpersTogetherError:
-            self.handle_TwoOpersTogetherError()
-        except (TypeError, AttributeError, AssertionError):
-            # doubled up 'x' if (y or oper, index == '')
-            self.history = str(float(self.history) * 2)
+        if re.match('[+-]?(\d*[.])?\d+[*/+-](\d*[.])?\d+[*/+-](\d*[.])?\d+', self.history):
+            window['-ERROR_OUT-'](CantDoTwoOperationsError())
+        elif re.match('[+-]?(\d*[.])?\d+[*/+-]?$', self.history):
+            self.history = str(float(self.history.strip('+-*/')) * 2)
         else:
-            # calculates the result of expression
-            res = calc(float(self.x), self.oper, float(y))
-            self.history = str(res)
-            self.x, self.oper, self.index = None, None, None
+            self.calc_res_of_expression()
+    
+    def calc_square_root(self):
+
+        if self.history[0] == '-' or self.history[-1] == 'i':
+            minus = 'i'
+        else:
+            minus = ''
+
+        # check position of operator
+        for n, i in enumerate(self.history):
+            if i in '+-*/' and n != len(self.history) - 1 and n != 0:
+                window['-ERROR_OUT-'](MalformedExpressionError())
+                return
+
+        val = self.history.strip('+-*/i')
+        self.history = str(round(sqrt(float(val)), 6)) + minus
 
     def clear_input_field(self, param):
-        if param == '-CLEAR-':
+        if param == 'C':
             self.history = self.history[:-1]
         else:
             self.history = ''
-    
-    def calc_square_root(self):
-        if self.history != '':
-            val = self.history.strip('+-*/')
-            if self.history[0] == '-':
-                minus = 'i'
+
+    def change_history(self, event):
+        if event == sg.WIN_CLOSED:
+                window.close()
+                sys.exit()
+        window['-ERROR_OUT-']('')
+        
+        if event in self.NUMS or event in self.OPERATORS:
+            self.history += event
+        elif event == '.':
+            self.history += '.'
+        elif self.history == '':
+            return
+        else:
+            if event.startswith('C'):
+                self.clear_input_field(event)
             else:
-                minus = ''
-            self.history = str(round(sqrt(float(val)), 6)) + minus
-            self.x, self.oper, self.index = None, None, None
-    
+                self.pre_check_history(event)
+
     def run(self):
         while True:
             event, values = window.read()
-            match event:
-                case sg.WIN_CLOSED:
-                    window.close()
-                    break
-                case event if event in self.NUMS:
-                    self.check_number(event)
-                case event if event in self.OPERATORS:
-                    self.check_operator(event)
-                case '-EQUAL-':
-                    self.equal()
-                case '-CLEAR-':
-                    self.clear_input_field(event)
-                case '-CLEAR_EVR-':
-                    self.clear_input_field(event)
-                case '-SQRT-':
-                    self.calc_square_root()
-                case '-DOT-':
-                    self.history += '.'
-                    
-            window['-INPUT-'].update(self.history)
+            self.change_history(event=event)
+            window['-INPUT-'](self.history)
             print(event, values)
