@@ -4,14 +4,14 @@ tasks = [['2022-09-22', 'buy milk'], ['2022-09-22', 'buy shoes'], ['2022-09-23',
 
 frame = [
     [sg.Table(values=tasks, headings=['Date', 'Tasks'], k='-TABLE-',
-              num_rows=21, enable_events=True, auto_size_columns=False,
-              hide_vertical_scroll=True, row_height=30,
-              col_widths=[10,30], justification='l', font='None 15')],
+              num_rows=21, auto_size_columns=False, hide_vertical_scroll=True,
+              row_height=30, font='None 15', enable_click_events = True,
+              col_widths=[10,25], justification='l', border_width=0)],
 ]
 layout = [
     [sg.Frame('To Do', frame)],
-    [sg.B('Add', s=(5,1)), sg.T('   '), sg.B('Delete')]
+    [sg.B('Add', s=(5,1), border_width=0)]
 ]
 
 window = sg.Window('ToDo', layout, finalize=True, element_justification='c',
-                   font='bold', size=(525, 750), return_keyboard_events=True)
+                   font='bold', size=(525, 740), return_keyboard_events=True)

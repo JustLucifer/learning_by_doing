@@ -31,18 +31,44 @@ class ToDo:
             elif event2 in ('Cancel', sg.WIN_CLOSED):
                 window2.close()
                 break
+    
+    def del_task(self, values):
+        if values['-TABLE-']:
+            index = values['-TABLE-'][0]
+            del tasks[index]
+            window['-TABLE-'](tasks)
+
+    def edit_task(self, index):
+        date, task = tasks[index][0], tasks[index][1]
+        layout3 = [
+            [sg.I(default_text = task, s=(15,2), font=(None,25), k='-TASK-')],
+            [sg.CalendarButton('Set date', font='bold'), sg.T(date, font='bold', k='-DATE-')],
+            [sg.B('Done',font='bold'), sg.B('Delete',font='bold')],
+        ]
+
+        window3 = sg.Window('Edit task', layout3, finalize=True)
+
+        while True:
+            event3, values3 = window3.read()
+            if event3 in ('Done', 'Delete'):
+                del tasks[index]
+                window['-TABLE-'](tasks)
+                window3.close()
+                break
+            elif event3 in ('Cancel', sg.WIN_CLOSED):
+                window3.close()
+                break
 
     def run(self):
         while True:
             event, values = window.read()
             print(event, values)
-            if event in ('Exit', sg.WIN_CLOSED):
+            if event == sg.WIN_CLOSED:
                 window.close()
                 sys.exit()
             elif event == 'Add':
                 self.add_task()
             elif event == 'Delete':
-                if values['-TABLE-']:
-                    index = values['-TABLE-'][0]
-                    del tasks[index]
-                    window['-TABLE-'](tasks)
+                self.del_task(values=values)
+            elif event[0] == '-TABLE-':
+                self.edit_task(event[2][0])
