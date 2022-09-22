@@ -16,6 +16,13 @@ class Task(Base):
     task = Column(String(100))
 
 
+class History(Base):
+    __tablename__ = 'history'
+
+    id = Column(Integer, primary_key=True)
+    date = Column(Date)
+    task = Column(String(100))
+
 Base.metadata.create_all(engine)
 
 Session = sessionmaker(bind=engine)

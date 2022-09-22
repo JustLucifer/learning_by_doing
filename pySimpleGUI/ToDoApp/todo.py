@@ -1,5 +1,5 @@
-from todo_gui_model import sg, window, tasks
-from models import session, Task
+from main_todo_gui_model import sg, window, tasks
+from models import session, Task, History
 from datetime import datetime
 import sys
 
@@ -63,22 +63,61 @@ class ToDo:
 
         while True:
             event3, values3 = window3.read()
-            if event3 in ('Done', 'Delete'):
+            if event3 == 'Delete':
                 self.delete_task(window3, index, task)
                 break
+            elif event3 == 'Done':
+                done_t = session.query(Task).filter(Task.task == task).first()
+                session.add(History(date=done_t.date, task=done_t.task))
+                session.commit()
+                self.delete_task(window3, index, task)
             elif event3 in ('Cancel', sg.WIN_CLOSED):
                 window3.close()
                 break
+    
+    def show_history(self):
+        history = session.query(History).order_by(-History.date)
+        history = [[task.date, task.task] for task in history]
+        frame = [
+            [sg.Table(values=history, headings=['Date', 'Tasks'], k='-HISTORY-TABLE-',
+                    num_rows=21, auto_size_columns=False, hide_vertical_scroll=True,
+                    row_height=30, font='None 15', enable_click_events = True,
+                    col_widths=[10,25], justification='l', border_width=0)],
+        ]
+
+        layout = [
+            [sg.Frame('History', frame, p=5)],
+            [sg.B('Back', s=(6,1), border_width=0, p=0), sg.T('    '),
+            sg.B('Exit', s=(6,1), border_width=0, p=0)]
+        ]
+
+        window4 = sg.Window('ToDo', layout, finalize=True, element_justification='c',
+                        font='bold', size=(525, 735), return_keyboard_events=True)
+        while True:
+            window.hide()
+            event4, values4 = window4.read()
+            if event4 in ('Back', sg.WIN_CLOSED):
+                window4.close()
+                window.un_hide()
+                break
+            elif event4 == 'Exit':
+                window4.close()
+                self.close_all()
+
+    def close_all(self):
+        window.close()
+        session.close()
+        sys.exit()
 
     def run(self):
         while True:
             event, values = window.read()
             print(event, values)
-            if event == sg.WIN_CLOSED:
-                window.close()
-                session.close()
-                sys.exit()
+            if event in ('Exit', sg.WIN_CLOSED):
+                self.close_all()
             elif event == 'Add':
                 self.create_add_task_window()
             elif event[0] == '-TABLE-':
                 self.create_edit_task_window(event[2][0])
+            elif event == 'History':
+                self.show_history()
