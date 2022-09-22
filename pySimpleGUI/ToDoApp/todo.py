@@ -50,6 +50,8 @@ class ToDo:
         window3.close()
 
     def create_edit_task_window(self, index):
+        if index in (-1, None):
+            return
         date, task = self.tasks[index][0], self.tasks[index][1]
         layout3 = [
             [sg.I(default_text = task, s=(15,2), font=(None,25), k='-TASK-')],
