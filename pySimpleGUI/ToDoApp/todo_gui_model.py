@@ -1,6 +1,8 @@
 import PySimpleGUI as sg
+from models import session, Task
 
-tasks = [['2022-09-22', 'buy milk'], ['2022-09-22', 'buy shoes'], ['2022-09-23', 'feed cat']]
+tasks = session.query(Task).order_by(Task.date)
+tasks = [[task.date, task.task] for task in tasks]
 
 frame = [
     [sg.Table(values=tasks, headings=['Date', 'Tasks'], k='-TABLE-',
