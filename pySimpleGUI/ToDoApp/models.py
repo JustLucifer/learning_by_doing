@@ -14,6 +14,7 @@ class Task(Base):
     id = Column(Integer, primary_key=True)
     date = Column(Date)
     task = Column(String(100))
+    priority = Column(Integer)
 
 
 class History(Base):
