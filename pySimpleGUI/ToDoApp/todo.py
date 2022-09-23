@@ -13,33 +13,32 @@ class ToDo:
         self.window['-TABLE-'](self.tasks)
 
     def add_task(self, window2, values2):
-        date = datetime.strptime(window2['-DATE-'].get(), '%Y-%m-%d')
-        session.add(Task(date=date, task=values2['-TASK-']))
-        self.update_window_table()
+        if values2['-TASK-']:
+            date = datetime.strptime(window2['-DATE-'].get(), '%Y-%m-%d')
+            session.add(Task(date=date, task=values2['-TASK-']))
+            window2.close()
+            self.update_window_table()
 
     def show_add_task_window(self):
         window2 = create_add_window2()
         while True:
             event2, values2 = window2.read()
             if event2 == 'Ok':
-                if values2['-TASK-']:
-                    self.add_task(window2, values2)
+                self.add_task(window2, values2)
             else:
                 window2.close()
                 break
     
-    def delete_task(self, window3, index, task):
+    def delete_task(self, index, task):
         session.delete(session.query(Task).filter(Task.task == task).first())
         del self.tasks[index]
         self.window['-TABLE-'](self.tasks)
-        window3.close()
 
     def edit_task(self, window3, values3, task):
         new_date = datetime.strptime(window3['-DATE-'].get(), '%Y-%m-%d').date()
         edit_t = session.query(Task).filter(Task.task == task).first()
         edit_t.task = values3['-TASK-']
         edit_t.date = new_date
-        window3.close()
         self.update_window_table()
 
     def show_edit_task_window(self, index):
@@ -57,11 +56,11 @@ class ToDo:
         while True:
             event3, values3 = window3.read()
             if event3 == 'Delete':
-                self.delete_task(window3, index, task)
+                self.delete_task(index, task)
             elif event3 == 'Done':
                 done_t = session.query(Task).filter(Task.task == task).first()
                 session.add(History(date=done_t.date, task=done_t.task))
-                self.delete_task(window3, index, task)
+                self.delete_task(index, task)
             elif event3 == 'Ok':
                 if values3['-TASK-']:
                     self.edit_task(window3, values3, task)
