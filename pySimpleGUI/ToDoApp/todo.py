@@ -10,19 +10,21 @@ class ToDo:
 
     def get_today_date(self):
         today_date = datetime.today()
-        today_date_str = today_date.strftime('%d-%m-%Y')
+        today_date_str = today_date.strftime('%Y-%m-%d')
         return today_date_str
-    
+
+    def update_window_table(self):
+        self.tasks = session.query(Task).order_by(Task.date)
+        self.tasks = [[task.date, task.task] for task in self.tasks]
+        window['-TABLE-'](self.tasks)
+
     def add_task(self, window2, values2):
         if values2['-TASK-']:
             date = window2['-DATE-'].get()
-            date = datetime.strptime(date, '%d-%m-%Y')
+            date = datetime.strptime(date, '%Y-%m-%d')
             session.add(Task(date=date, task=values2['-TASK-']))
-            session.commit()
             window2.close()
-            self.tasks = session.query(Task).order_by(Task.date)
-            self.tasks = [[task.date, task.task] for task in self.tasks]
-            window['-TABLE-'](self.tasks)
+            self.update_window_table()
 
     def create_add_task_window(self):
         layout2 = [
@@ -44,10 +46,19 @@ class ToDo:
     
     def delete_task(self, window3, index, task):
         session.delete(session.query(Task).filter(Task.task == task).first())
-        session.commit()
         del self.tasks[index]
         window['-TABLE-'](self.tasks)
         window3.close()
+
+    def edit_task(self, window3, values3, task):
+        new_task = values3['-TASK-']
+        new_date = window3['-DATE-'].get()
+        new_date = datetime.strptime(new_date, '%Y-%m-%d').date()
+        edit_t = session.query(Task).filter(Task.task == task).first()
+        edit_t.task = new_task
+        edit_t.date = new_date
+        window3.close()
+        self.update_window_table()
 
     def create_edit_task_window(self, index):
         if index in (-1, None):
@@ -56,7 +67,7 @@ class ToDo:
         layout3 = [
             [sg.I(default_text = task, s=(15,2), font=(None,25), k='-TASK-')],
             [sg.CalendarButton('Set date', font='bold'), sg.T(date, font='bold', k='-DATE-')],
-            [sg.B('Done',font='bold'), sg.B('Delete',font='bold')],
+            [sg.Ok(font='bold'), sg.B('Done',font='bold'), sg.B('Delete',font='bold')],
         ]
 
         window3 = sg.Window('Edit task', layout3, finalize=True)
@@ -69,14 +80,16 @@ class ToDo:
             elif event3 == 'Done':
                 done_t = session.query(Task).filter(Task.task == task).first()
                 session.add(History(date=done_t.date, task=done_t.task))
-                session.commit()
                 self.delete_task(window3, index, task)
+            elif event3 == 'Ok':
+                self.edit_task(window3, values3, task)
+                break
             elif event3 in ('Cancel', sg.WIN_CLOSED):
                 window3.close()
                 break
     
     def show_history(self):
-        history = session.query(History).order_by(-History.date)
+        history = session.query(History).order_by(-History.id)
         history = [[task.date, task.task] for task in history]
         frame = [
             [sg.Table(values=history, headings=['Date', 'Tasks'], k='-HISTORY-TABLE-',
@@ -106,6 +119,7 @@ class ToDo:
 
     def close_all(self):
         window.close()
+        session.commit()
         session.close()
         sys.exit()
 
