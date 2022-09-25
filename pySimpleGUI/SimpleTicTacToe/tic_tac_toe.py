@@ -1,38 +1,35 @@
 import PySimpleGUI as sg
 
-sg.theme('LightGrey3')
 
 class TicTacToe:
     
     NUMS = [i for i in range(9)]
+    x_image = 'pySimpleGUI/SimpleTicTacToe/images/x.png'
+    o_image = 'pySimpleGUI/SimpleTicTacToe/images/o.png'
+    sg.theme('LightGrey3')
+    sg.set_options(
+        text_color='black', button_element_size=(105,105), border_width=0,
+    )    
     
     def __init__(self) -> None:
-        self.turn = 'first'
+        button_def_image = 'pySimpleGUI/SimpleTicTacToe/images/white.png'
+        self.turn = 'Player1'
         self.cells = ['' for _ in range(9)]
-        self.layout = [[sg.T('Player 1', font='Arial 15', text_color='black'), sg.T(text=' ' * 38), sg.T('Player 2', font='Arial 15', text_color='black'),],
-                  [sg.T(text=' ' * 3), sg.T(0, font='bold', text_color='#77d6ec'), sg.T(text=' ' * 54), sg.T(0, font='bold', text_color='#eda4a4')],
-                  [sg.B(self.cells[0], font='bold', p=0, k='0', border_width=3, 
-                   image_filename='pySimpleGUI/SimpleTicTacToe/images/white.png'), 
-                   sg.B(self.cells[1], font='bold', p=0, k='1', border_width=3, 
-                   image_filename='pySimpleGUI/SimpleTicTacToe/images/white.png'),
-                   sg.B(self.cells[2], font='bold', p=0, k='2', border_width=3, 
-                   image_filename='pySimpleGUI/SimpleTicTacToe/images/white.png')],
-                  [sg.B(self.cells[3], font='bold', p=0, k='3', border_width=3, 
-                   image_filename='pySimpleGUI/SimpleTicTacToe/images/white.png'), 
-                   sg.B(self.cells[4], font='bold', p=0, k='4', border_width=3, 
-                   image_filename='pySimpleGUI/SimpleTicTacToe/images/white.png'),
-                   sg.B(self.cells[5], font='bold', p=0, k='5', border_width=3, 
-                   image_filename='pySimpleGUI/SimpleTicTacToe/images/white.png')],
-                  [sg.B(self.cells[6], font='bold', p=0, k='6', border_width=3, 
-                   image_filename='pySimpleGUI/SimpleTicTacToe/images/white.png'), 
-                   sg.B(self.cells[7], font='bold', p=0, k='7', border_width=3, 
-                   image_filename='pySimpleGUI/SimpleTicTacToe/images/white.png'),
-                   sg.B(self.cells[8], font='bold', p=0, k='8', border_width=3, 
-                   image_filename='pySimpleGUI/SimpleTicTacToe/images/white.png')]
+        self.layout = [[sg.T('Player 1', font='Arial 15', p=2), sg.T(text=' ' * 38), sg.T('Player 2', font='Arial 15', p=2),],
+                  [sg.T(0, font='bold', text_color='#77d6ec', p=2), sg.T(text=' ' * 54), sg.T(0, font='bold', text_color='#eda4a4', p=2)],
+                  [sg.B('', k=0, f='bold', mouseover_colors='#f1ede3', image_filename=button_def_image),
+                   sg.B('', k=1, f='bold', mouseover_colors='#f1ede3', image_filename=button_def_image),
+                   sg.B('', k=2, f='bold', mouseover_colors='#f1ede3', image_filename=button_def_image)],
+                  [sg.B('', k=3, f='bold', mouseover_colors='#f1ede3', image_filename=button_def_image),
+                   sg.B('', k=4, f='bold', mouseover_colors='#f1ede3', image_filename=button_def_image),
+                   sg.B('', k=5, f='bold', mouseover_colors='#f1ede3', image_filename=button_def_image)],
+                  [sg.B('', k=6, f='bold', mouseover_colors='#f1ede3', image_filename=button_def_image),
+                   sg.B('', k=7, f='bold', mouseover_colors='#f1ede3', image_filename=button_def_image),
+                   sg.B('', k=8, f='bold', mouseover_colors='#f1ede3', image_filename=button_def_image)]
         ]
-        
-        self.window = sg.Window('TicTacToe', self.layout, default_button_element_size=(105,105),
-                                size=(360,410))
+
+        self.window = sg.Window('TicTacToe', self.layout, size=(360,400),
+                                element_justification="c", element_padding=0,)
     
     def run(self) -> None:
         while True:
@@ -43,11 +40,11 @@ class TicTacToe:
                 break
             elif int(event) in self.NUMS:
                 if self.cells[int(event)] == '':
-                    if self.turn == 'first':
+                    if self.turn == 'Player1':
                         self.cells[int(event)] = 'X'
-                        self.turn = 'second'
-                        self.window[event](image_filename='pySimpleGUI/SimpleTicTacToe/images/x.png')
-                    elif self.turn == 'second':
+                        self.turn = 'Player2'
+                        self.window[event](image_filename=self.x_image)
+                    elif self.turn == 'Player2':
                         self.cells[int(event)] = 'O'
-                        self.window[event](image_filename='pySimpleGUI/SimpleTicTacToe/images/o.png')
-                        self.turn = 'first'
+                        self.window[event](image_filename=self.o_image)
+                        self.turn = 'Player1'
