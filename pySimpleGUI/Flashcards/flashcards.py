@@ -11,6 +11,7 @@ class FlashcardsApp:
 
     def __init__(self) -> None:
         sg.theme('DarkGrey13')
+        self.count = 0
 
     def create_starting_window(self):
         layout = [
@@ -40,55 +41,58 @@ class FlashcardsApp:
     DL_COUNT_KEY = '-COUNT-'
     DL_THREAD_EXITNG = '-THREAD EXITING-'
 
-    def the_thread(self, window:sg.Window):
+    def the_thread(self):
         max_value = 20
-        window.write_event_value((self.THREAD_KEY, self.DL_START_KEY), max_value)
+        self.window.write_event_value((self.THREAD_KEY, self.DL_START_KEY), max_value)
         for i in range(max_value):
             sleep(.1)
-            window.write_event_value((self.THREAD_KEY, self.DL_COUNT_KEY), i)
+            self.window.write_event_value((self.THREAD_KEY, self.DL_COUNT_KEY), i)
+    
+    def generate_new_card(self):
+        self.window['-A-']('')
+        self.count += 1
+        try:
+            self.question = list(cards)[self.count]
+            self.answer = list(cards.values())[self.count]
+        except IndexError:
+            self.window.close()
+            return True
+        self.window['-Q-'](self.question)
+        self.window.start_thread(lambda: self.the_thread(), (self.THREAD_KEY, self.DL_THREAD_EXITNG))
 
     def mainloop(self):
-        i = 0
-        window = self.create_main_window()
-        question = list(cards)[i]
-        answer = list(cards.values())[i]
-        window['-Q-'](question)
-        window.start_thread(lambda: self.the_thread(window), (self.THREAD_KEY, self.DL_THREAD_EXITNG))
+        self.window = self.create_main_window()
+        self.question = list(cards)[0]
+        self.answer = list(cards.values())[0]
+        self.window['-Q-'](self.question)
+        self.window.start_thread(lambda: self.the_thread(), (self.THREAD_KEY, self.DL_THREAD_EXITNG))
 
         while True:
-            event, values = window()
+            event, values = self.window()
             if event == sg.WIN_CLOSED:
-                window.close()
+                self.window.close()
                 break
             elif event == 'See card':
-                window['-A-'](answer)
+                self.window['-A-'](self.answer)
             elif event in ('Right', 'Wrong'):
-                window['-A-']('')
-                i += 1
-                try:
-                    question = list(cards)[i]
-                    answer = list(cards.values())[i]
-                except IndexError:
-                    return
-                window['-Q-'](question)
-                print(question, answer)
-                window.start_thread(lambda: self.the_thread(window), (self.THREAD_KEY, self.DL_THREAD_EXITNG))
+                if self.generate_new_card():
+                    self.count = 0
+                    break
             # Events coming from the Thread
             elif event[0] == self.THREAD_KEY:
                 if event[1] == self.DL_START_KEY:
                     max_value = values[event]
-                    window['-PROGRESS-'].update(0, max_value)
+                    self.window['-PROGRESS-'].update(0, max_value)
                 elif event[1] == self.DL_COUNT_KEY:
-                    window['-PROGRESS-'].update(values[event]+1, max_value)
+                    self.window['-PROGRESS-'].update(values[event]+1, max_value)
 
     def run(self):
-        starting_window = self.create_starting_window()
-        event = starting_window()
         while True:
+            starting_window = self.create_starting_window()
+            event = starting_window()
             if event[0] == 'Start learning':
                 starting_window.close()
                 self.mainloop()
-                break
             else:
                 starting_window.close()
                 break
