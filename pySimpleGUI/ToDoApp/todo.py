@@ -38,10 +38,8 @@ class ToDo:
 
         layout = [
             [sg.Frame('To Do', frame, p=5)],
-            [sg.B('History', s=(6,1), border_width=0, p=0),
-            sg.T('    '),
-            sg.B('Add', s=(6,1), border_width=0, p=0),
-            sg.T('    '),
+            [sg.B('History', s=(6,1), border_width=0, p=0), sg.T('    '),
+            sg.B('Add', s=(6,1), border_width=0, p=0), sg.T('    '),
             sg.B('Exit', s=(6,1), border_width=0, p=0)]
         ]
 
@@ -74,6 +72,7 @@ class ToDo:
             priority = values2['-PRIORITY-'] if values2['-PRIORITY-'] != 'priority' else 'P4'
             date = datetime.strptime(window2['-DATE-'].get(), '%Y-%m-%d')
             session.add(Task(date=date, task=values2['-TASK-'], priority=priority))
+            session.commit()
             window2.close()
             self.update_window_table()
 
@@ -109,7 +108,7 @@ class ToDo:
             [sg.I(default_text = self.cur_task, s=(15,2), font=(None,25), k='-TASK-')],
             [sg.CalendarButton('Set date', font='bold', target='-DATE-'), sg.T(date, font='bold', k='-DATE-'),
              sg.Combo(self.priorities, default_value=done_task.priority, s=(7,1), font='bold', k='-PRIORITY-')],
-            [sg.Ok(font='bold'), sg.B('Done',font='bold'), sg.B('Delete',font='bold')],
+            [sg.Ok(font='bold'), sg.B('Done', font='bold'), sg.B('Delete', font='bold')],
         ]
 
         window3 = sg.Window('Edit task', layout3, finalize=True)
@@ -139,7 +138,8 @@ class ToDo:
 
         layout = [
             [sg.Frame('History', frame, p=5)],
-            [sg.B('Back', s=(6,1), border_width=0, p=0), sg.T('    '),
+            [sg.B('Clear', s=(6,1), border_width=0, p=0), sg.T(' '*4), 
+            sg.B('Back', s=(6,1), border_width=0, p=0), sg.T(' '*4),
             sg.B('Exit', s=(6,1), border_width=0, p=0)]
         ]
 
@@ -155,13 +155,16 @@ class ToDo:
                 window4.close()
                 self.window.un_hide()
                 break
+            elif event4 == 'Clear':
+                session.query(History).delete()
+                session.commit()
+                window4['-HISTORY-TABLE-']('')
             elif event4 == 'Exit':
                 window4.close()
                 self.close_all()
 
     def close_all(self):
         self.window.close()
-        session.commit()
         session.close()
         sys.exit()
 
