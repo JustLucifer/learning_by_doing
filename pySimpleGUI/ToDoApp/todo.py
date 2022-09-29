@@ -88,6 +88,7 @@ class ToDo:
 
     def delete_task(self, index):
         session.delete(session.query(Task).filter(Task.task == self.cur_task).first())
+        session.commit()
         del self.tasks[index]
         self.window['-TABLE-'](self.tasks)
 
@@ -105,7 +106,7 @@ class ToDo:
         date, self.cur_task = self.tasks[index][0], self.tasks[index][1]
         done_task = session.query(Task).filter(Task.task == self.cur_task).first()
         layout3 = [
-            [sg.I(default_text = self.cur_task, s=(15,2), font=(None,25), k='-TASK-')],
+            [sg.I(default_text=self.cur_task, s=(15,2), font=(None,25), k='-TASK-')],
             [sg.CalendarButton('Set date', font='bold', target='-DATE-'), sg.T(date, font='bold', k='-DATE-'),
              sg.Combo(self.priorities, default_value=done_task.priority, s=(7,1), font='bold', k='-PRIORITY-')],
             [sg.Ok(font='bold'), sg.B('Done', font='bold'), sg.B('Delete', font='bold')],

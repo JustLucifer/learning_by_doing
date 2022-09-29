@@ -17,6 +17,8 @@ class FlashcardsApp:
             [sg.Text('')],
             [sg.Button('Add cards', s=(20,2), font='bold', p=0, border_width=0)],
             [sg.Text('')],
+            [sg.Button('Delete cards', s=(20,2), font='bold', p=0, border_width=0)],
+            [sg.Text('')],
             [sg.Button('Quit', s=(20,2), font='bold', p=0, border_width=0)],
         ]
 
@@ -33,6 +35,19 @@ class FlashcardsApp:
         ]
 
         return sg.Window('Flashcards', layout, size=(400,700), element_justification='c', finalize=True)
+    
+    def create_delete_cards_window(self):
+        db_cards = session.query(Flashcard).all()
+        self.list_of_cards = [[card.question, card.answer] for card in db_cards]
+        layout = [
+            [sg.Table(values=self.list_of_cards, headings=['Question', 'Answer'], k='-TABLE-',
+                    num_rows=20, auto_size_columns=False, hide_vertical_scroll=True,
+                    row_height=30, font='Arial 15', enable_click_events = True,
+                    col_widths=[14,14], justification='c', border_width=0)],
+            [sg.Button('Delete card', font='Arial 18', p=0, border_width=0)]
+        ]
+
+        return sg.Window('Flashcards', layout, size=(400,700), element_justification='c')
 
     def create_main_window(self):
         layout = [
@@ -79,6 +94,7 @@ class FlashcardsApp:
             self.cards[i.question] = i.answer
 
     def mainloop(self):
+        self.read_cards_from_db()
         self.window = self.create_main_window()
         self.question = list(self.cards)[0]
         self.answer = list(self.cards.values())[0]
@@ -122,6 +138,24 @@ class FlashcardsApp:
                 session.add(Flashcard(question=q, answer=a))
                 session.commit()
 
+    def delete_cards_menu(self):
+        window = self.create_delete_cards_window()
+        while True:
+            event, values = window()
+            if event not in ('Delete card', None):
+                index = int(event[2][0])
+            print(event, values)
+            if event == sg.WIN_CLOSED:
+                window.close()
+                break
+            elif event == 'Delete card':
+                card_to_delete = self.list_of_cards[index]
+                del self.list_of_cards[index]
+                session.delete(session.query(Flashcard).filter(Flashcard.question == card_to_delete[0]).first())
+                session.commit()
+                window['-TABLE-'](self.list_of_cards)
+
+            
     def run(self):
         while True:
             starting_window = self.create_starting_window()
@@ -132,6 +166,9 @@ class FlashcardsApp:
             elif event[0] == 'Add cards':
                 starting_window.close()
                 self.add_cards_menu()
+            elif event[0] == 'Delete cards':
+                starting_window.close()
+                self.delete_cards_menu()
             else:
                 starting_window.close()
                 session.close()
