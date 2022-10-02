@@ -1,6 +1,7 @@
 from gi.repository import GLib
 from pytube import YouTube
 import PySimpleGUI as sg
+import json
 import sys
 import os
 import re
@@ -11,9 +12,17 @@ class YTubeDownloader:
     def __init__(self) -> None:
         sg.theme('DarkPurple1')
         sg.set_options(margins=(0,0),)
-        self.downloads_dir = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOWNLOAD)
-        self.def_quality = '720'
         self.menu_elements = ('Change download directory', 'Change default quality')
+        self.read_settings_from_json()
+
+    def read_settings_from_json(self):
+        with open('youtube_video_downloader/settings/def_dir.json') as f:
+            s = json.load(f)['dir']
+            self.downloads_dir = s if s is not None else GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOWNLOAD)
+
+        with open('youtube_video_downloader/settings/def_quality.json') as f:
+            s = json.load(f)['qual']
+            self.def_quality = s if s is not None else '720'
     
     def create_main_window(self):
         qualities = ('1080', '720', '360')
@@ -53,6 +62,8 @@ class YTubeDownloader:
         folder = sg.popup_get_folder('Choose new folder', font='DejaVuSans 12', size=(30, 40))
         if folder not in ('', ' '):
             self.downloads_dir = folder
+        with open('youtube_video_downloader/settings/def_dir.json', 'w') as f:
+            json.dump({'dir': self.downloads_dir}, f)
     
     def change_default_quality(self):
         layout = [
@@ -75,6 +86,9 @@ class YTubeDownloader:
                         self.def_quality = k
             window.close()
             break
+        
+        with open('youtube_video_downloader/settings/def_quality.json', 'w') as f:
+            json.dump({'qual': self.def_quality}, f)
     
     def run(self):
         window = self.create_main_window()
