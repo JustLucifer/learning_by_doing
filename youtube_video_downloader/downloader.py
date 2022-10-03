@@ -12,7 +12,8 @@ class YTubeDownloader:
     def __init__(self) -> None:
         sg.theme('DarkPurple1')
         sg.set_options(margins=(0,0),)
-        self.menu_elements = ('Change download directory', 'Change default quality')
+        self.menu_elements = ('Change download directory', 'Change default quality',
+                              'Download from .txt file')
         self.read_settings_from_json()
 
     def read_settings_from_json(self):
@@ -23,10 +24,11 @@ class YTubeDownloader:
         with open('youtube_video_downloader/settings/def_quality.json') as f:
             s = json.load(f)['qual']
             self.def_quality = s if s is not None else '720'
+            print(self.def_quality)
     
     def create_main_window(self):
         qualities = ('1080', '720', '360')
-        menu = ['',[self.menu_elements[0], self.menu_elements[1], 'Exit']]
+        menu = ['',[self.menu_elements, 'Exit']]
         layout = [
             [sg.ButtonMenu('Menu', menu, font='DejaVuSans 10', p=0, expand_x=True, k='-MENU-')],
             [sg.Text('Welcome to YouTube Downloader', p=15)],
@@ -90,6 +92,24 @@ class YTubeDownloader:
         with open('youtube_video_downloader/settings/def_quality.json', 'w') as f:
             json.dump({'qual': self.def_quality}, f)
     
+    def download_multiple_videos_from_file(self):
+        file_with_links = sg.popup_get_file('Select .txt file\n(links must be separated by a new line)',
+                                            title='Select file',
+                                            font='DejaVuSans 12',
+                                            size=(30, 40),
+                                            file_types=(('text files', '*.txt'),))
+        with open(file_with_links) as f:
+            lst_links = f.read().split('\n')
+
+        for n, link in enumerate(lst_links):
+            if re.match('https://www.youtube.com/watch?.+', link):
+                yt = YouTube(link)
+                yd = yt.streams.get_by_resolution(self.def_quality + 'p')
+                yd.download(self.downloads_dir)
+                print(n, yt.title, 'downloaded')
+        else:
+            os.system('play -nq -t alsa synth {} sine {}'.format(1, 440))
+    
     def run(self):
         window = self.create_main_window()
         while True:
@@ -107,6 +127,8 @@ class YTubeDownloader:
                     self.change_default_directory()
                 elif values['-MENU-'] == self.menu_elements[1]:
                     self.change_default_quality()
+                elif values['-MENU-'] == self.menu_elements[2]:
+                    self.download_multiple_videos_from_file()
                 else:
                     window.close()
                     sys.exit()
