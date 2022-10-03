@@ -89,17 +89,22 @@ class FlashcardsApp:
         self.window.start_thread(lambda: self.the_thread(), (self.THREAD_KEY, self.DL_THREAD_EXITNG))
 
     def read_cards_from_db(self):
-        self.all_cards = session.query(Flashcard).all()
-        for i in self.all_cards:
-            self.cards[i.question] = i.answer
+        all_cards = session.query(Flashcard).all()
+        if len(all_cards):
+            for i in all_cards:
+                self.cards[i.question] = i.answer
+            return True
+        return False
 
     def mainloop(self):
-        self.read_cards_from_db()
-        self.window = self.create_main_window()
-        self.question = list(self.cards)[0]
-        self.answer = list(self.cards.values())[0]
-        self.window['-Q-'](self.question)
-        self.window.start_thread(lambda: self.the_thread(), (self.THREAD_KEY, self.DL_THREAD_EXITNG))
+        if self.read_cards_from_db():
+            self.window = self.create_main_window()
+            self.question = list(self.cards)[0]
+            self.answer = list(self.cards.values())[0]
+            self.window['-Q-'](self.question)
+            self.window.start_thread(lambda: self.the_thread(), (self.THREAD_KEY, self.DL_THREAD_EXITNG))
+        else:
+            return
 
         while True:
             event, values = self.window()
@@ -150,6 +155,7 @@ class FlashcardsApp:
                 break
             elif event == 'Delete card':
                 card_to_delete = self.list_of_cards[index]
+                del self.cards[card_to_delete[0]]
                 del self.list_of_cards[index]
                 session.delete(session.query(Flashcard).filter(Flashcard.question == card_to_delete[0]).first())
                 session.commit()
