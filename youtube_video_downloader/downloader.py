@@ -17,14 +17,22 @@ class YTubeDownloader:
         self.read_settings_from_json()
 
     def read_settings_from_json(self):
-        with open('youtube_video_downloader/settings/def_dir.json') as f:
-            s = json.load(f)['dir']
-            self.downloads_dir = s if s is not None else GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOWNLOAD)
+        try:
+            with open('youtube_video_downloader/settings/def_dir.json') as f:
+                s = json.load(f)['dir']
+                if s:
+                    self.downloads_dir = s
+                else: 
+                    raise FileNotFoundError
+        except FileNotFoundError:
+            self.downloads_dir = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOWNLOAD)
 
-        with open('youtube_video_downloader/settings/def_quality.json') as f:
-            s = json.load(f)['qual']
-            self.def_quality = s if s is not None else '720'
-            print(self.def_quality)
+        try:
+            with open('youtube_video_downloader/settings/def_quality.json') as f:
+                s = json.load(f)['qual']
+                self.def_quality = s
+        except FileNotFoundError:
+            self.def_quality = '720'
     
     def create_main_window(self):
         qualities = ('1080', '720', '360')
@@ -57,7 +65,7 @@ class YTubeDownloader:
         else:
             yd = yt.streams.get_by_resolution(quality)
         yd.download(self.downloads_dir)
-        os.system('play -nq -t alsa synth {} sine {}'.format(1, 440))
+        # os.system('play -nq -t alsa synth {} sine {}'.format(1, 440))
         window['-FINISHED-']('Video Downloaded')
 
     def change_default_directory(self):
@@ -98,6 +106,8 @@ class YTubeDownloader:
                                             font='DejaVuSans 12',
                                             size=(30, 40),
                                             file_types=(('text files', '*.txt'),))
+        if file_with_links in (' ', '', None): return
+        
         with open(file_with_links) as f:
             lst_links = f.read().split('\n')
 
@@ -106,7 +116,7 @@ class YTubeDownloader:
                 yt = YouTube(link)
                 yd = yt.streams.get_by_resolution(self.def_quality + 'p')
                 yd.download(self.downloads_dir)
-                print(n, yt.title, 'downloaded')
+                print(n + 1, yt.title, 'downloaded')
         else:
             os.system('play -nq -t alsa synth {} sine {}'.format(1, 440))
     
