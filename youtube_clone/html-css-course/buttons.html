@@ -8,6 +8,15 @@
 		border-radius: 4px;
 		cursor: pointer;
 		margin-right: 8px;
+		transition: opacity, 0.15s;
+	}
+
+	.subscribe-button:hover {
+		opacity: 0.8;
+	}
+
+	.subscribe-button:active {
+		opacity: 0.45;
 	}
 
 	.join-button {
@@ -20,8 +29,19 @@
 		width: 62px;
 		border-radius: 4px;
 		cursor: pointer;
+		transition: background-color 0.2s,
+		color 0.2s;
 	}
 
+	.join-button:hover {
+		background-color: rgb(55, 102, 213);
+		color: white;
+	}
+
+	.join-button:active {
+		opacity: 0.7;
+	}
+	
 	.tweet-button {
 		background-color: rgb(8, 158, 255);
 		border: none;
@@ -33,6 +53,11 @@
 		font-size: 15px;
 		cursor: pointer;
 		margin-left: 8px;
+		transition: box-shadow 0.2s;
+	}
+
+	.tweet-button:hover {
+		box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.15);
 	}
 
 	.uber-button {
@@ -42,6 +67,11 @@
 		color: white;
 		border: none;
 		cursor: pointer;
+		transition: opacity 0.18s;
+	}
+
+	.uber-button:hover {
+		opacity: 0.8;
 	}
 
 	.amazon-button {
@@ -51,6 +81,15 @@
 		border: none;
 		border-radius: 15px;
 		cursor: pointer;
+		transition: background-color 0.1s;
+	}
+
+	.amazon-button:hover {
+		background-color: rgb(245, 184, 27);
+	}
+
+	.amazon-button:active {
+		opacity: 0.6;
 	}
 
 	.bootstrap-first {
@@ -63,26 +102,43 @@
 		height: 36px;
 		width: 95px;
 		cursor: pointer;
+		transition: background-color 0.2s;
+	}
+
+	.bootstrap-first:hover {
+		background-color: rgb(93, 62, 141);
 	}
 
 	.bootstrap-second {
 		background-color: white;
 		border-width: 1px;
 		border-color: rgb(108, 117, 125);
+		color: rgb(108, 117, 125);
 		border-radius: 4px;
 		font-weight: bold;
 		font-size: 11px;
 		height: 36px;
 		width: 95px;
 		cursor: pointer;
+		transition: background-color 0.2s,
+		color 0.2s;
+	}
+
+	.bootstrap-second:hover {
+		background-color: rgb(108, 117, 125);
+		color: white;
 	}
 
 	div {
 		margin-top: 50px;
 	}
 	
-	.back {
+	.back-link {
 		color: rgb(0, 113, 133);
+	}
+
+	.back-link:hover {
+		color: rgb(164, 62, 46);
 	}
 
 	.buy-button {
@@ -92,6 +148,14 @@
 		border: none;
 		border-radius: 15px;
 		cursor: pointer;
+	}
+
+	.buy-button:hover {
+		background-color: rgb(255, 145, 28);
+	}
+
+	.buy-button:active {
+		opacity: 0.6;
 	}
 </style>
 
@@ -103,7 +167,7 @@
 <button class="bootstrap-first">Get started</button>
 <button class="bootstrap-second">Download</button><p></p>
 <div>
-	<a href="https://www.amazon.com" target="_blank" class="back">
+	<a href="https://www.amazon.com" target="_blank" class="back-link">
 		Back to Amazon
 	</a>
 	<p><b>Nike Black Running Shoes</b></p>
