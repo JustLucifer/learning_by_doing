@@ -1,0 +1,43 @@
+* {
+  margin-top: 0;
+}
+
+.email {
+  color: rgb(117, 117, 117);
+  font-size: 10px;
+  margin-top: 10px;
+  margin-bottom: 6px;
+}
+
+.email-input {
+  border-style: solid;
+  border-radius: 2px;
+  border-width: 2px;
+  border-color: rgb(117, 117, 117);
+}
+
+.policy {
+  color: rgb(117, 117, 117);
+  font-size: 10px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.submit-button {
+  background-color: rgb(61, 112, 192);
+  color: white;
+  font-size: 16px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  border: none;
+  border-radius: 20px;
+  transition: opacity 0.2s;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}

@@ -1,0 +1,40 @@
+* {
+  vertical-align: middle;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+.post-body {
+  font-size: 18px;
+  color: rgb(92, 91, 91);
+  border: none;
+  margin-left: 5px;
+  text-align: left;
+}
+
+.tweet-button {
+  background-color: rgb(29, 155, 240);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  border: none;
+  border-radius: 30px;
+  transition: background-color 0.2s;
+}
+
+
+.tweet-button:hover {
+  cursor: pointer;
+  background-color: rgb(27, 143, 221);
+}
