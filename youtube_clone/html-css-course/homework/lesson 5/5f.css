@@ -1,0 +1,33 @@
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.value {
+  font-size: 20px;
+  font-weight: 550;
+}
+
+.currency {
+  font-size: 12px;
+  color: rgb(125, 127, 134);
+  margin-left: 2px;
+}
+
+.plus {
+  color: rgb(58, 118, 46);
+  font-size: 14px;
+}
+
+.third-line {
+  font-size: 14px;
+}
+
+.after-hours {
+  color: rgb(125, 127, 134);
+}
+
+.minus {
+  color: rgb(195, 64, 73);
+}

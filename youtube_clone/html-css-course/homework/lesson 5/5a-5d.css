@@ -1,0 +1,65 @@
+.tahoma {
+  font-family: Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.biggest-deal {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.sales-end {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  color: rgb(197, 43, 43);
+  margin-top: 5px;
+}
+
+.course-title {
+  margin-top: 50px;
+  font-family: Verdana;
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.short-desc {
+  font-family: Verdana;
+  font-size: 14px;
+  color: rgb(143, 137, 137);
+  margin-top: 5px;
+}
+
+.course-description {
+  font-family: Verdana;
+  width: 290px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.get-started {
+  font-family: Verdana;
+  background-color: rgb(38, 154, 25);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 50px;
+  transition: opacity 0.15s;
+}
+
+.get-started:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.get-started:active {
+  cursor: pointer;
+  opacity: 0.5;
+}

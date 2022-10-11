@@ -1,279 +1,41 @@
-<style>
-	.subscribe-button {
-		background-color: rgb(210, 0, 0);
-		color: white;
-		border: none;
-		border-radius: 4px;
-		cursor: pointer;
-		margin-right: 8px;
-		padding-left: 16px;
-		padding-right: 16px;
-		padding-top: 10px;
-		padding-bottom: 10px;
-		transition: opacity, 0.15s;
-	}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Buttons Practice</title>
+		<link rel="stylesheet" href="styles/buttons.css">
+	</head>
+	<body>
+		<button class="subscribe-button">SUBSCRIBE</button>
+		<button class="join-button">JOIN</button>
+		<button class="tweet-button">Tweet</button><p></p>
+		<button class="uber-button">Request now</button><p></p>
+		<button class="amazon-button">Add to Cart</button><p></p>
+		<button class="bootstrap-first">Get started</button>
+		<button class="bootstrap-second">Download</button><p></p>
+		<div>
+			<a href="https://www.amazon.com" target="_blank" class="back-link">
+				Back to Amazon
+			</a>
+			<p><b>Nike Black Running Shoes</b></p>
+			<p style="color: rgb(0, 118, 0);"><b>$39 - in stock.</b></p>
+			<p>Free delivery tomorrow.</p>
+			<button class="amazon-button">Add to Cart</button>
+			<button class="buy-button">Buy now</button>
+		</div><p></p>
 
-	.subscribe-button:hover {
-		opacity: 0.8;
-	}
+		<button class="back-button">Back</button>
+		<a href="" class="link-padding">1</a>
+		<a href="" class="link-padding">2</a>
+		<a href="" class="link-padding">3</a>
+		<a href="" class="link-padding">4</a>
+		<a href="" class="link-padding">5</a>
+		<button class="next-button">Next</button><p></p>
 
-	.subscribe-button:active {
-		opacity: 0.45;
-	}
+		<button class="stretch-button">Stretch</button><p></p>
+		<button class="three-in-a-row">One</button>
+		<button class="three-in-a-row">Two</button>
+		<button class="three-in-a-row">Three</button><p></p>
+		<button class="shadow-button">Shadow</button>
+	</body>
+</html>
 
-	.join-button {
-		background-color: white;
-		border-color: rgb(6, 95, 212);
-		border-style: solid;
-		border-width: 1px;
-		color: rgb(6, 95, 212);
-		padding-left: 16px;
-		padding-right: 16px;
-		padding-top: 9px;
-		padding-bottom: 9px;
-		border-radius: 4px;
-		cursor: pointer;
-		transition: background-color 0.2s,
-		color 0.2s;
-	}
-
-	.join-button:hover {
-		background-color: rgb(6, 95, 212);
-		color: white;
-	}
-
-	.join-button:active {
-		opacity: 0.7;
-	}
-	
-	.tweet-button {
-		background-color: rgb(29, 155, 240);
-		border: none;
-		color: white;
-		padding-left: 14px;
-		padding-right: 14.5px;
-		padding-top: 9px;
-		padding-bottom: 8.5px;
-		border-radius: 18px;
-		font-weight: bold;
-		font-size: 15px;
-		cursor: pointer;
-		margin-left: 8px;
-		transition: box-shadow 0.2s;
-	}
-
-	.tweet-button:hover {
-		box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.15);
-	}
-
-	.uber-button {
-		background-color: black;
-		padding-left: 14px;
-		padding-right: 14px;
-		padding-top: 9.8px;
-		padding-bottom: 9.8px;
-		color: white;
-		border: none;
-		cursor: pointer;
-		transition: opacity 0.18s;
-	}
-
-	.uber-button:hover {
-		opacity: 0.8;
-	}
-
-	.amazon-button {
-		background-color: rgb(255, 216, 20);
-		padding-left: 18px;
-		padding-right: 18px;
-		padding-top: 7px;
-		padding-bottom: 7px;
-		border: none;
-		border-radius: 15px;
-		cursor: pointer;
-		transition: background-color 0.1s;
-	}
-
-	.amazon-button:hover {
-		background-color: rgb(245, 184, 27);
-	}
-
-	.amazon-button:active {
-		opacity: 0.6;
-	}
-
-	.bootstrap-first {
-		background-color: rgb(121, 82, 179);
-		color: white;
-		border: none;
-		border-radius: 4px;
-		font-weight: bold;
-		font-size: 11px;
-		height: 36px;
-		width: 95px;
-		cursor: pointer;
-		transition: background-color 0.2s;
-	}
-
-	.bootstrap-first:hover {
-		background-color: rgb(93, 62, 141);
-	}
-
-	.bootstrap-second {
-		background-color: white;
-		border-width: 1px;
-		border-color: rgb(108, 117, 125);
-		color: rgb(108, 117, 125);
-		border-radius: 4px;
-		font-weight: bold;
-		font-size: 11px;
-		height: 36px;
-		width: 95px;
-		cursor: pointer;
-		transition: background-color 0.2s,
-		color 0.2s;
-	}
-
-	.bootstrap-second:hover {
-		background-color: rgb(108, 117, 125);
-		color: white;
-	}
-
-	div {
-		margin-top: 50px;
-	}
-	
-	.back-link {
-		color: rgb(0, 113, 133);
-	}
-
-	.back-link:hover {
-		color: rgb(164, 62, 46);
-	}
-
-	.buy-button {
-		background-color: rgb(255, 164, 28);
-		height: 30px;
-		width: 110px;
-		border: none;
-		border-radius: 15px;
-		cursor: pointer;
-		transition: bacground-color 0.1s;
-	}
-
-	.buy-button:hover {
-		background-color: rgb(255, 145, 28);
-	}
-
-	.buy-button:active {
-		opacity: 0.6;
-	}
-</style>
-
-<button class="subscribe-button">SUBSCRIBE</button>
-<button class="join-button">JOIN</button>
-<button class="tweet-button">Tweet</button><p></p>
-<button class="uber-button">Request now</button><p></p>
-<button class="amazon-button">Add to Cart</button><p></p>
-<button class="bootstrap-first">Get started</button>
-<button class="bootstrap-second">Download</button><p></p>
-<div>
-	<a href="https://www.amazon.com" target="_blank" class="back-link">
-		Back to Amazon
-	</a>
-	<p><b>Nike Black Running Shoes</b></p>
-	<p style="color: rgb(0, 118, 0);"><b>$39 - in stock.</b></p>
-	<p>Free delivery tomorrow.</p>
-	<button class="amazon-button">Add to Cart</button>
-	<button class="buy-button">Buy now</button>
-</div>
-
-
-<style>
-	.link-padding {
-		padding-left: 5px;
-		padding-right: 5px;
-	}
-
-	.back-button {
-		padding-top: 5px;
-		padding-bottom: 5px;
-		margin-right: 5px;
-	}
-
-	.next-button {
-		padding-top: 5px;
-		padding-bottom: 5px;
-		margin-left: 5px;
-	}
-
-	.stretch-button {
-		background-color: rgb(50, 220, 68);
-		border: none;
-		border-radius: 2px;
-		padding-left: 6px;
-		padding-right: 6px;
-		padding-top: 3px;
-		padding-bottom: 3px;
-		transition: padding-left 0.8s,
-			padding-right 0.8s,
-			padding-top 0.8s,
-			padding-bottom 0.8s;
-	}
-
-	.stretch-button:hover {
-		cursor: pointer;
-		padding-left: 18px;
-		padding-right: 18px;
-		padding-top: 10px;
-		padding-bottom: 10px;
-	}
-
-	.shadow-button {
-		background-color: rgb(50, 220, 68);
-		border: none;
-		padding-left: 6px;
-		padding-right: 6px;
-		padding-top: 2px;
-		padding-bottom: 2px;
-		box-shadow: 2px 2px 5px rgba(97, 103, 98, 0.8);
-	}
-
-	.shadow-button:active {
-		margin-left: 2px;
-		margin-top: 2px;
-		box-shadow: none;
-	}
-
-	.three-in-a-row {
-		background-color: rgb(50, 220, 68);
-		border: none;
-		margin-right: 8px;
-		margin-left: 8px;
-		transition: margin 0.15s,
-			padding 0.15s;
-	}
-
-	.three-in-a-row:hover {
-		margin-right: 4px;
-		margin-left: 4px;
-		padding-right: 12px;
-		padding-left: 12px;
-		cursor: pointer;
-	}
-	
-</style>
-
-<button class="back-button">Back</button>
-<a href="" class="link-padding">1</a>
-<a href="" class="link-padding">2</a>
-<a href="" class="link-padding">3</a>
-<a href="" class="link-padding">4</a>
-<a href="" class="link-padding">5</a>
-<button class="next-button">Next</button><p></p>
-
-<button class="stretch-button">Stretch</button><p></p>
-<button class="three-in-a-row">One</button>
-<button class="three-in-a-row">Two</button>
-<button class="three-in-a-row">Three</button><p></p>
-<button class="shadow-button">Shadow</button>
