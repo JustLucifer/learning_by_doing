@@ -1,0 +1,30 @@
+
+input {
+  font-size: 16px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  border-style: solid;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.names {
+  width: 120px;
+}
+
+.email {
+  display: block;
+}
+
+button {
+  font-size: 16px;
+  background-color: rgb(79, 126, 209);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
