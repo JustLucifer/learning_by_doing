@@ -1,0 +1,50 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+div {
+  border: none;
+  box-shadow: 0 0 4px gray;
+  width: 140px;
+  height: 250px;
+  margin-left: 20px;
+  display: inline-block;
+}
+
+img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+}
+
+p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.mutual {
+  color: rgb(115, 116, 118);
+  font-size: 14px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: rgb(59, 102, 218);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-right: 13px;
+  padding-left: 13px;
+  font-size: 15px;
+  margin-left: 10px;
+  text-align: center;
+}
