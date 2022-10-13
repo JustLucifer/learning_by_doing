@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CSS Grid</title>
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: 200px 1fr 75px;
+    }
+
+    .f {
+      background-color: lightsalmon;
+    }
+
+    .s {
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="f">200px</div>
+    <div class="s">1fr</div>
+    <div class="f">75px</div>
+  </div>
+</body>
+</html>
