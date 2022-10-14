@@ -1,0 +1,62 @@
+body {
+  margin-bottom: 1000px;
+}
+
+.main-flex {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px;
+  margin-top: 200px;
+}
+
+.person {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 35px;
+  box-shadow: 0px 0px 4px rgba(80, 80, 80, 0.5);
+}
+
+.info {
+  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  line-height: 25px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.to-gray {
+  color: rgb(110, 110, 110);
+  font-size: 14px;
+}
+
+button {
+  background-color: rgb(87, 153, 255);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

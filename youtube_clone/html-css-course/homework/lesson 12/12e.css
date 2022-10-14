@@ -1,0 +1,41 @@
+.main-flex {
+  box-shadow: 0px 0px 4px rgba(100, 100, 100, 0.6);
+  border: none;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  margin-left: 200px;
+  margin-top: 200px;
+}
+
+.home,
+.notify,
+.messages {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 50px;
+  margin-left: 12px;
+  margin-right: 12px;
+  align-items: center;
+}
+
+.string {
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.number {
+  background-color: rgb(32, 112, 231);
+  color: white;
+  padding-left: 13px;
+  padding-right:13px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: none;
+  border-radius: 15px;
+  font-weight: 600;
+}
