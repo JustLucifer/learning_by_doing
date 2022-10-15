@@ -1,0 +1,37 @@
+body {
+  height: 3000px;
+  margin: 0;
+  padding-top: 60px;
+  padding-left: 80px;
+}
+
+.header {
+  background-color: rgb(255, 49, 150);
+  color: white;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  height: 50px;
+}
+
+.sidebar {
+  background-color: rgb(158, 238, 39);
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  top: 50px;
+  width: 70px;
+}
+
+.f {
+  background-color: lightblue;
+  width: 200px;
+  height: 200px;
+}
+
+.s {
+  background-color: lightpink;
+  width: 200px;
+  height: 200px;
+}
