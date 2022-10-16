@@ -9,6 +9,12 @@
   z-index: 200;
 }
 
+@media (min-width: 1300px) {
+  .sidebar {
+    width: 240px;
+  }
+}
+
 .sidebar-link {
   height: 74px;
   display: flex;
@@ -16,6 +22,16 @@
   align-items: center;
   flex-direction: column;
   cursor: pointer;
+}
+
+@media (min-width: 1300px) {
+  .sidebar-link {
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    padding-left: 25px;
+    height: 50px;
+  }
 }
 
 .sidebar-link:hover {
@@ -29,4 +45,12 @@
 
 .sidebar-link p {
   font-size: 10px;
+}
+
+@media (min-width: 1300px) {
+  .sidebar-link p {
+    font-size: 14px;
+    padding-left: 20px;
+
+  }
 }

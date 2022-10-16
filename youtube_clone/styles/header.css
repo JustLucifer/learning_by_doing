@@ -8,9 +8,7 @@
   right: 0px;
   left: 0px;
   background-color: white;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: rgb(222, 222, 222);
+  border: 1px solid rgb(222, 222, 222);
   align-items: center;
   z-index: 100;
 }
@@ -45,9 +43,7 @@
 .search-bar {
   flex: 1;
   padding-left: 12px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: rgb(204, 204, 204);
+  border: 1px solid rgb(204, 204, 204);
   height: 40px;
   font-size: 16px;
   border-radius: 2px;
@@ -55,7 +51,6 @@
 }
 
 .search-bar::placeholder {
-  font-family: Arial, sans-serif;
   font-size: 16px;
   color: rgb(120, 120, 120);
 }
