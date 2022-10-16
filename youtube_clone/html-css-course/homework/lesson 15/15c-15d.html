@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Postion Absolute and Relative</title>
+  <style>
+    body {
+      height: 3000px;
+    }
+
+    .d {
+      position: fixed;
+      background-color: rgb(136, 136, 136);
+      width: 320px;
+      height: 180px;
+      bottom: 15px;
+      right: 15px;
+    }
+
+    .close-button {
+      background-color: black;
+      color: white;
+      padding-left: 12px;
+      padding-right: 12px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      position: absolute;
+      top: -14px;
+      left: -14px;
+      border-radius: 30px;
+    }
+
+    .time {
+      background-color: black;
+      color: white;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-family: sans-serif;
+      font-size: 12px;
+      padding-left: 6px;
+      padding-right: 6px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="d">
+    <div class="close-button">X</div>
+    <div class="time">0:35</div>
+  </div>
+</body>
+</html>

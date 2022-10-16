@@ -2,7 +2,7 @@ body {
   height: 3000px;
   margin: 0;
   padding-top: 60px;
-  padding-left: 80px;
+  padding-left: 90px;
 }
 
 .header {
@@ -13,6 +13,7 @@ body {
   right: 0px;
   left: 0px;
   height: 50px;
+  z-index: 100;
 }
 
 .sidebar {
@@ -21,7 +22,29 @@ body {
   bottom: 0px;
   left: 0px;
   top: 50px;
-  width: 70px;
+  width: 80px;
+}
+
+.absolute {
+  position: absolute;
+  background-color: rgb(250, 115, 19);
+  top: 60px;
+  right: 15px;
+}
+
+.close {
+  position: absolute;
+  background-color: rgb(250, 115, 19);
+  top: 0px;
+  right: 0px;
+}
+
+.five {
+  position: absolute;
+  background-color: black;
+  color: white;
+  bottom: 10px;
+  right: 10px;
 }
 
 .f {
@@ -34,4 +57,5 @@ body {
   background-color: lightpink;
   width: 200px;
   height: 200px;
+  position: relative;
 }
