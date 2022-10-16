@@ -80,3 +80,8 @@
 .video-author {
   margin-top: 8px;
 }
+
+.video-author a {
+  text-decoration: none;
+  color: rgb(96, 96, 96);
+}
