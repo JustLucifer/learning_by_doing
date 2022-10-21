@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function greeting(firstName) {
+      console.log('Hello', firstName);
+    }
+
+    greeting('Sky');
+
+    function toUpper(param) {
+      console.log(param.toUpperCase())
+    }
+
+    toUpper('String')
+
+    function inchesToCentimeters(val) {
+      console.log(val * 2.54);
+    }
+
+    inchesToCentimeters(10);
+  </script>
+
+  <script>
+    let lst = ['my', 'name', 'is'];
+    new_lst = [];
+    
+    lst.forEach(function toUpper(param) {
+      let sm = param.toUpperCase();
+      new_lst.push(sm);
+    });
+
+    console.log(new_lst);
+
+    lst = ['bark','meow'];
+    let doubleLst = [];
+
+    lst.forEach(function double(i) {
+      doubleLst.push(i);
+      doubleLst.push(i);
+    });
+    console.log(doubleLst);
+
+    let array = [1, 2, 3];
+    let sum = 0;
+
+    array.forEach(function arraySum(i) {
+      sum += i;
+    });
+
+    console.log(sum);    
+  </script>
+</body>
+</html>
