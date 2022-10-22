@@ -4,6 +4,7 @@
   <title>Document</title>
 </head>
 <body>
+  <!-- js functions -->
   <script>
     function greeting(firstName) {
       console.log('Hello', firstName);
@@ -23,7 +24,7 @@
 
     inchesToCentimeters(10);
   </script>
-
+  <!-- arrays, for loop, methods -->
   <script>
     let lst = ['my', 'name', 'is'];
     new_lst = [];
@@ -52,6 +53,120 @@
     });
 
     console.log(sum);    
+  </script>
+
+  <!-- input, id, onclick, read values from html elements -->
+  <button id="done" onclick="changeText()">Click on me</button>
+  <script>
+    function changeText() {
+      let button = document.getElementById('done');
+      button.innerText = 'Done';
+    }
+  </script>
+
+  <div id="counter">0</div>
+  <button class="click" onclick="changeValue(this);" value="up">Up</button>
+  <button class="click" onclick="changeValue(this);" value="down">Down</button>
+
+  <script>
+    function changeValue(val) {
+      let counter = document.getElementById('counter');
+      let res = Number(counter.innerText);
+      if (val.value == 'up') {
+        res += 1;
+      } else {
+        res -= 1;
+      }
+      counter.innerText = res;
+    }
+  </script><br><br>
+  
+  <!-- read value from textbox and create new html element -->
+  <input id="value" type="text">
+  <button id="but" onclick="getValue();">Get Data</button>
+  <script>
+    function getValue() {
+      let data = document.getElementById('value');
+      data = data.value;
+      let res = document.createElement('div');
+      res.innerText = data;
+      document.body.appendChild(res);
+    }
+  </script><br><br>
+
+  <!-- reset the html element and fill it again -->
+  <button class="food" onclick="addToCart(this);" value="Apple">Apple</button>
+  <button class="food" onclick="addToCart(this);" value="Tomato">Tomato</button>
+  <button class="food" onclick="addToCart(this);" value="Eggs">Eggs</button>
+  <button id="clear" onclick="clearAll();">Clear</button><br><br>
+  <div id="cart">Cart: </div>
+  <script>
+    function addToCart(food) {
+      const cart = document.getElementById('cart');
+      const newItem = document.createElement('div');
+      newItem.innerText = food.value;
+      cart.appendChild(newItem);
+    }
+
+    function clearAll() {
+      document.getElementById('cart').innerHTML = 'Cart: ';
+    }
+  </script><br><br>
+
+  <input id="textbox" type="text">
+  <button class="convert" value="cm" onclick="converter(this);">Convert to cm</button>
+  <button class="convert" value="inch" onclick="converter(this);">Convert to inch</button>
+  <div id="res"></div>
+  <script>
+    function converter(measure) {
+      document.getElementById('res').innerHTML = '';
+
+      let value = +document.getElementById('textbox').value;
+      if (measure.value == 'cm') {
+        value *= 2.54;
+      } else {
+        value /= 2.54;
+      }
+      document.getElementById('res').innerText = value;
+    }
+  </script>
+
+  <div id="receipt"></div>
+  <script>
+    cartTotal = [
+    {
+      name: 'Apple',
+      price: 4,
+      quantity: 2
+    },
+    {
+      name: 'Orange',
+      price: 3,
+      quantity: 3
+    },
+    {
+      name: 'Mango',
+      price: 7,
+      quantity: 2
+    }];
+
+    function displayReceipt () {
+      const receipt = document.getElementById('receipt');
+      receipt.innerHTML = '';
+      let total = 0;
+      cartTotal.forEach(function (obj) {
+        let product = document.createElement('div');
+        let res = obj.price * obj.quantity;
+        total += res;
+        product.innerText = obj.name + ' $' + obj.price + ' * ' + obj.quantity + '= ' + '$' + res;
+        receipt.appendChild(product);
+      })
+      const totalCart = document.createElement('div');
+      totalCart.innerText = 'Cart Total = $' + total;
+      receipt.appendChild(totalCart);
+    }
+
+    displayReceipt();
   </script>
 </body>
 </html>
