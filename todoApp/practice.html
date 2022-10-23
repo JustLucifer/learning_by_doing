@@ -131,6 +131,7 @@
     }
   </script>
 
+  <!-- Objects in JS -->
   <div id="receipt"></div>
   <script>
     cartTotal = [
@@ -154,6 +155,7 @@
       const receipt = document.getElementById('receipt');
       receipt.innerHTML = '';
       let total = 0;
+
       cartTotal.forEach(function (obj) {
         let product = document.createElement('div');
         let res = obj.price * obj.quantity;
@@ -161,6 +163,7 @@
         product.innerText = obj.name + ' $' + obj.price + ' * ' + obj.quantity + '= ' + '$' + res;
         receipt.appendChild(product);
       })
+      
       const totalCart = document.createElement('div');
       totalCart.innerText = 'Cart Total = $' + total;
       receipt.appendChild(totalCart);
