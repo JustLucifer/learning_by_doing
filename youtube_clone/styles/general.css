@@ -1,11 +1,35 @@
+@font-face {
+  font-family: Roboto;
+  src: url('../assets/Roboto/Roboto-Regular.ttf');
+  font-stretch: normal;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url('../assets/Roboto/Roboto-Medium.ttf');
+  font-stretch: normal;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url('../assets/Roboto/Roboto-Bold.ttf');
+  font-stretch: normal;
+  font-weight: 700;
+  font-style: normal;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: Roboto, Arial;
   margin: 0;
   margin-bottom: 1000px;
   padding-top: 110px;
   padding-left: 96px;
   padding-right: 24px;
-  background-color: rgb(248, 248, 248);
+  background-color: white;
 }
 
 p {
