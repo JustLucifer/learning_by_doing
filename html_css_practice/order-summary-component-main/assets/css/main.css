@@ -1,0 +1,161 @@
+@font-face {
+  font-family: RedHatDisplay;
+  src: url('../fonts/Red_Hat_Display/static/RedHatDisplay-Regular.ttf');
+  font-stretch: normal;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: RedHatDisplay;
+  src: url('../fonts/Red_Hat_Display/static/RedHatDisplay-Bold.ttf');
+  font-stretch: normal;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: RedHatDisplay;
+  src: url('../fonts/Red_Hat_Display/static/RedHatDisplay-ExtraBold.ttf');
+  font-stretch: normal;
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: RedHatDisplay;
+  src: url('../fonts/Red_Hat_Display/static/RedHatDisplay-SemiBold.ttf');
+  font-stretch: normal;
+  font-weight: 600;
+  font-style: normal;
+}
+
+* {
+  font-family: RedHatDisplay;
+  margin: 0;
+}
+
+body {
+  background: hsl(225, 100%, 94%) url('../images/pattern-background-desktop.svg') no-repeat top center;
+  display: flex;
+  justify-content: center;
+}
+
+.order-summary-main {
+  background: white;
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-top: 110px;
+  border-radius: 20px;
+}
+
+#img-girl {
+  height: 220px;
+  border-radius: 20px 20px 0 0;
+}
+
+h1,
+h4 {
+  color: hsl(223, 47%, 23%);
+  font-weight: 900;
+}
+
+h1 {
+  margin: 40px 0 20px 0;
+}
+
+h4 {
+  font-size: 17.6px;
+}
+
+p {
+  font-size: 16px;
+  color: hsl(224, 23%, 55%);
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.plan-info {
+  background: hsl(225, 100%, 98%);
+  border-radius: 10px;
+  display: flex;
+  width: 354px;
+  height: 98px;
+  align-items: center;
+  justify-content: space-around;
+  margin: 22px 0 32px 0;
+}
+
+#music-icon {
+  height: 48px;
+  width: 48px;
+  padding-left: 15px;
+}
+
+.plan-info div {
+  display: flex;
+  flex-direction: column;
+  padding-right: 65px;
+  text-align: start;
+  line-height: 30px;
+}
+
+.plan-info div p {
+  font-size: 16px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.change-button {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  color: hsl(245, 75%, 52%);
+  font-weight: 700;
+  font-size: 14px;
+  margin-right: 10px;
+  transition: text-decoration .15s
+    opacity .15s;
+}
+
+.change-button:hover {
+  text-decoration: none;
+  opacity: .7;
+}
+
+.pay-button {
+  background: hsl(245, 75%, 52%);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 900;
+  font-size: 15px;
+  padding: 16px 103px 16px 103px;
+  box-shadow: 0 15px 20px hsla(245, 75%, 52%, .2);
+  transition: opacity .15s;
+}
+
+.pay-button:hover {
+  opacity: .7;
+}
+
+.cancel-button {
+  background: none;
+  border: none;
+  color: hsl(224, 23%, 55%);
+  font-weight: 900;
+  font-size: 15px;
+  margin: 36px 0 44px 0;
+  text-shadow: 0 0 2px hsla(224, 23%, 55%, .2);
+  transition: color .15s;
+}
+
+.cancel-button:hover {
+  color: hsl(223, 47%, 23%);
+}
