@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: RedHatDisplay;
-  src: url('../fonts/Red_Hat_Display/static/RedHatDisplay-ExtraBold.ttf');
+  src: url('../fonts/Red_Hat_Display/static/RedHatDisplay-Black.ttf');
   font-stretch: normal;
   font-weight: 900;
   font-style: normal;
@@ -66,10 +66,6 @@ h4 {
 
 h1 {
   margin: 40px 0 20px 0;
-}
-
-h4 {
-  font-size: 17.6px;
 }
 
 p {
@@ -152,7 +148,6 @@ button {
   font-weight: 900;
   font-size: 15px;
   margin: 36px 0 44px 0;
-  text-shadow: 0 0 2px hsla(224, 23%, 55%, .2);
   transition: color .15s;
 }
 

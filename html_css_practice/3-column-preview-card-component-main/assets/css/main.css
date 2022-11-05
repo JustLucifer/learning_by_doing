@@ -1,0 +1,116 @@
+@font-face {
+  font-family: LexendDeca;
+  src: url('../fonts/Lexend_Deca/static/LexendDeca-Regular.ttf');
+  font-stretch: normal;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: BigShouldersDisplay;
+  src: url('../fonts/Big_Shoulders_Display/static/BigShouldersDisplay-Bold.ttf');
+  font-stretch: normal;
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  margin-top: 250px;
+}
+
+img {
+  margin: 48px 0 42px 0;
+  width: 64px;
+}
+
+h1 {
+  color: hsl(0, 0%, 95%);
+  font-family: BigShouldersDisplay;
+  font-weight: 900;
+  font-size: 40px;
+}
+
+p,
+button {
+  font-family: LexendDeca;
+  font-size: 15px;
+}
+
+p {
+  color: hsla(0, 0%, 100%, 0.75);
+  line-height: 24px;
+  margin: 32px 0 80px 0;
+}
+
+span {
+  display: block;
+}
+
+button {
+  background: hsl(0, 0%, 95%);
+  border: 1px solid hsl(0, 0%, 95%);
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 13px 26px 13px 26px;
+  transition: background-color .15s;
+}
+
+button:hover {
+  background-color: transparent;
+}
+
+.three-column-card {
+  display: flex;
+  justify-content: center;
+}
+
+.column {
+  width: 307px;
+}
+
+.column-info {
+  margin: 0 0 48px 48px;
+}
+
+#sedan {
+  background-color: hsl(31, 77%, 52%);
+  border-radius: 10px 0 0 10px;
+}
+
+#suv {
+  background-color: hsl(184, 100%, 22%);
+}
+
+#luxury {
+  background-color: hsl(179, 100%, 13%);
+  border-radius: 0 10px 10px 0;
+}
+
+#sedan-button {
+  color: hsl(31, 77%, 52%);
+  transition: color .15s;
+}
+
+#sedan-button:hover {
+  color: hsl(0, 0%, 95%);
+}
+
+#suv-button {
+  color: hsl(184, 100%, 22%);
+}
+
+#suv-button:hover {
+  color: hsl(0, 0%, 95%);
+}
+
+#luxury-button {
+  color: hsl(179, 100%, 13%);
+}
+
+#luxury-button:hover {
+  color: hsl(0, 0%, 95%);
+}
