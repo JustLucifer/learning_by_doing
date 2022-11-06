@@ -1,0 +1,121 @@
+@font-face {
+  font-family: Karla;
+  src: url('../fonts/Karla/static/Karla-Regular.ttf');
+  font-stretch: normal;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Karla;
+  src: url('../fonts/Karla/static/Karla-Bold.ttf');
+  font-stretch: normal;
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  color: hsl(204, 43%, 93%);
+  font-family: Karla;
+  margin: 0;
+}
+
+body {
+  background: hsl(204, 43%, 93%);
+  display: flex;
+  justify-content: center;
+  padding-top: 150px;
+}
+
+.price-grid {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 8px 8px 30px rgba(202, 202, 202, 0.4);
+  width: 700px;
+}
+
+.join-info {
+  padding: 44px 0 43px 40px;
+}
+
+h1 {
+  color: hsl(179, 62%, 43%);
+}
+
+#money-back {
+  color: hsl(71, 73%, 54%);
+  padding: 32px 0 18px 0;
+}
+
+.to-gray {
+  color: rgb(180, 183, 192);
+  line-height: 22px;
+}
+
+p {
+  font-size: 16px;
+}
+
+span {
+  display: block;
+}
+
+.divided-columns {
+  display: flex;
+}
+
+.sign-up,
+.about {
+  width: 350px;
+}
+
+.sign-up {
+  background: rgb(43, 179, 177);
+  border-radius: 0 0 0 10px;
+  padding: 44px 0 40px 40px;
+}
+
+.price-container {
+  display: flex;
+  align-items: center;
+  padding: 20px 0 14px 0;
+}
+
+#price {
+  font-size: 30px;
+  font-weight: 700;
+  display: inline;
+  padding-right: 8px;
+}
+
+#after-price {
+  display: inline;
+}
+
+button {
+  background: hsl(71, 73%, 54%);
+  border: none;
+  border-radius: 6px;
+  box-shadow: 8px 8px 4px rgba(148, 148, 148, 0.3);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 15px 89px;
+  margin-top: 26px;
+  transition: opacity .2s;
+}
+
+button:hover {
+  opacity: .9;
+}
+
+.about {
+  background: rgb(74, 190, 189);
+  border-radius: 0 0 10px 0;
+  padding: 44px 0 40px 40px;
+}
+
+.about p {
+  margin-top: 20px;
+  line-height: 22px;
+}
