@@ -1,0 +1,131 @@
+@font-face {
+  font-family: Outfit;
+  src: url('../fonts/Outfit/static/Outfit-Light.ttf');
+  font-stretch: normal;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Outfit;
+  src: url('../fonts/Outfit/static/Outfit-SemiBold.ttf');
+  font-stretch: normal;
+  font-weight: 600;
+  font-style: normal;
+}
+
+* {
+  font-family: Outfit;
+  margin: 0;
+}
+
+body {
+  background: hsl(217, 54%, 11%);
+  display: flex;
+  justify-content: center;
+  padding-top: 120px;
+}
+
+main {
+  background: hsl(216, 50%, 16%);
+  border-radius: 14px;
+  box-shadow: 0 30px 8px 9px hsla(217, 54%, 11%, .7);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+#equilibrium {
+  width: 302px;
+  border-radius: 8px;
+}
+
+.color-on-hover {
+  background: hsl(178, 100%, 50%);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 302px;
+  height: 302px;
+  opacity: 0;
+  position: absolute;
+  transition: opacity .15s;
+}
+
+.color-on-hover:hover {
+  cursor: pointer;
+  opacity: .5;
+}
+
+h2 {
+  color: hsl(0, 0%, 100%);
+  margin: 30px 0 24px 0;
+  font-weight: 600;
+  transition: color .15s;
+}
+
+h2:hover {
+  color: hsl(178, 100%, 50%);
+  cursor: pointer;
+}
+
+p {
+  font-size: 18px;
+  color: hsl(215, 51%, 70%);
+  line-height: 26px;
+  font-weight: 300;
+}
+
+.offer {
+  display: flex;
+  margin: 24px 0;
+  justify-content: space-between;
+}
+
+.offer img {
+  margin-right: 6px;
+}
+
+.offer p {
+  font-size: 17px;
+}
+
+.offer-part-container {
+  display: flex;
+  align-items: center;
+}
+
+.eth {
+  color: hsl(178, 100%, 50%);
+  font-weight: 600;
+}
+
+#clock {
+  width: 22px;
+  height: 22px;
+}
+
+.creator {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid hsl(215, 32%, 27%);
+  padding: 16px 0 4px 0;
+}
+
+.creator img {
+  border: 1px solid white;
+  border-radius: 16px;
+  width: 33px;
+  margin-right: 20px;
+}
+
+#name {
+  color: white;
+  transition: color .15s;
+}
+
+#name:hover {
+  cursor: pointer;
+  color: hsl(178, 100%, 50%);
+}

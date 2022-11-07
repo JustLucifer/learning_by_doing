@@ -27,8 +27,6 @@ body {
   display: flex;
   justify-content: center;
   padding-top: 240px;
-  /* delete this */
-  padding-bottom: 1000px;
 }
 
 * {
