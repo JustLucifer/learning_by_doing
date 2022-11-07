@@ -1,0 +1,116 @@
+@font-face {
+  font-family: Overpass;
+  src: url('../fonts/Overpass/static/Overpass-Regular.ttf');
+  font-stretch: normal;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Overpass;
+  src: url('../fonts/Overpass/static/Overpass-Bold.ttf');
+  font-stretch: normal;
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  font-family: Overpass;
+  margin: 0;
+}
+
+body {
+  background: hsl(216, 12%, 8%);
+  display: flex;
+  justify-content: center;
+  padding-top: 190px;
+}
+
+main {
+  background: hsl(213, 19%, 18%);
+  border-radius: 28px;
+  position: relative;
+  width: 412px;
+  height: 415px;
+}
+
+#rating-component {
+  display: flex;
+  flex-direction: column;
+  margin: 32px;
+  z-index: 100;
+}
+
+.star-container {
+  background: hsl(216, 12%, 22%);
+  border-radius: 24px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  color: white;
+  margin: 36px 0 22px 0;
+  font-size: 28px;
+}
+
+p,
+.rate-button {
+  color: hsl(216, 12%, 54%);
+  font-size: 15px;
+}
+
+p {
+  line-height: 24px;
+}
+
+.rate-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0 30px 0;
+}
+
+.rate-button {
+  background: hsl(216, 12%, 22%);
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: 700;
+  width: 48px;
+  height: 48px;
+  transition: color .15s,
+    background-color .15s;
+}
+
+.rate-button:hover {
+  background: hsl(25, 97%, 53%) !important;
+  color: white !important;
+}
+
+.rate-button:active {
+  background: hsl(217, 12%, 63%) !important;
+}
+
+.submit-button {
+  background: hsl(25, 97%, 53%);
+  border: 1px solid hsl(25, 97%, 20%);
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 2px;
+  width: 341px;
+  height: 45px;
+  transition: color .15s,
+    background-color .15s,
+    border-color .15s;
+}
+
+.submit-button:hover {
+  background: white;
+  border-color: white;
+  color: hsl(25, 97%, 53%);
+}

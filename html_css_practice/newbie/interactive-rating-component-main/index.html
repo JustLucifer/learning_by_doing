@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <title>Interactive rating component</title>
+</head>
+<body>
+  <main>
+    <div id="rating-component">
+      <div class="star-container">
+        <img class="star-img" src="./assets/images/icon-star.svg" alt="star-icon">
+      </div>
+      <h2>How did we do?</h2>
+      <p>
+        Please let us know how we did with your support
+        <span style="display: block;">request. All feedback is appreciated to help us</span>
+        improve our offering!
+      </p>
+
+      <div class="rate-buttons-container">
+        <button class="rate-button" onclick="chooseRating(this);">1</button>
+        <button class="rate-button" onclick="chooseRating(this);">2</button>
+        <button class="rate-button" onclick="chooseRating(this);">3</button>
+        <button class="rate-button" onclick="chooseRating(this);">4</button>
+        <button class="rate-button" onclick="chooseRating(this);">5</button>
+      </div>
+
+      <button class="submit-button" onclick="sendRating();">SUBMIT</button>
+    </div>
+    <script src="./assets/js/main.js"></script>
+  </main>
+</body>
+</html>
