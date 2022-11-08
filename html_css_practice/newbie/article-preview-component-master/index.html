@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/share.css">
+
+  <title>Article preview component</title>
+</head>
+<body>
+  <main>
+    <img id="drawers" src="./assets/images/drawers.jpg" alt="example of furniture design">
+
+    <div class="info">
+      <h3>
+        Shift the overall look and feel by
+        <span style="display: block;">adding these wonderful touches to</span>
+        furniture in your home
+      </h3>
+      <p class="description">
+        Ever been in a room and felt like something was missing?
+        <span style="display: block;">Perhaps it felt slightly bare and uninviting. I've got some</span>
+         simple tips to help you make any room feel complete.
+      </p>
+
+      <div class="creator">
+        <img class="avatar" src="./assets/images/avatar-michelle.jpg" alt="michelle avatar">
+
+        <div class="creator-name-date">
+          <h5>Michelle Appleton</h5>
+          <p style="color: hsl(212, 23%, 69%);">28 Jun 2020</p>
+        </div>
+
+        <!-- <div id="talkbubble">
+          <h4>SHARE</h4>
+          <img class="share-app-icon" src="./assets/images/icon-facebook.svg" alt="facebook-icon">
+          <img class="share-app-icon" src="./assets/images/icon-twitter.svg" alt="twitter-icon">
+          <img class="share-app-icon" src="./assets/images/icon-pinterest.svg" alt="pinterest-icon">
+        </div> -->
+        <div id="share-container">
+          <div id="share-icon-container" onclick="showShareDiv()">
+            <img class="share-icon" src="./assets/images/icon-share.svg" alt="share icon">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="./assets/js/main.js"></script>
+</body>
+</html>
