@@ -1,0 +1,90 @@
+main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo-img {
+  width: 162px;
+}
+
+.cooming-soon-page-info {
+  display: flex;
+  flex-direction: column;
+  padding: 70px 0 0 164px;
+}
+
+.bg-img-right {
+  width: 39.55%;
+}
+
+h1 {
+  font-size: 80px;
+  font-weight: 400;
+  margin: 138px 0 42px 0;
+  letter-spacing: 14px;
+  line-height: 90px;
+}
+
+#we-word {
+  color: hsl(0, 36%, 70%);
+  font-weight: 300;
+}
+
+.other-part-h1 {
+  display: block;
+  color: hsl(0, 6%, 24%);
+}
+
+p {
+  color: hsl(0, 36%, 70%);
+  font-size: 17px;
+  line-height: 30px;
+}
+
+input {
+  border-radius: 30px;
+  border: 1px solid hsl(0, 36%, 80%);
+  width: 415px;
+  height: 56px;
+  margin-top: 46px;
+  padding-left: 30px;
+  font-size: 16px;
+}
+
+::placeholder {
+  color: hsl(0, 36%, 70%);
+}
+
+#submit-email {
+  position: relative;
+}
+
+button {
+  width: 102px;
+  height: 58px;
+  border-radius: 30px;
+  border: none;
+  background: radial-gradient(hsl(0, 80%, 86%), hsl(0, 74%, 74%)), linear-gradient(hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  cursor: pointer;
+  position: absolute;
+  right: 4px;
+  bottom: 1px;
+}
+
+button:hover {
+  opacity: .8;
+}
+
+#error-container {
+  position: absolute;
+  height: 24px;
+  bottom: 18px;
+  right: 120px;
+}
+
+#invalid-email-message {
+  color: hsl(0, 93%, 68%);
+  font-size: 14px;
+  margin: 10px 0 0 30px;
+  position: absolute;
+}
