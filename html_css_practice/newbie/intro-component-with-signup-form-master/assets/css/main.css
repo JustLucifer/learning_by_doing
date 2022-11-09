@@ -1,0 +1,91 @@
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.discount {
+  background: hsl(248, 32%, 49%);
+  border: none;
+  width: 540px;
+  height: 60px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px hsl(0, 100%, 70%);
+  margin-bottom: 24px;
+}
+
+.form-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px hsl(0, 100%, 70%);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.input-containers {
+  position: relative;
+}
+
+.input-containers p {
+  color: hsl(0, 100%, 74%);
+  font-size: 11px;
+  font-style: italic;
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
+  font-weight: 500;
+}
+
+.input-containers img {
+  position: absolute;  
+  right: 25px;
+  top: 18px;
+}
+
+input {
+  border-radius: 4px;
+  border: 1px solid rgb(199, 199, 199);
+  margin-bottom: 40px;
+  padding-left: 25px;
+  width: 435px;
+  height: 56px;
+  color: hsl(249, 10%, 26%);
+  font-weight: 600;
+}
+
+::placeholder {
+  color: hsl(249, 10%, 26%);
+  font-weight: 600;
+  opacity: .8;
+}
+
+button {
+  background: hsl(154, 59%, 51%);
+  border: none;
+  border-radius: 4px;
+  width: 464px;
+  height: 56px;
+  font-size: 17px;
+  font-weight: 500;
+  box-shadow: 0 4px hsl(154, 59%, 46%);
+  cursor: pointer;
+  transition: background-color .15s;
+}
+
+button:active {
+  background: hsl(154, 59%, 61%);
+}
+
+.terms {
+  font-size: 12px;
+  color: hsl(246, 25%, 77%);
+  margin: 18px 0 45px 0;
+  font-weight: 500;
+}

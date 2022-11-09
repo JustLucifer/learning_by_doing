@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./assets/css/general.css">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/aside.css">
+  
+  <title>Intro component with sign up form</title>
+</head>
+<body>
+  <aside>
+    <h1>
+      Learn to code by
+      <span style="display: block;">watching others</span>
+    </h1>
+    <p>
+      See how experienced developers solve problems in real-time.
+      <span style="display: block;">Watching scripted tutorials is great, but understanding how </span>
+      developers think is invaluable.
+    </p>
+  </aside>
+
+  <main>
+    <div class="discount">
+      <p>
+        <span style="font-weight: 700;">Try it free 7 days</span> 
+        then $20/mo. thereafter
+      </p>
+    </div>
+
+    <div class="form-container">
+      <div class="form">
+        <div id="first-name-container" class="input-containers">
+          <input type="text" placeholder="First Name" id="first-name" onfocus="changeColorOnFocus(this)" onblur="changeColorOnBlur(this)">
+        </div>
+        
+        <div id="last-name-container" class="input-containers">
+          <input type="text" placeholder="Last Name" id="last-name" onfocus="changeColorOnFocus(this)" onblur="changeColorOnBlur(this)">
+        </div>
+
+        <div id="email-container" class="input-containers">
+          <input type="email" id="email" placeholder="Email Address" onfocus="changeColorOnFocus(this)" onblur="changeColorOnBlur(this)">
+        </div>
+
+        <div id="password-container" class="input-containers">
+          <input type="password" id="password" placeholder="Password" onfocus="changeColorOnFocus(this)" onblur="changeColorOnBlur(this)">
+        </div>
+        
+        <button onclick="checkForm()">CLAIM YOUR FREE TRIAL</button>
+        
+        <p class="terms">
+          By clicking the button, you are agreeing to our
+          <span style="color: hsl(0, 100%, 74%);">Terms and Services</span>
+        </p>
+      </div>
+    </div>
+  </main>
+  <script src="./assets/js/main.js"></script>
+</body>
+</html>
