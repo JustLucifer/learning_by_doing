@@ -1,0 +1,34 @@
+@font-face {
+  font-family: LibreFranklin;
+  src: url('../fonts/Libre_Franklin/static/LibreFranklin-Light.ttf');
+  font-stretch: normal;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: LibreFranklin;
+  src: url('../fonts/Libre_Franklin/static/LibreFranklin-SemiBold.ttf');
+  font-stretch: normal;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: LibreFranklin;
+  src: url('../fonts/Libre_Franklin/static/LibreFranklin-Bold.ttf');
+  font-stretch: normal;
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  font-family: LibreFranklin;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
