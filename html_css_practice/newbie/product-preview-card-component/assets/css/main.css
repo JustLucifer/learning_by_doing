@@ -7,7 +7,6 @@
 body {
   background-color: hsl(30, 38%, 92%);
   display: flex;
-  margin: 100px 0 0 0;
   align-items: center;
   justify-content: center;
 }
@@ -15,12 +14,30 @@ body {
 main {
   display: flex;
   border-radius: 4px;
+  margin-top: 100px;
+}
+
+@media (max-width: 600px) {
+  main {
+    flex-direction: column;
+    flex-basis: 100%;
+    padding: 2.2rem;
+    margin-top: 0;
+  }
 }
 
 .product-image {
   width: 300px;
   object-fit: cover;
   border-radius: 8px 0 0 8px;
+}
+
+@media (max-width: 600px) {
+  .product-image {
+    border-radius: 10px 10px 0 0;
+    height: 250px;
+    width: 350px;
+  }
 }
 
 p,
@@ -30,7 +47,7 @@ button {
   color: hsl(228, 12%, 48%);
 }
 
-.product-info__wrapper {
+.product-info-wrapper {
   background-color: white;
   width: 250px;
   height: 450px;
@@ -42,24 +59,45 @@ button {
   padding: 0 25px 0 25px;
 }
 
+@media (max-width: 600px) {
+  .product-info-wrapper {
+    width: 300px;
+    height: 400px;
+    border-radius: 0 0 10px 10px;
+    margin-top: -4px;
+  }
+}
+
 .new-line {
   display: block;
+}
+
+
+@media (max-width: 600px) {
+  .new-line {
+    display: inline;
+  }
+
+  .mb-br {
+    display: block;
+  }
 }
 
 .perfume {
   font-size: 12px;
   letter-spacing: 5px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  margin-top: 1rem;
 }
 
 h1,
 .price-discount {
   font-family: Fraunces;
-  font-size: 30px;
+  font-size: 2rem;
 }
 
 h1 {
-  line-height: 30px;
+  line-height: 32px;
   font-weight: 700;
 }
 
@@ -102,6 +140,12 @@ button {
   margin-bottom: 20px;
   cursor: pointer;
   transition: background-color 0.15s;
+}
+
+@media (max-width: 600px) {
+  button {
+    width: 300px;
+  }
 }
 
 button:active {
