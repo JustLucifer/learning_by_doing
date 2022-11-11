@@ -23,7 +23,13 @@ body {
   background: hsl(217, 54%, 11%);
   display: flex;
   justify-content: center;
-  padding-top: 120px;
+  padding-top: 7.5rem;
+}
+
+@media (max-width: 25rem) {
+  body {
+    padding-top: 2rem;
+  }
 }
 
 main {
@@ -32,17 +38,23 @@ main {
   box-shadow: 0 30px 8px 9px hsla(217, 54%, 11%, .7);
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  padding: 1.5rem;
 }
 
 #equilibrium {
   width: 302px;
-  border-radius: 8px;
+  border-radius: .5rem;
+}
+
+@media (max-width: 25rem) {
+  #equilibrium {
+    width: 290px;
+  }
 }
 
 .color-on-hover {
   background: hsl(178, 100%, 50%);
-  border-radius: 8px;
+  border-radius: .5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,9 +72,15 @@ main {
 
 h2 {
   color: hsl(0, 0%, 100%);
-  margin: 30px 0 24px 0;
+  margin: 1.25em 0 1em 0;
   font-weight: 600;
   transition: color .15s;
+}
+
+@media (max-width: 25rem) {
+  h2 {
+    margin: 1.15em 0 .85em 0;
+  }
 }
 
 h2:hover {
@@ -79,8 +97,14 @@ p {
 
 .offer {
   display: flex;
-  margin: 24px 0;
+  margin: 1.5rem 0;
   justify-content: space-between;
+}
+
+@media (max-width: 25rem) {
+  .offer {
+    margin: 1.4rem 0;
+  }
 }
 
 .offer img {
@@ -110,14 +134,20 @@ p {
   display: flex;
   align-items: center;
   border-top: 1px solid hsl(215, 32%, 27%);
-  padding: 16px 0 4px 0;
+  padding: 1rem 0 .25rem 0;
+}
+
+@media (max-width: 25rem) {
+  .creator {
+    padding: .9rem 0 .2rem 0;
+  }
 }
 
 .creator img {
   border: 1px solid white;
   border-radius: 16px;
   width: 33px;
-  margin-right: 20px;
+  margin-right: 1.25rem;
 }
 
 #name {
