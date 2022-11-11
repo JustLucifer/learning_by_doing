@@ -41,20 +41,25 @@ body {
   justify-content: center;
 }
 
+main {
+  width: max(340px, 70%);
+  max-width: 450px;
+  margin-top: 8%;
+}
+
 .order-summary-main {
   background: white;
-  width: 450px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   justify-content: center;
-  margin-top: 110px;
   border-radius: 20px;
 }
 
 #img-girl {
-  height: 220px;
+  height: 100%;
+  width: 100%;
   border-radius: 20px 20px 0 0;
 }
 
@@ -65,21 +70,41 @@ h4 {
 }
 
 h1 {
-  margin: 40px 0 20px 0;
+  margin-top: 9%;
+  margin-bottom: max(18px, 4.45%);
+}
+
+@media (width < 550px) {
+  h1 {
+    font-size: 1.5rem;
+  }
 }
 
 p {
-  font-size: 16px;
   color: hsl(224, 23%, 55%);
   font-weight: 600;
   line-height: 24px;
+}
+
+#span-br {
+  display: block;
+}
+
+@media (width < 550px) {
+  #span-br {
+    display: inline;
+  }
+  
+  .mb-br {
+    display: block;
+  }
 }
 
 .plan-info {
   background: hsl(225, 100%, 98%);
   border-radius: 10px;
   display: flex;
-  width: 354px;
+  width: 82%;
   height: 98px;
   align-items: center;
   justify-content: space-around;
@@ -89,13 +114,13 @@ p {
 #music-icon {
   height: 48px;
   width: 48px;
-  padding-left: 15px;
+  padding: 0 10px 0 min(15px, 5%);
 }
 
 .plan-info div {
   display: flex;
   flex-direction: column;
-  padding-right: 65px;
+  padding-right: 12%;
   text-align: start;
   line-height: 30px;
 }
@@ -132,7 +157,8 @@ button {
   color: white;
   font-weight: 900;
   font-size: 15px;
-  padding: 16px 103px 16px 103px;
+  width: 82%;
+  height: 50px;
   box-shadow: 0 15px 20px hsla(245, 75%, 52%, .2);
   transition: opacity .15s;
 }
