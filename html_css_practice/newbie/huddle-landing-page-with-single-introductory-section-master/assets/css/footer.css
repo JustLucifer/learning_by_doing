@@ -1,0 +1,25 @@
+footer {
+  padding-top: max(2.2rem, 5%);
+}
+
+@media (width > 75rem) {
+  footer {
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+footer svg {
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+svg path {
+  fill: white;
+  transition: fill .2s;
+}
+
+footer svg path:hover {
+  fill: hsl(300, 69%, 71%);
+}

@@ -1,0 +1,21 @@
+header {
+  padding: calc(1rem + 2%) 0 0 0;
+  display: flex;
+  width: 70%;
+}
+
+.chatbox-icon {
+  margin-right: 8px;
+}
+
+@media (width < 60rem) {  
+  .chatbox-icon {
+    width: 30px;
+  }
+}
+
+h2 {
+  font-family: Poppins;
+  font-weight: 800;
+  font-size: max(calc(1.2rem + 1vw), 26px);
+}

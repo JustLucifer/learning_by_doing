@@ -1,0 +1,50 @@
+@font-face {
+  font-family: OpenSans;
+  src: url('../fonts/Open_Sans/static/OpenSans-Regular.ttf');
+  font-stretch: normal;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url('../fonts/Poppins/Poppins-Bold.ttf');
+  font-stretch: normal;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url('../fonts/Poppins/Poppins-ExtraBold.ttf');
+  font-stretch: normal;
+  font-weight: 800;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+body {
+  background: hsl(257, 40%, 49%) url('../images/bg-desktop.svg') no-repeat top left;
+  background-size: 1700px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media (width < 75rem) {
+  body {
+    background: hsl(257, 40%, 49%) url('../images/bg-mobile.svg') no-repeat top center;
+    background-size: 100%;
+  }
+}
+
+
+header svg,
+footer svg {
+  width: 40px;
+}
