@@ -19,7 +19,9 @@
 }
 
 body {
-  margin-top: 250px;
+  margin: 10% 0;
+  display: flex;
+  justify-content: center;
 }
 
 img {
@@ -46,8 +48,10 @@ p {
   margin: 32px 0 80px 0;
 }
 
-span {
-  display: block;
+@media (width < 40rem) {
+  p {
+    margin-bottom: 25px;
+  }
 }
 
 button {
@@ -65,15 +69,27 @@ button:hover {
 
 .three-column-card {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
+@media (width > 40rem) {
+  .three-column-card {
+    margin-inline: 1rem auto;
+    flex-direction: row;
+  }
+
+  span {
+    display: block;
+  }
+}
+
 .column {
-  width: 307px;
+  width: 19rem;
 }
 
 .column-info {
-  margin: 0 0 48px 48px;
+  margin: 0 2.5rem 3rem 3rem;
 }
 
 #sedan {
@@ -88,6 +104,16 @@ button:hover {
 #luxury {
   background-color: hsl(179, 100%, 13%);
   border-radius: 0 10px 10px 0;
+}
+
+@media (width < 40rem) {
+  #sedan {
+    border-radius: 10px 10px 0 0;
+  }
+
+  #luxury {
+    border-radius: 0 0 10px 10px;
+  }
 }
 
 #sedan-button {

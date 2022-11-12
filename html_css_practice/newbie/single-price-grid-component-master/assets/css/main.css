@@ -24,18 +24,28 @@ body {
   background: hsl(204, 43%, 93%);
   display: flex;
   justify-content: center;
-  padding-top: 150px;
+  align-items: center;
+  padding: 10% 0 10% 0;
 }
 
 .price-grid {
-  background: white;
-  border-radius: 10px;
   box-shadow: 8px 8px 30px rgba(202, 202, 202, 0.4);
-  width: 700px;
 }
 
 .join-info {
-  padding: 44px 0 43px 40px;
+  background: white;
+}
+
+@media (width < 40rem) {
+  body {
+    flex-direction: column;
+  }
+
+  .join-info {
+    width: 300px;
+    padding: 30px 20px 40px 20px;
+    border-radius: 10px 10px 0 0;
+  }
 }
 
 h1 {
@@ -49,15 +59,17 @@ h1 {
 
 .to-gray {
   color: rgb(180, 183, 192);
-  line-height: 22px;
+  line-height: 26px;
 }
 
 p {
   font-size: 16px;
 }
 
-span {
-  display: block;
+@media (width > 40rem) {
+  .desctop-br {
+    display: block;
+  }
 }
 
 .divided-columns {
@@ -100,9 +112,16 @@ button {
   cursor: pointer;
   font-size: 16px;
   font-weight: 700;
-  padding: 15px 89px;
+  width: 14.5rem;
+  height: 48px;
   margin-top: 26px;
   transition: opacity .2s;
+}
+
+@media (width < 40rem) {
+  button {
+    width: 18.5rem;
+  }
 }
 
 button:hover {
@@ -112,10 +131,33 @@ button:hover {
 .about {
   background: rgb(74, 190, 189);
   border-radius: 0 0 10px 0;
-  padding: 44px 0 40px 40px;
 }
 
 .about p {
   margin-top: 20px;
   line-height: 22px;
+}
+
+.pdng {
+  padding: 44px 0 40px 40px;
+}
+
+@media (width < 40rem) {
+  .divided-columns {
+    flex-direction: column;
+  }
+
+  .sign-up {
+    border-radius: 0;
+    width: 300px;
+  }
+
+  .about {
+    border-radius: 0 0 10px 10px;
+    width: 300px;
+  }
+
+  .pdng {
+    padding: 30px 20px 40px 25px;
+  }
 }
