@@ -1,0 +1,27 @@
+@font-face {
+  font-family: Manrope;
+  src: url('../fonts/Manrope/static/Manrope-Medium.ttf');
+  font-stretch: normal;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Manrope;
+  src: url('../fonts/Manrope/static/Manrope-Bold.ttf');
+  font-stretch: normal;
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  font-family: Manrope;
+}
+
+body {
+  background: hsl(210, 46%, 95%);
+  display: flex;
+  justify-content: center;
+  padding-top: 10%;
+}

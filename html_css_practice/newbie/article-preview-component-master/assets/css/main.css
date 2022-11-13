@@ -1,43 +1,22 @@
-@font-face {
-  font-family: Manrope;
-  src: url('../fonts/Manrope/static/Manrope-Medium.ttf');
-  font-stretch: normal;
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Manrope;
-  src: url('../fonts/Manrope/static/Manrope-Bold.ttf');
-  font-stretch: normal;
-  font-weight: 700;
-  font-style: normal;
-}
-
-* {
-  margin: 0;
-  font-family: Manrope;
-}
-
-body {
-  background: hsl(210, 46%, 95%);
-  display: flex;
-  justify-content: center;
-  padding-top: 150px;
-}
-
 main {
   background: white;
   border-radius: 12px;
   display: flex;
 }
 
-h3,
+@media (width < 50rem) {
+  main {
+    flex-direction: column;
+    max-width: 340px;
+  }
+}
+
+h1,
 h5 {
   color: hsl(217, 19%, 35%);
 }
 
-h3 {
+h1 {
   font-size: 20px;
 }
 
@@ -46,16 +25,18 @@ p {
   font-weight: 500;
 }
 
-.description {
-  color: hsl(214, 17%, 51%);
-  margin: 19px 0 22px 0;
-  line-height: 21px;
-}
-
-#drawers {
+.drawers {
   border-radius: 12px 0 0 12px;
   width: 286px;
   object-fit: cover;
+}
+
+@media (width < 50rem) {
+  .drawers {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px 12px 0 0;
+  }
 }
 
 .info {
@@ -63,6 +44,34 @@ p {
   flex-direction: column;
   justify-content: center;
   margin: 40px;
+}
+
+@media (width < 50rem) {
+  h1 {
+    font-size: 18px;
+  }
+
+  .info {
+    margin: 28px;
+  }
+}
+
+.description {
+  color: hsl(214, 17%, 51%);
+  margin: 19px 0 22px 0;
+  line-height: 21px;
+}
+
+@media (width < 50rem) {
+  .description {
+    margin-right: 28px;
+  }
+}
+
+@media (width > 50rem) {
+  .desktop-br {
+    display: block;
+  }
 }
 
 .creator {
@@ -81,6 +90,13 @@ p {
   flex-direction: column;
   margin: 0 163px 0 17px;
   line-height: 20px;
+}
+
+@media (width < 50rem) {
+  .creator-name-date {
+    margin-right: 3.7rem;
+    margin-top: 10px;
+  }
 }
 
 #share-container {

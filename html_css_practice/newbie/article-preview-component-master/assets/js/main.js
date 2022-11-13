@@ -7,6 +7,7 @@ function createShareDiv() {
 
   h4.innerText = 'SHARE';
   div.setAttribute('id', 'talkbubble');
+  div.setAttribute('class', 'talkbubble');
   div.appendChild(h4)
 
   for (let i = 0; i < 3; i++) {
@@ -19,6 +20,7 @@ function createShareDiv() {
   const shareDiv = document.createElement('div');
   shareDiv.appendChild(div);
   shareDiv.setAttribute('id', 'share-div');
+  shareDiv.setAttribute('class', 'share-div');
 
   return shareDiv;
 }
@@ -28,9 +30,11 @@ function showShareDiv() {
 
   if (divIsActive === false) {
     document.getElementById('share-container').appendChild(shareDiv);
+    document.getElementById('share-icon-container').setAttribute('class', 'share-app');
     divIsActive = true;
   } else {
     document.getElementById('share-div').remove();
+    document.getElementById('share-icon-container').removeAttribute('class');
     divIsActive = false;
   }
 }
