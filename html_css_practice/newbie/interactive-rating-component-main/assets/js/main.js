@@ -20,40 +20,29 @@ function chooseRating(rating) {
 }
 
 function createImage() {
-  let img = document.createElement('img');
+  const img = document.createElement('img');
   img.src = './assets/images/illustration-thank-you.svg'
   listElements.push(img);
 }
 
 function createRatingResponse(rating) {
-  let ratingResponse = document.createElement('p');
+  const ratingResponse = document.createElement('p');
   ratingResponse.innerText = `You selected ${rating} out of 5`;
-  ratingResponse.setAttribute(
-    'style', `background: hsl(216, 12%, 22%);
-    border: none;
-    border-radius: 24px;
-    color: hsl(25, 97%, 45%);
-    margin: 30px 0 36px 0;
-    padding: 4px 26px;`
-  );
+  ratingResponse.setAttribute('class', 'rating-response');
 
   listElements.push(ratingResponse);
 }
 
 function createThankYouH1() {
-  let h1 = document.createElement('h1');
+  const h1 = document.createElement('h1');
   h1.style.color = 'white';
   h1.innerText = 'Thank You!'
   listElements.push(h1);
 }
 
 function createDescription() {
-  let description = document.createElement('p');
-
-  description.innerHTML = `We appreciate you taking the time to give a rating. 
-  <span style="display: block;">If you ever need more support, don't hesitate to</span>
-  get in touch!`;
-  description.setAttribute('style', 'margin: 18px 0 50px 0;')
+  const description = document.createElement('p');
+  description.innerHTML = 'We appreciate you taking the time to give a rating. <span>If you ever need more support, don\'t hesitate to</span> get in touch!';
 
   listElements.push(description);
 }
@@ -65,14 +54,7 @@ function createThankYouPage(rating) {
   createThankYouH1();
   createDescription();
 
-  thankYouContainer.setAttribute(
-    'style', `display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 32px;`
-  );
+  thankYouContainer.setAttribute('class', 'thank-you-container');
 
   for (let i = 0; i < listElements.length; i++) {
     thankYouContainer.appendChild(listElements[i]);

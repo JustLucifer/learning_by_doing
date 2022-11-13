@@ -1,37 +1,8 @@
-@font-face {
-  font-family: Overpass;
-  src: url('../fonts/Overpass/static/Overpass-Regular.ttf');
-  font-stretch: normal;
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Overpass;
-  src: url('../fonts/Overpass/static/Overpass-Bold.ttf');
-  font-stretch: normal;
-  font-weight: 700;
-  font-style: normal;
-}
-
-* {
-  font-family: Overpass;
-  margin: 0;
-}
-
-body {
-  background: hsl(216, 12%, 8%);
-  display: flex;
-  justify-content: center;
-  padding-top: 190px;
-}
-
 main {
   background: hsl(213, 19%, 18%);
   border-radius: 28px;
   position: relative;
   width: 412px;
-  height: 415px;
 }
 
 #rating-component {
@@ -39,6 +10,17 @@ main {
   flex-direction: column;
   margin: 32px;
   z-index: 100;
+}
+
+@media (width < 33rem) {
+  main {
+    border-radius: 16px;
+    width: 340px;
+  }
+
+  #rating-component {
+    margin: 20px;
+  }
 }
 
 .star-container {
@@ -51,19 +33,33 @@ main {
   align-items: center;
 }
 
+@media (width < 33rem) {
+  .star-container {
+    width: 42px;
+    height: 42px;
+  }
+}
+
 h2 {
   color: white;
   margin: 36px 0 22px 0;
   font-size: 28px;
 }
 
-p,
+@media (width < 33rem) {
+  h2 {
+    margin: 20px 0 10px 0;
+    font-size: 26px;
+  }
+}
+
+main p,
 .rate-button {
   color: hsl(216, 12%, 54%);
   font-size: 15px;
 }
 
-p {
+main p {
   line-height: 24px;
 }
 
@@ -107,6 +103,14 @@ p {
   transition: color .15s,
     background-color .15s,
     border-color .15s;
+}
+
+@media (width < 33rem) {
+  .submit-button {
+    width: 300px;
+    height: 48px;
+    margin-bottom: 10px;
+  }
 }
 
 .submit-button:hover {

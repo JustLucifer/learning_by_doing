@@ -1,0 +1,46 @@
+.thank-you-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 32px;
+}
+
+.thank-you-container p {
+  margin: 18px 0 50px 0;
+}
+
+.thank-you-container img {
+  margin-bottom: 10px;
+}
+
+.rating-response {
+  background: hsl(216, 12%, 22%);
+  border: none;
+  border-radius: 24px;
+  color: hsl(25, 97%, 45%);
+  margin: 30px 0 36px 0;
+  padding: 4px 26px;
+}
+
+@media (width < 33rem) {
+  .thank-you-container h1 {
+    font-size: 26px;
+  }
+
+  .thank-you-container p {
+    margin: 10px 0 20px 0;
+  }
+
+  .rating-response {
+    padding: 4px 18px;
+    margin: 30px 0 30px 0;
+  }
+}
+
+@media (width > 33rem) {
+  span {
+    display: block;
+  }
+}
