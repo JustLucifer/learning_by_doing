@@ -1,0 +1,99 @@
+:root {
+  --heading-clr: hsl(300, 43%, 22%);
+  --prg-clr: hsl(303, 10%, 53%);
+  --status-clr: hsl(333, 80%, 67%);
+  --rating-bg-clr: hsl(300, 24%, 96%);
+  --card-bg-clr: hsl(300, 47%, 26%);
+
+  --margin-bot: 16px;
+}
+
+main {
+  margin-top: calc(1rem + 1%);
+}
+
+.social-info {
+  margin-bottom: calc(var(--margin-bot) * 2.5);
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1,
+.rating,
+.card {
+  margin-bottom: var(--margin-bot);
+}
+
+.text-to-center {
+  text-align: center;
+}
+
+h1 {
+  color: var(--heading-clr);
+  font-size: 36px;
+}
+
+.description p {
+  color: var(--prg-clr);
+  margin-bottom: calc(var(--margin-bot) * 2);
+  max-width: 400px;
+  line-height: 24px;
+}
+
+.ratings-container {
+  color: var(--heading-clr);
+}
+
+.rating {
+  background: var(--rating-bg-clr);
+  padding: calc(1rem + 1%) 0;
+  max-width: 736px;
+}
+
+.star-prg {
+  margin-bottom: 12px;
+  font-size: 17px;
+}
+
+.el--rounded {
+  border-radius: 10px;
+}
+
+.card {
+  background: var(--card-bg-clr);
+  color: hsl(0 0% 95%);
+  padding: 2rem;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: calc(var(--margin-bot) * 1.5);
+}
+
+.user-avatar {
+  width: 42px;
+  border-radius: 21px;
+}
+
+.name-container {
+  padding-left: 1.5rem;
+}
+
+h3 {
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+h4 {
+  color: var(--status-clr);
+  font-weight: 400;
+}
+
+.comment {
+  line-height: 21px;
+}
