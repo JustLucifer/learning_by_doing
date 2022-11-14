@@ -1,0 +1,49 @@
+@font-face {
+  font-family: Poppins;
+  src: url('../fonts/Poppins/Poppins-ExtraLight.ttf');
+  font-stretch: normal;
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: Poppins;
+  src: url('../fonts/Poppins/Poppins-Regular.ttf');
+  font-stretch: normal;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url('../fonts/Poppins/Poppins-SemiBold.ttf');
+  font-stretch: normal;
+  font-weight: 600;
+  font-style: normal;
+}
+
+:root {
+  --heading-clr: hsl(234, 12%, 34%);
+  --prg-clr: hsl(229, 6%, 66%);
+}
+
+* {
+  font-family: Poppins;
+  margin: 0;
+}
+
+body {
+  background: hsl(0, 0%, 98%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: calc(1rem + 1.5%);
+}
+
+h1,
+h2 {
+  color: var(--heading-clr);
+}
+
+p {
+  color: var(--prg-clr);
+}

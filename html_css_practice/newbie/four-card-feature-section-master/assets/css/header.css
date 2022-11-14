@@ -1,0 +1,26 @@
+header {
+  padding: 0 0 calc(2rem + 2%) 0;
+  width: max(320px, 67%);
+  max-width: 540px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: calc(1rem + 2%);
+  text-align: center;
+}
+
+.title-light-part {
+  font-weight: 200;
+  display: block;
+}
+
+header p {
+  text-align: center;
+}
+
+@media (width > 50rem) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
