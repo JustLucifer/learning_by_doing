@@ -1,0 +1,123 @@
+:root {
+  --very-dark-blue: hsl(229, 57%, 11%);
+  --pale-blue: hsl(243, 100%, 93%);
+  --grayish-blue: hsl(229, 7%, 55%);
+  --dark-blue: hsl(228, 56%, 26%);
+
+  --brdr-radius: 10px;
+  --brdr-radius-bar: 15px;
+
+  --padd: 1.5rem;
+}
+
+.first-section {
+  background: var(--dark-blue);
+  border-radius: 10px;
+  border-top-right-radius: 50%;
+  padding: calc(var(--padd) + 2%);
+  max-width: 350px;
+  margin-bottom: 20px;
+}
+
+.logo-container {
+  margin-bottom: 25px;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.action-container {
+  background: var(--very-dark-blue);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--brdr-radius);
+}
+
+.stats {
+  background: var(--dark-blue);
+  padding: 2rem var(--padd) 4rem var(--padd);
+  border-radius: var(--brdr-radius);
+  position: relative;
+}
+
+.storage-info {
+  padding: 0 8px 0 8px;
+  margin-bottom: 16px;
+}
+
+.storage-bar-container {
+  background-color: hsl(229, 57%, 18%);
+  width: 100%;
+  border-radius: var(--brdr-radius-bar);
+  height: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.storage-bar {
+  background: linear-gradient(hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+  color: white;
+  text-align: right;
+  width: 81%;
+  height: 14px;
+  border-radius: var(--brdr-radius-bar);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.bar-dot {
+  margin: 0 1px 2px 0;
+}
+
+.to-white {
+  color: white;
+  font-weight: 600;
+}
+
+.counter {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.free-space-left {
+  position: absolute;
+  background: white;
+  border-radius: var(--brdr-radius);
+  padding: .8rem 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  bottom: -12%;
+  left: 21%;
+}
+
+.amount-gb-left,
+.to-gray {
+  font-weight: 700;
+  display: inline;
+}
+
+.amount-gb-left {
+  color: var(--very-dark-blue);
+  font-size: 42px;
+}
+
+.to-gray {
+  color: var(--grayish-blue);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+/* .number {
+  display: inline;
+  color: var(--very-dark-blue);
+} */
