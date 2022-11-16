@@ -1,0 +1,73 @@
+.main-grid {
+  display: grid;
+  gap: 30px;
+}
+
+@media (width > 70rem) {
+  .main-grid {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 6%;
+    max-width: 1440px;
+  }
+
+  .grid-col-span-2 {
+    grid-column: span 2;
+  }
+
+  .comment-fifth {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+  }
+}
+
+.comment {
+  border-radius: 10px;
+  padding: 2rem 1.75rem;
+  color: white;
+}
+
+.user {
+  display: flex;
+  gap: 16px;
+}
+
+h2,
+.user {
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 42px;
+  border-radius: 21px;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+.comment-first {
+  background: hsl(263, 55%, 52%) url('../images/bg-pattern-quotation.svg') no-repeat top right;
+}
+
+.comment-second {
+  background: hsl(217, 19%, 35%);
+}
+
+.comment-third,
+.comment-fifth {
+  background: white;
+  color: hsl(217, 19%, 35%);
+  box-shadow: 0 8px 20px rgba(146, 146, 146, .35);
+}
+
+.comment-fourth {
+  background: hsl(219, 29%, 14%);
+}
+
+.status {
+  opacity: .5;
+}
+
+.main-content {
+  opacity: .7;
+}

@@ -1,0 +1,38 @@
+@font-face {
+  font-family: BarlowSemiCondensed;
+  src: url('../fonts/Barlow_Semi_Condensed/BarlowSemiCondensed-Medium.ttf');
+  font-stretch: normal;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: BarlowSemiCondensed;
+  src: url('../fonts/Barlow_Semi_Condensed/BarlowSemiCondensed-SemiBold.ttf');
+  font-stretch: normal;
+  font-weight: 600;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  font-family: BarlowSemiCondensed;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 4rem 1rem;
+  background: hsl(210, 46%, 95%);
+}
+
+@media (width > 50rem) {
+  body {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+p {
+  font-size: 13.5px;
+  line-height: 20px;
+}
