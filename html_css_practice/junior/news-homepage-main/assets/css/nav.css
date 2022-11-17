@@ -1,0 +1,15 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.8rem 0;
+}
+
+.logo {
+  width: 52px;
+}
+
+.menu-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}

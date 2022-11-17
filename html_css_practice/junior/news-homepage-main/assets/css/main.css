@@ -1,0 +1,39 @@
+:root {
+  --heading-clr: hsl(240, 100%, 5%);
+  --paragraph-clr: hsl(236, 13%, 42%);
+  --button-clr: hsl(5, 85%, 63%);
+}
+
+main img,
+h1,
+main p {
+  margin-bottom: 20px;
+}
+
+main img {
+  width: 340px;
+}
+
+h1 {
+  font-size: 42px;
+  color: var(--heading-clr);
+  font-weight: 800;
+  line-height: 1;
+}
+
+main p {
+  color: var(--paragraph-clr);
+  line-height: 1.6;
+}
+
+.read-more-button {
+  background: var(--button-clr);
+  border: none;
+  width: 185px;
+  height: 48px;
+  color: hsl(36, 100%, 99%);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 4px;
+  margin-bottom: 60px;
+}

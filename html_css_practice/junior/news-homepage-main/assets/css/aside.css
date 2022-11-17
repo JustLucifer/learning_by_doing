@@ -1,0 +1,33 @@
+.aside-feed {
+  background: hsl(240, 100%, 5%);
+  color: white;
+  display: grid;
+  gap: 20px;
+  padding: 1.5rem 1.2rem 0 1.2rem;
+  margin-bottom: 4rem;
+}
+
+h2 {
+  color: hsl(35, 77%, 62%);
+  font-size: 32px;
+}
+
+.bot-border {
+  border-bottom: 1px solid hsl(236, 13%, 42%);
+}
+
+h2,
+.aside-feed-news {
+  padding: .5rem;
+}
+
+h3 {
+  font-size: 19px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.aside-feed p {
+  color: hsl(233, 8%, 79%);
+  margin-bottom: 20px;
+}
