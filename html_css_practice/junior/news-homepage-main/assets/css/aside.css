@@ -26,6 +26,12 @@ h3 {
   font-size: 19px;
   font-weight: 800;
   margin-bottom: 10px;
+  transition: color .15s;
+}
+
+h3:hover {
+  color: hsl(35, 77%, 62%);
+  cursor: pointer;
 }
 
 .aside-feed p {

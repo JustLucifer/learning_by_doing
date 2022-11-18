@@ -3,6 +3,7 @@ nav {
   justify-content: space-between;
   margin: calc(1.8rem + 1.5%) auto;
   max-width: 1110px;
+  position: relative;
 }
 
 .logo {
@@ -19,6 +20,15 @@ nav {
   display: none;
 }
 
+a {
+  color: hsl(236, 13%, 42%);
+  transition: color .15s;
+}
+
+a:hover {
+  color: hsl(19, 77%, 48%);
+}
+
 @media (width > 50rem) {
   .logo {
     width: 62px;
@@ -33,8 +43,41 @@ nav {
     gap: 35px;
     align-items: center;
   }
+}
 
-  a {
-    color: hsl(236, 13%, 42%);
-  }
+/* mobile menu with js */
+
+#mb-side-menu {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: hsl(36, 100%, 99%);
+  width: 14rem;
+  padding: 1.5rem;
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.3);
+}
+
+#cross-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 8px 0 4rem 8rem;
+}
+
+#links {
+  display: grid;
+  gap: 28px;
+  font-size: 17px;
+}
+
+#links a {
+  color: hsl(240, 100%, 5%);
+  cursor: pointer;
+  transition: color .15s;
+}
+
+#links a:hover,
+#links a:active {
+  color: hsl(19, 77%, 48%);
 }
