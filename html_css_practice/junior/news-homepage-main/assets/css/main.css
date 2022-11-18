@@ -4,14 +4,35 @@
   --button-clr: hsl(5, 85%, 63%);
 }
 
-main img,
+.main-article {
+  max-width: 730px;
+}
+
 h1,
-main p {
+.image-bg,
+.main-article p {
   margin-bottom: 20px;
 }
 
-main img {
+.image-bg {
+  background: url('../images/image-web-3-mobile.jpg');
   width: 340px;
+  height: 297px;
+  background-position: top center;
+  background-size: cover;
+}
+
+@media (width > 50rem) {
+  .image-bg {
+    background: url('../images/image-web-3-desktop.jpg');
+    width: 730px;
+    height: 300px;
+    background-size: cover;
+  }
+
+  .artice-info {
+    display: flex;
+  }
 }
 
 h1 {
@@ -19,11 +40,28 @@ h1 {
   color: var(--heading-clr);
   font-weight: 800;
   line-height: 1;
+  flex: 1.1;
 }
 
-main p {
+@media (width > 50rem) {
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  .article-preview {
+    flex: 1;
+  }
+}
+
+.article-preview p {
   color: var(--paragraph-clr);
   line-height: 1.6;
+}
+
+@media (width > 50rem) {
+  .article-preview p {
+    margin-bottom: 30px;
+  }
 }
 
 .read-more-button {
@@ -36,4 +74,5 @@ main p {
   font-size: 15px;
   letter-spacing: 4px;
   margin-bottom: 60px;
+  cursor: pointer;
 }

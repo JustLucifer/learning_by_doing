@@ -3,6 +3,13 @@ footer {
   gap: 30px;
 }
 
+@media (width > 60rem) {
+  footer {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column: span 2;
+  }
+}
+
 article {
   display: flex;
   gap: 20px;

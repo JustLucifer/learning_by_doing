@@ -1,7 +1,8 @@
 nav {
   display: flex;
   justify-content: space-between;
-  margin: 1.8rem 0;
+  margin: calc(1.8rem + 1.5%) auto;
+  max-width: 1110px;
 }
 
 .logo {
@@ -12,4 +13,28 @@ nav {
   background: transparent;
   border: none;
   cursor: pointer;
+}
+
+.nav-links {
+  display: none;
+}
+
+@media (width > 50rem) {
+  .logo {
+    width: 62px;
+  }
+  
+  .menu-button {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+  }
+
+  a {
+    color: hsl(236, 13%, 42%);
+  }
 }

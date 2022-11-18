@@ -40,3 +40,15 @@ p {
   font-size: 15px;
   line-height: 1.6;
 }
+
+.page-content {
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+@media (width > 60rem) {
+  .page-content {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
