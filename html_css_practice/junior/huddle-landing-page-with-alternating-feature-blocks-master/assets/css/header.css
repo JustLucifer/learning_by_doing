@@ -1,8 +1,14 @@
 header {
-  background: hsl(193, 100%, 96%) url('../images/bg-hero-mobile.svg');
+  background: hsl(193, 100%, 96%) url('../images/bg-hero-mobile.svg') no-repeat;
   padding-top: calc(1rem + 1%);
   color: hsl(192, 100%, 9%);
   margin-bottom: 2.2rem;
+}
+
+@media (width > 45rem) {
+  header {
+    background-image: url('../images/bg-hero-desktop.svg');
+  }
 }
 
 .header-container {
