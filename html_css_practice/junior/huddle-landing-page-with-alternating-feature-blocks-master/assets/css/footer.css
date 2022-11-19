@@ -1,21 +1,38 @@
 footer {
   background: hsl(192, 100%, 9%);
   color: white;
-  padding: 8rem 0 3rem 0;
+  padding: 8rem 1rem 3rem 1rem;
+  margin-top: calc(3rem + 5%);
 }
 
-footer > * {
-  margin: 1rem;
+@media (width > 60rem) {
+  .display-flex-row {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .footer__logo {
+    margin-bottom: 2rem;
+  }
 }
 
-.contact__logo {
-  margin-left: -4rem;
+@media (width > 78rem) {
+  .footer__logo {
+    margin-left: 6.5%;
+  }
 }
 
 .contact__info-grid {
   display: grid;
   margin: 2rem 1rem 4rem 1rem;
   gap: 1.5rem;
+  max-width: 420px;
+}
+
+@media (width > 60rem) {
+  .contact__info-grid {
+    margin: 0;
+  }
 }
 
 .contact__container {
@@ -37,16 +54,51 @@ footer > * {
   margin-bottom: 4rem;
 }
 
+.left-links,
+.right-links {
+  display: grid;
+  gap: 1.2rem;
+}
+
 a {
   text-decoration: none;
   color: white;
-  font-size: 20px;
+  font-size: 18px;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
+@media (width > 60rem) {
+  .nav-panel {
+    display: flex;
+    gap: 2rem;
+    flex: 1;
+    max-width: 400px;
+  }
+
+  .left-links,
+  .right-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 1;
+  }
+
+  .icons-copyright-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 }
 
 .icons-container {
   display: flex;
   gap: 1rem;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 
 .icon {
@@ -57,6 +109,10 @@ a {
   cursor: pointer;
 }
 
+.icon:active {
+  border-color: hsl(322, 100%, 66%);
+}
+
 .icon__share-app {
   width: 22px;
   margin: 8px;
@@ -64,6 +120,15 @@ a {
 
 path {
   fill: white;
+}
+
+path:active {
+  fill: hsl(322, 100%, 66%);
+}
+
+.icon,
+path {
+  transition: .15s;
 }
 
 .copyright {

@@ -5,6 +5,14 @@
   --ff-heading: Poppins;
 }
 
+@media (width > 50rem) {
+  main {
+    padding: calc(1rem + 1%);
+    max-width: 1340px;
+    margin: 0 auto;
+  }
+}
+
 .card {
   padding: 1.4rem;
   margin: 1.2rem;
@@ -13,11 +21,46 @@
   text-align: center;
 }
 
+@media (width > 50rem) {
+  .card {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: calc(2rem + 2%);
+    margin-bottom: 2.5rem;
+  }
+
+  .card--not-reversed {
+    flex-direction: row;
+  }
+
+  .card__info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    padding: 6%;
+  }
+  
+  .card {
+    text-align: start;
+  }
+}
+
 .card__image {
-  width: max(17rem, 60%);
-  max-width: 30rem;
+  width: max(17rem, 50%);
+  max-width: 26rem;
   margin-bottom: 3.5rem;
   font-size: 23px;
+}
+
+@media (width > 50rem) {
+  .card__image {
+    margin-bottom: 0;
+  }
+  
+  .card__image--not-reversed {
+    margin-right: 8rem;
+  }
 }
 
 .card__title,
@@ -32,6 +75,16 @@
   font-size: 16px;
 }
 
+@media (width > 50rem) {
+  .card__title {
+    font-size: calc(1.5rem + .3vw);
+  }
+  
+  .card__body {
+    max-width: 28rem;
+  }
+}
+
 .card--bot-margin {
   margin-bottom: 4rem;
 }
@@ -43,19 +96,30 @@
 
 .question-container {
   background: white;
-  box-shadow: 0 0 20px rgba(180, 180, 180, .5);
-  padding: 1rem;
+  box-shadow: 0 0 20px rgba(180, 180, 180, .4);
+  padding: calc(1rem + 2vw);
   margin: .8rem;
   border-radius: 1rem;
   position: absolute;
-  bottom: -4.5rem;
+  top: -7rem;
   width: 94%;
-  height: 10rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  max-width: 800px;
+  z-index: 100;
+}
+
+@media (width > 50rem) {
+  .question-container {
+    top: -1vw;
+  }
+  
+  .for-postion {
+    margin: 0 calc(.8rem + 20%);
+  }
 }
 
 .question {
@@ -66,4 +130,17 @@
 .question__button {
   width: 14rem;
   height: 2.8rem;
+}
+
+@media (width > 80rem) {
+  .question {
+    font-size: 30px;
+  }
+
+  .question__button {
+    font-size: 17px;
+    width: 24rem;
+    height: 4.5rem;
+    border-radius: 2.5rem;
+  }
 }
