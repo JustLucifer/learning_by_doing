@@ -1,0 +1,66 @@
+header {
+  background: hsl(193, 100%, 96%) url('../images/bg-hero-mobile.svg');
+  padding-top: calc(1rem + 1%);
+  color: hsl(192, 100%, 9%);
+  margin-bottom: 2.2rem;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 1rem 4rem 1rem;
+}
+
+.logo {
+  height: 18px;
+}
+
+.try-for-free-button {
+  background: white;
+  border: none;
+  width: 110px;
+  height: 28px;
+  font-weight: 700;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(189, 189, 189, 0.6);
+  color: hsl(192, 100%, 9%);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.main-info {
+  text-align: center;
+}
+
+h1 {
+  font-size: 27px;
+  line-height: 1.5;
+  font-family: Poppins;
+}
+
+.main-info__title,
+.main-info__body {
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+}
+
+.main-info__button {
+  margin-bottom: 3.5rem;
+  width: 270px;
+  height: 46px;
+}
+
+.get-started-button {
+  background: hsl(322, 100%, 66%);
+  border: none;
+  color: white;
+  border-radius: 25px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.main-info__image {
+  width: 330px;
+  margin-bottom: 2.2rem;
+}
