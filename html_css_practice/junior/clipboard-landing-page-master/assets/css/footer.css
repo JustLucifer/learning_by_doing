@@ -2,8 +2,26 @@ footer {
   background: hsl(0, 0%, 97%);
 }
 
+@media (width > 60rem) {
+  .footer__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 3rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    gap: 3rem;
+  }
+}
+
 .footer__logo {
   width: 50px;
+}
+
+@media (width > 40rem) {
+  .footer__logo {
+    margin-top: 3rem;
+  }
 }
 
 .links-container {
@@ -17,4 +35,26 @@ footer {
   justify-content: space-evenly;
   width: 14rem;
   margin: 0 auto;
+}
+
+path {
+  cursor: pointer;
+  transition: .15s;
+}
+
+path:hover{
+  fill: hsl(171, 66%, 44%);
+}
+
+@media (width > 60rem) {
+  .links-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: start;
+    margin-left: 2rem;
+  }
+
+  .share-icons {
+    margin: 0;
+    margin-left: 10%;
+  }
 }

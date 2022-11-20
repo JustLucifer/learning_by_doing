@@ -39,24 +39,83 @@ h3 {
   font-size: 21px;
 }
 
+@media (width > 40rem) {
+  h2 {
+    font-size: 34px;
+  }
+}
+
 p {
   color: hsl(201, 11%, 66%);
-  margin-bottom: 3rem;
+  margin-bottom: calc(3rem + 1%);
   line-height: 1.5;
 }
 
-header,
-main,
-footer {
-  padding: calc(4rem) 1.6rem;
+@media (width > 40rem) {
+  p {
+    max-width: 665px;
+    margin: 0 auto calc(3rem + 1%) auto;
+  }
+}
+
+.fs-medium {
+  font-size: 18px;
+}
+
+@media (width < 60rem) {
+  header,
+  main,
+  footer {
+    padding: 4rem 1.6rem;
+  }
 }
 
 section {
-  padding: calc(4rem) 0;
+  padding: 3.5rem 0;
 }
 
 a {
   text-decoration: none;
   color: hsl(210, 10%, 33%);
   font-size: 16px;
+  transition: .15s;
+}
+
+a:hover {
+  color: hsl(171, 66%, 44%);
+}
+
+button {
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  width: 292px;
+  margin: 0 auto;
+  padding: 1rem 0;
+  border-radius: 2rem;
+  cursor: pointer;
+  letter-spacing: .5px;
+  transition: 0.15s;
+}
+
+button:hover {
+  opacity: .7;
+}
+
+@media (width > 40rem) {
+  button {
+    width: 242px;
+    font-size: 17px;
+  }
+}
+
+.ios-button {
+  background: hsl(171, 66%, 44%);
+  box-shadow: 0 3px 2px hsl(171, 66%, 34%);
+}
+
+.mac-button {
+  background: hsl(233, 100%, 69%);
+  box-shadow: 0 3px 2px hsl(233, 100%, 62%);
 }
