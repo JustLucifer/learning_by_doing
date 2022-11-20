@@ -1,0 +1,62 @@
+@font-face {
+  font-family: BaiJamjuree;
+  src: url('../fonts/Bai_Jamjuree/BaiJamjuree-Regular.ttf');
+  font-stretch: normal;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: BaiJamjuree;
+  src: url('../fonts/Bai_Jamjuree/BaiJamjuree-SemiBold.ttf');
+  font-stretch: normal;
+  font-weight: 600;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: BaiJamjuree;
+}
+
+body {
+  text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  color: hsl(210, 10%, 33%);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 21px;
+}
+
+p {
+  color: hsl(201, 11%, 66%);
+  margin-bottom: 3rem;
+  line-height: 1.5;
+}
+
+header,
+main,
+footer {
+  padding: calc(4rem) 1.6rem;
+}
+
+section {
+  padding: calc(4rem) 0;
+}
+
+a {
+  text-decoration: none;
+  color: hsl(210, 10%, 33%);
+  font-size: 16px;
+}

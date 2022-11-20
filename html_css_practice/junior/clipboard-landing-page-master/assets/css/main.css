@@ -1,0 +1,40 @@
+.features-article__img,
+.access-anywhere__img {
+  width: 20rem;
+}
+
+.features-article__img {
+  margin-bottom: 3rem;
+}
+
+.handy__img {
+  width: 38px;
+  margin-bottom: 1.5rem;
+}
+
+.companies-logos {
+  display: grid;
+  gap: 3.25rem;
+}
+
+.company-logo {
+  margin: 0 auto;
+}
+
+.company-logo--large {
+  width: 130px;
+}
+
+.company-logo--medium {
+  width: 110px;
+}
+
+.company-logo--small {
+  width: 100px;
+}
+
+@media (width < 35rem) {
+  .mb-br {
+    display: block;
+  }
+}

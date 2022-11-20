@@ -1,0 +1,36 @@
+header {
+  background: url('../images/bg-header-mobile.png') no-repeat;
+}
+
+.logo {
+  width: 115px;
+  margin: 3rem 0;
+}
+
+.buttons-container {
+  display: grid;
+  gap: 1.5rem;
+}
+
+button {
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1rem 0;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.ios-button {
+  background: hsl(171, 66%, 44%);
+  box-shadow: 0 3px 2px hsl(171, 66%, 34%);
+}
+
+.mac-button {
+  background: hsl(233, 100%, 69%);
+  box-shadow: 0 3px 2px hsl(233, 100%, 62%);
+
+}

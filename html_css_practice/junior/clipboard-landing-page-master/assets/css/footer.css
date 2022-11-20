@@ -1,0 +1,20 @@
+footer {
+  background: hsl(0, 0%, 97%);
+}
+
+.footer__logo {
+  width: 50px;
+}
+
+.links-container {
+  display: grid;
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.share-icons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 14rem;
+  margin: 0 auto;
+}
