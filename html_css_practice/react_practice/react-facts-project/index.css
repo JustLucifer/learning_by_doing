@@ -1,0 +1,17 @@
+nav {
+  display: flex;
+}
+
+svg {
+  width: 52px;
+}
+
+path {
+  fill: rgb(16, 203, 236);
+}
+
+.nav__ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
