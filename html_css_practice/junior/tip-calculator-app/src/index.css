@@ -1,0 +1,30 @@
+@font-face {
+  font-family: SpaceMono;
+  src: url('./assets/fonts/Space_Mono/SpaceMono-Bold.ttf');
+  font-stretch: normal;
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: SpaceMono;
+}
+
+body {
+  background: hsl(185, 41%, 84%);
+
+  color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+  color: hsl(184, 14%, 56%);
+  color: hsl(185, 41%, 84%);
+  color: hsl(189, 41%, 97%);
+  /* for typo */
+  color: hsl(186, 14%, 43%); 
+}
+
+header {
+  text-align: center;
+  padding: calc(1rem + 10%) 0 2.5rem 0;
+}

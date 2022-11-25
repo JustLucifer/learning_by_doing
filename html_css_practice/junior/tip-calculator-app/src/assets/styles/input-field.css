@@ -1,0 +1,40 @@
+input {
+  color: hsl(183, 100%, 15%);
+  font-size: 1.5rem;
+  text-align: end;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input:focus {
+  border: 2px solid hsl(172, 67%, 45%);
+}
+
+.input-field-container {
+  margin-bottom: 2rem;
+}
+
+.input-field__title {
+  padding-left: 2px;
+  margin-bottom: .5rem;
+}
+
+.bill {
+  background-image: url('../images/icon-dollar.svg');
+}
+
+.people {
+  background-image: url('../images/icon-person.svg');
+}
+
+.bill,
+.people {
+  background-color: hsl(189, 41%, 96%);
+  background-repeat: no-repeat;
+  background-position: 15px center;
+}
+
+::placeholder {
+  text-align: end;
+}
