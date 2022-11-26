@@ -19,3 +19,14 @@
   border: 2px solid transparent;
   border-radius: 4px;
 }
+
+@media (width > 30rem) {
+  .select-tip__buttons-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .select-tip__button,
+  .select-tip__custom {
+    width: 115px;
+  }
+}

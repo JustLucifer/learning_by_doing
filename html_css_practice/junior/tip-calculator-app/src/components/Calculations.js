@@ -8,7 +8,7 @@ const Calculations = () => {
         <ShowResult title='Tip Amount' id='tip' />
         <ShowResult title='Total' id='total' />
       </div>
-      <button className='calculations__reset-button' onClick={resetAll}>
+      <button className='calculations__reset-button' id='reset-button' onClick={resetAll}>
         RESET
       </button>
     </div>

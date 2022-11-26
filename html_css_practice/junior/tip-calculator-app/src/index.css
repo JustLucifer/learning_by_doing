@@ -14,17 +14,10 @@
 
 body {
   background: hsl(185, 41%, 84%);
-
-  color: hsl(172, 67%, 45%);
-  color: hsl(183, 100%, 15%);
-  color: hsl(184, 14%, 56%);
-  color: hsl(185, 41%, 84%);
-  color: hsl(189, 41%, 97%);
-  /* for typo */
-  color: hsl(186, 14%, 43%); 
+  color: hsl(186, 14%, 43%);
 }
 
 header {
   text-align: center;
-  padding: calc(1rem + 10%) 0 2.5rem 0;
+  padding: calc(1rem + 8%) 0 2.5rem 0;
 }

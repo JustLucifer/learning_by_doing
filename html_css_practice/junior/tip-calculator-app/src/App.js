@@ -9,9 +9,11 @@ function App() {
     <div className="App">
       <Header />
       <main className='main-content'>
-        <InputField title='Bill' class='bill' id='bill' />
-        <SelectTip />
-        <InputField title='Number of People' class='people' id='people'/>
+        <div className="fill-data-container">
+          <InputField title='Bill' class='bill' id='bill' />
+          <SelectTip />
+          <InputField title='Number of People' class='people' id='people'/>
+        </div>
         <Calculations />
       </main>
     </div>

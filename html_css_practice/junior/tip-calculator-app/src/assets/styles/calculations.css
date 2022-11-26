@@ -12,6 +12,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 1.2rem;
+  align-items: center;
 }
 
 .calculations__title {
@@ -38,4 +39,22 @@
   width: 100%;
   padding: .4rem 0;
   font-size: 22px;
+  opacity: .4;
+  transition: .15s;
+}
+
+@media (width > 50rem) {
+  .calculations {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .calculations__result {
+    font-size: 2.5rem;
+  }
+  
+  .calculations__reset-button {
+    margin-bottom: 1rem;
+  }
 }

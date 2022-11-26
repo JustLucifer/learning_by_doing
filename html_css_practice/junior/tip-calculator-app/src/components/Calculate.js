@@ -8,6 +8,7 @@ const calcResult = () => {
 
   if (people == '' || people == 0 || bill == '' || bill == 0) {
     updateResult('0.00', '0.00')
+    DimResetButton()
     return
   }
 
@@ -21,6 +22,7 @@ const calcResult = () => {
   const total = String(Math.ceil((bill + tip) / people * 100) / 100)
 
   updateResult(tipAmount, total)
+  LightResetButton()
 }
 
 export default calcResult
@@ -30,4 +32,14 @@ const updateResult = (tipAmount, total) => {
   const sum = document.getElementById('total')
   tip.innerText = `$${tipAmount}`
   sum.innerText = `$${total}`
+}
+
+const LightResetButton = () => {
+  const resetButton = document.getElementById('reset-button')
+  resetButton.style.opacity = '1'
+}
+
+export const DimResetButton = () => {
+  const resetButton = document.getElementById('reset-button')
+  resetButton.style.opacity = '.5'
 }
