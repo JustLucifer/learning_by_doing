@@ -8,14 +8,14 @@
 .select-tip__button {
   background: hsl(183, 100%, 15%);
   color: hsl(189, 41%, 97%);
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .select-tip__button,
 .select-tip__custom {
   width: 140px; 
   cursor: pointer;
-  height: 42px;
+  height: 48px;
   border: 2px solid transparent;
   border-radius: 4px;
 }

@@ -1,13 +1,14 @@
 import '../assets/styles/calculations.css'
+import { ResetButtonColor } from './SelectTip'
 
 const Calculations = () => {
   return (
     <div className='calculations'>
       <div className='calculations__show-result-container'>
-        <ShowResult title='Tip Amount' />
-        <ShowResult title='Total' />
+        <ShowResult title='Tip Amount' id='tip' />
+        <ShowResult title='Total' id='total' />
       </div>
-      <button className='calculations__reset-button'>
+      <button className='calculations__reset-button' onClick={resetAll}>
         RESET
       </button>
     </div>
@@ -26,9 +27,20 @@ export const ShowResult = (props) => {
         </span>
       </p>
 
-      <p className='calculations__result'>
+      <p className='calculations__result' id={props.id}>
         $0.00
       </p>
     </div>
   )
+}
+
+const resetAll = () => {
+  document.getElementById('bill').value = ''
+  document.getElementById('people').value = ''
+  const results = document.querySelectorAll('.calculations__result')
+  for (let i = 0; i < results.length; i++) {
+    results[i].innerText = '0.00'
+  }
+
+  ResetButtonColor()
 }
