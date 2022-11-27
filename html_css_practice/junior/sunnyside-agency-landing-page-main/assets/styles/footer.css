@@ -21,6 +21,17 @@ footer {
   font-size: 18px;
 }
 
+@media (width > 50rem) {
+  .footer__contact {
+    padding: 4.5rem 0 5rem 0;
+  }
+  
+  .navbar__list--footer {
+    justify-content: center;
+    gap: 3rem;
+  }
+}
+
 .footer__apps-icons {
   display: flex;
   justify-content: center;

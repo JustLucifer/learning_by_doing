@@ -13,8 +13,19 @@ main p {
   text-align: center;
 }
 
-.feature-double {
+.feature--double {
   margin-bottom: 4rem;
+}
+
+@media (width > 50rem) {
+  .feature--double {
+    display: flex;
+    margin: 0;
+  }
+  
+  .feature--reversed {
+    flex-direction: row-reverse;
+  }
 }
 
 .feature__container {
@@ -23,6 +34,25 @@ main p {
 
 .feature__img {
   width: 100%;
+}
+
+@media (width > 50rem) {
+  .feature__container {
+    flex: 1;
+    padding: 0;
+  }
+  
+  .feature__img {
+    flex: 1;
+  }
+  
+  .padding-lr {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: start;
+    padding: 15%;
+  }
 }
 
 .feature__title {
@@ -35,6 +65,16 @@ main p {
   color: hsl(232, 10%, 55%);
   line-height: 1.6;
   padding-bottom: 2rem;
+}
+
+@media (width > 50rem) {
+  .feature__title--mxwdt {
+    max-width: 350px;
+  }
+  
+  .feature__body {
+    max-width: 461px;
+  }
 }
 
 .feature__learm-more-container {
@@ -51,6 +91,12 @@ main p {
   text-decoration: none;
 }
 
+@media (width > 50rem) {
+  .feature__learm-more-container {
+    margin-bottom: 4rem;
+  }
+}
+
 .shadow-yellow {
   width: 122px;
   box-shadow: 0 -2px 6px 1.5px hsl(51, 100%, 49%);
@@ -65,6 +111,17 @@ main p {
   padding: 19rem 1.5rem 1.5rem 1.5rem;
 }
 
+@media (width > 50rem) {
+  .display-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .feature-single {
+    padding-top: calc(7rem + 35%);
+  }
+}
+
 .graphic {
   background: url('../images/mobile/image-graphic-design.jpg') no-repeat;
   background-size: 100%;
@@ -73,6 +130,35 @@ main p {
 .photography {
   background: url('../images/mobile/image-photography.jpg') no-repeat;
   background-size: 100%;
+}
+
+@media (width > 28rem) {
+  .graphic {
+    background-image: url('../images/desktop/image-graphic-design.jpg');
+    background-size: 100% 100%;
+  }
+
+  .photography {
+    background-image: url('../images/desktop/image-photography.jpg');
+    background-size: 100% 100%;
+  }
+}
+
+@media (width < 23rem) {
+  .graphic {
+    background-image: url('../images/desktop/image-graphic-design.jpg');
+    background-size: 100% 100%;
+  }
+
+  .photography {
+    background-image: url('../images/desktop/image-photography.jpg');
+    background-size: 100% 100%;
+  }
+}
+
+.feature__body--single {
+  max-width: 396px;
+  margin: 0 auto;
 }
 
 .photography-text {
@@ -84,14 +170,23 @@ main p {
 }
 
 .testimonials {
-  padding: 3.5rem 1.5rem 5rem 1.5rem;
+  padding: calc(3rem + 5%) 1.5rem calc(4.5rem + 5%) 1.5rem;
   text-align: center;
+}
+
+@media (width > 60rem) {
+  .testimonials__clients-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
 }
 
 .testimonials__title {
   font-size: 16px;
   letter-spacing: 4px;
   font-weight: 900;
+  margin-bottom: 1.5%;
 }
 
 .client__img {
@@ -103,7 +198,8 @@ main p {
 .client__body {
   color: hsl(213, 9%, 39%);
   line-height: 1.6;
-  margin-bottom: 1.8rem;
+  max-width: 403px;
+  margin: 0 auto calc(1.5rem + 3%) auto;
 }
 
 .client__name {
@@ -126,4 +222,10 @@ main p {
 
 .images-block__img {
   width: 100%;
+}
+
+@media (width > 50rem) {
+  .images-block {
+    display: flex;
+  }
 }
