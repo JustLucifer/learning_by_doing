@@ -1,0 +1,36 @@
+@font-face {
+  font-family: Barlow;
+  src: url('../fonts/Barlow/Barlow-SemiBold.ttf');
+  font-stretch: normal;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Fraunces;
+  src: url('../fonts/Fraunces/static/Fraunces_72pt_Soft/Fraunces_72pt_Soft-Bold.ttf');
+  font-stretch: normal;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Fraunces;
+  src: url('../fonts/Fraunces/static/Fraunces_72pt_Soft/Fraunces_72pt_Soft-Black.ttf');
+  font-stretch: normal;
+  font-weight: 900;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin-bottom: 50rem;
+}
+
+li {
+  cursor: pointer;
+}

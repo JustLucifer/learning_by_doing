@@ -1,0 +1,129 @@
+h2,
+h3 {
+  font-family: Fraunces;
+  color: hsl(212, 27%, 19%);
+}
+
+main p {
+  font-family: Barlow;
+  font-size: 18px;
+}
+
+.features__feature {
+  text-align: center;
+}
+
+.feature-double {
+  margin-bottom: 4rem;
+}
+
+.feature__container {
+  padding: 0 1.5rem;
+}
+
+.feature__img {
+  width: 100%;
+}
+
+.feature__title {
+  font-size: 2.1rem;
+  font-weight: 900;
+  padding: 3.5rem 0 1.5rem 0;
+}
+
+.feature__body {
+  color: hsl(232, 10%, 55%);
+  line-height: 1.6;
+  padding-bottom: 2rem;
+}
+
+.feature__learm-more-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature__learn-more {
+  color: hsl(212, 27%, 19%);
+  font-weight: 900;
+  font-family: Fraunces;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.shadow-yellow {
+  width: 122px;
+  box-shadow: 0 -2px 6px 1.5px hsl(51, 100%, 49%);
+}
+
+.shadow-red {
+  width: 122px;
+  box-shadow: 0 -2px 6px 1.5px hsl(7, 99%, 70%);
+}
+
+.feature-single {
+  padding: 19rem 1.5rem 1.5rem 1.5rem;
+}
+
+.graphic {
+  background: url('../images/mobile/image-graphic-design.jpg') no-repeat;
+  background-size: 100%;
+}
+
+.photography {
+  background: url('../images/mobile/image-photography.jpg') no-repeat;
+  background-size: 100%;
+}
+
+.photography-text {
+  color: hsl(198, 62%, 26%);
+}
+
+.graphic-text {
+  color: hsl(167, 40%, 24%);
+}
+
+.testimonials {
+  padding: 3.5rem 1.5rem 5rem 1.5rem;
+  text-align: center;
+}
+
+.testimonials__title {
+  font-size: 16px;
+  letter-spacing: 4px;
+  font-weight: 900;
+}
+
+.client__img {
+  width: 68px;
+  border-radius: 35px;
+  margin: 3rem 0 1.8rem 0;
+}
+
+.client__body {
+  color: hsl(213, 9%, 39%);
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+}
+
+.client__name {
+  font-weight: 900;
+  margin-bottom: .8rem;
+}
+
+.client__job {
+  font-size: 15px;
+}
+
+.light-gray-font {
+  color: hsl(210, 4%, 67%);
+}
+
+.images-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.images-block__img {
+  width: 100%;
+}

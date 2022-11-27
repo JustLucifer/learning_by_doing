@@ -1,0 +1,46 @@
+header {
+  background: url('../images/mobile/image-header.jpg') no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+  padding-bottom: 8rem;
+}
+
+.header__navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 1.2rem;
+  margin-bottom: 2rem;
+}
+
+@media (width < 40rem) {
+  .navbar__list--header {
+    display: none;
+  }
+}
+
+h1 {
+  color: white;
+  font-family: Fraunces;
+  font-weight: 900;
+  letter-spacing: 6px;
+  padding: 0 .5rem;
+  font-size: 2.5rem;
+}
+
+.arrow-down {
+  color: white;
+  font-size: 8rem;
+  padding-top: 3rem;
+}
+
+.hamburger-menu-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+@media (width > 40rem) {
+  .hamburger-menu-button {
+    display: none;
+  }
+}

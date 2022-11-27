@@ -1,0 +1,32 @@
+footer {
+  background: rgb(144, 212, 197);
+}
+
+.footer__contact {
+  text-align: center;
+  padding: 3rem 1.5rem 4rem 1.5rem;
+}
+
+.footer__navbar {
+  color: hsl(168, 34%, 41%);
+  margin: 2rem 0 4rem 0;
+}
+
+.navbar__list--footer {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  font-family: Barlow;
+  font-size: 18px;
+}
+
+.footer__apps-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.app-icon {
+  cursor: pointer;
+}
