@@ -52,12 +52,15 @@ header {
   }
 }
 
-.navbar__list--header {
+.navbar__list {
   list-style: none;
-  color: white;
   font-weight: 600;
   font-family: Barlow;
+}
+
+.navbar__list--header {
   gap: 3rem;
+  color: white;
   align-items: center;
 }
 
@@ -68,6 +71,54 @@ header {
   font-family: Fraunces;
   padding: 1rem 1.8rem;
   border-radius: 3rem;
+  transition: .15s;
+}
+
+.li-contact:active {
+  background-color: rgb(27, 202, 255);
+  color: white;
+}
+
+.navbar__list--mb {
+  display: grid;
+  grid-template-columns: 136px;
+  gap: 2rem;
+  color: hsl(232, 10%, 55%);
+  font-size: 19px;
+}
+
+@media (width < 40rem) {
+  .navbar__list {
+    padding: 0;
+  }
+  
+  .li-contact {
+    background-color: hsl(51, 100%, 49%);
+    font-size: 16px;
+  }
+}
+
+#mb-menu {
+  width: 20rem;
+  height: 19rem;
+  background: white;
+  position: absolute;
+  right: 28px;
+  top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#mb-menu:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -26px;
+  width: 0;
+  height: 0;
+  border-left: 28px solid transparent;
+  border-bottom: 26px solid white;
 }
 
 @media (width > 40rem) {
@@ -88,7 +139,7 @@ h1 {
 .arrow-down {
   color: white;
   font-size: 8rem;
-  padding: 3.5rem 0 calc(3.5rem + 5%);
+  padding: calc(3.5rem + 1%) 0 calc(3.5rem + 5%);
 }
 
 .hamburger-menu-button {

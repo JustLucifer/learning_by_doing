@@ -13,12 +13,18 @@ footer {
 }
 
 .navbar__list--footer {
-  list-style: none;
   padding: 0;
   display: flex;
   justify-content: space-around;
-  font-family: Barlow;
   font-size: 18px;
+}
+
+.li-on-hover {
+  transition: .15s;
+}
+
+.li-on-hover:hover {
+  color: white;
 }
 
 @media (width > 50rem) {
@@ -40,4 +46,9 @@ footer {
 
 .app-icon {
   cursor: pointer;
+  transition: .15s;
+}
+
+.app-icon:hover path{
+  fill: white;
 }
